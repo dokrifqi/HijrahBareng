@@ -143,6 +143,15 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 .maker-card .mc-link{font-size:10.5px;color:var(--emerald-700);font-weight:700;display:block;margin:1px 0 6px}
 .maker-card .mc-info p{font-size:10.5px;color:var(--sub);line-height:1.5;margin:0}
 .maker-card .mc-arrow{font-size:16px;color:var(--emerald-600);flex-shrink:0;align-self:center}
+.install-card{margin:0 16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px 16px}
+.install-intro{font-size:11px;color:var(--sub);line-height:1.6;margin:0 0 12px}
+.install-tabs{display:flex;gap:6px;margin-bottom:12px}
+.it-btn{flex:1;border:1.5px solid var(--line);background:#F8FAFC;color:var(--sub);font-size:11.5px;font-weight:800;padding:9px 6px;border-radius:12px;cursor:pointer}
+.it-btn.active{background:var(--emerald-700);border-color:var(--emerald-700);color:#fff}
+.install-steps{display:flex;flex-direction:column;gap:9px}
+.is-row{display:flex;align-items:flex-start;gap:9px;font-size:11.5px;color:var(--ink);line-height:1.55}
+.is-row b{color:var(--emerald-700)}
+.is-num{width:20px;height:20px;border-radius:50%;background:var(--emerald-50);color:var(--emerald-700);font-size:10.5px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .sponsor-main-card{margin:0 16px;background:linear-gradient(160deg,#FFFBEF,#FFF3D6);border:1.5px solid var(--gold-500);border-radius:18px;padding:16px}
 .sponsor-main-card .smc-icon{width:48px;height:48px;border-radius:14px;background:linear-gradient(160deg,var(--gold-400),var(--gold-600));display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:10px}
 .sponsor-main-card b{font-size:14.5px;font-weight:800;color:#B8892B;display:block;margin-bottom:6px}
@@ -626,6 +635,29 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
     <div class="sh-icon">💚</div>
     <h2>Dukungan &amp; Sponsor</h2>
     <p>Hijrah Bareng hadir gratis &amp; bebas iklan berkat dukungan para sponsor dan mitra. Terima kasih! 🙏</p>
+  </div>
+
+  <div class="sec-head" style="margin-top:20px">📲 Install ke Layar Utama<span class="line"></span></div>
+  <div class="install-card">
+    <p class="install-intro">Biar makin gampang dibuka tiap hari, tambahkan Hijrah Bareng ke layar utama HP kamu — jadi terasa seperti aplikasi asli, bisa dibuka tanpa browser.</p>
+    <div class="install-tabs">
+      <button class="it-btn active" id="it-android" onclick="setInstallTab('android')">🤖 Android</button>
+      <button class="it-btn" id="it-ios" onclick="setInstallTab('ios')">🍎 iPhone / iPad</button>
+    </div>
+    <div id="installStepsAndroid" class="install-steps">
+      <div class="is-row"><span class="is-num">1</span><span>Buka Hijrah Bareng lewat <b>Chrome</b> di HP Android kamu.</span></div>
+      <div class="is-row"><span class="is-num">2</span><span>Tap ikon <b>⋮ (titik tiga)</b> di pojok kanan atas browser.</span></div>
+      <div class="is-row"><span class="is-num">3</span><span>Pilih <b>"Tambahkan ke layar Utama"</b> atau <b>"Install aplikasi"</b>.</span></div>
+      <div class="is-row"><span class="is-num">4</span><span>Tap <b>"Tambahkan" / "Install"</b> pada konfirmasi yang muncul.</span></div>
+      <div class="is-row"><span class="is-num">5</span><span>Selesai! Ikon Hijrah Bareng akan muncul di layar utama seperti aplikasi biasa. 🎉</span></div>
+    </div>
+    <div id="installStepsIos" class="install-steps" style="display:none">
+      <div class="is-row"><span class="is-num">1</span><span>Buka Hijrah Bareng lewat <b>Safari</b> (bukan Chrome — di iOS harus lewat Safari).</span></div>
+      <div class="is-row"><span class="is-num">2</span><span>Tap ikon <b>Bagikan / Share</b> (kotak dengan panah ke atas) di bagian bawah layar.</span></div>
+      <div class="is-row"><span class="is-num">3</span><span>Scroll ke bawah, pilih <b>"Tambah ke Layar Utama" (Add to Home Screen)</b>.</span></div>
+      <div class="is-row"><span class="is-num">4</span><span>Tap <b>"Tambah" (Add)</b> di pojok kanan atas.</span></div>
+      <div class="is-row"><span class="is-num">5</span><span>Selesai! Ikon Hijrah Bareng akan muncul di layar utama seperti aplikasi biasa. 🎉</span></div>
+    </div>
   </div>
 
   <div class="sec-head" style="margin-top:20px">🧑‍💻 Pembuat Aplikasi<span class="line"></span></div>
@@ -2387,6 +2419,14 @@ function showNextQuote(){
 function initQuote(){
   const idx = (state.quoteIdx===undefined || state.quoteIdx===null) ? 0 : state.quoteIdx;
   renderQuote(QUOTES[idx]);
+}
+
+/* ====== TIPS INSTALL KE LAYAR UTAMA ====== */
+function setInstallTab(platform){
+  document.getElementById('it-android').classList.toggle('active', platform==='android');
+  document.getElementById('it-ios').classList.toggle('active', platform==='ios');
+  document.getElementById('installStepsAndroid').style.display = platform==='android' ? 'flex' : 'none';
+  document.getElementById('installStepsIos').style.display = platform==='ios' ? 'flex' : 'none';
 }
 
 /* ====== MODE GELAP ====== */

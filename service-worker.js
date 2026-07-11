@@ -1,11 +1,11 @@
 /* Hijrah Bareng — Service Worker */
-const CACHE_NAME = 'hijrah-bareng-cache-v1';
+const CACHE_NAME = 'hijrah-bareng-cache-v2';
 
 // App shell + data assets to pre-cache on install.
 // Large ebook/QRIS data files are included so the app works fully offline
 // after the first successful load (they only need to download once).
 const PRECACHE_ASSETS = [
-  './hijrah-bareng.html',
+  './index.html',
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
