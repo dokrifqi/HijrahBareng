@@ -97,6 +97,13 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 .box:active{transform:scale(.96)}
 .box.done{border-color:var(--emerald-600);background:#DCFCE7}
 .box.partial{border-color:#EAB308;background:#FEF9C3}
+.haid-drop{display:inline-flex;align-items:center;gap:4px;border:1px solid rgba(244,114,182,.45);background:rgba(244,114,182,.14);color:#FBCFE8;font-size:10.5px;font-weight:800;padding:5px 10px 5px 8px;border-radius:3px 16px 16px 16px;cursor:pointer;flex-shrink:0}
+.haid-drop .hd-ico{font-size:11px}
+.haid-drop.active{background:#EC4899;border-color:#EC4899;color:#fff;box-shadow:0 0 0 3px rgba(236,72,153,.25)}
+.box.locked{opacity:.55;background:#FDF2F8;border-color:#FBCFE8;cursor:pointer}
+.box.locked .lbl,.box.locked .sub{color:#BE185D}
+.box.locked .check{background:#FBCFE8;border-color:#FBCFE8;color:#9D174D}
+.caution-dot{position:absolute;top:6px;right:6px;font-size:11px}
 .box .check{position:absolute;top:5px;right:5px;min-width:15px;height:15px;border-radius:7px;border:1.5px solid #D1DAD6;background:#fff;font-size:7.5px;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 2px;color:#9AA8A2}
 .box.done .check{background:var(--emerald-600);border-color:var(--emerald-600);color:#fff}
 .box.partial .check{background:#EAB308;border-color:#EAB308;color:#fff}
@@ -143,6 +150,10 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 .maker-card .mc-link{font-size:10.5px;color:var(--emerald-700);font-weight:700;display:block;margin:1px 0 6px}
 .maker-card .mc-info p{font-size:10.5px;color:var(--sub);line-height:1.5;margin:0}
 .maker-card .mc-arrow{font-size:16px;color:var(--emerald-600);flex-shrink:0;align-self:center}
+.lang-switch{display:flex;gap:8px;padding:0 16px;margin-bottom:8px}
+.lang-btn{flex:1;border:1.5px solid var(--line);background:#fff;color:var(--sub);font-size:12px;font-weight:800;padding:11px 8px;border-radius:13px;cursor:pointer}
+.lang-btn.active{background:var(--emerald-700);border-color:var(--emerald-700);color:#fff}
+.lang-note{padding:0 16px;font-size:10px;color:var(--sub);line-height:1.6;margin:0 0 4px}
 .install-card{margin:0 16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px 16px}
 .install-intro{font-size:11px;color:var(--sub);line-height:1.6;margin:0 0 12px}
 .install-tabs{display:flex;gap:6px;margin-bottom:12px}
@@ -395,6 +406,27 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 .ebook-card .info b{font-size:12px;font-weight:800;color:var(--ink);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ebook-card .info span{font-size:9.5px;color:var(--sub)}
 .ebook-card .del{width:30px;height:30px;border-radius:9px;border:none;background:#FEF2F2;color:#DC2626;font-size:13px;flex-shrink:0;cursor:pointer}
+/* KARTU EBOOK BARU (banner + baca + download) */
+.ebook-card2{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:4px}
+.ebook-card2 .eb-banner{position:relative;padding:26px 16px 20px;text-align:center}
+.ebook-card2 .eb-banner .eb-ico{font-size:44px;margin-bottom:10px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.15))}
+.ebook-card2 .eb-banner .eb-chip{display:inline-block;background:rgba(255,255,255,.25);color:#fff;font-size:10px;font-weight:800;padding:4px 12px;border-radius:20px}
+.ebook-card2 .eb-badge{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.9);color:var(--emerald-700);font-size:9.5px;font-weight:800;padding:4px 9px;border-radius:20px;display:flex;align-items:center;gap:3px}
+.ebook-card2 .eb-body{padding:14px 16px 16px}
+.ebook-card2 .eb-body h4{font-size:14px;font-weight:800;color:var(--ink);margin:0 0 4px}
+.ebook-card2 .eb-body .eb-author{font-size:10px;color:var(--emerald-700);font-weight:700;margin-bottom:8px;display:block}
+.ebook-card2 .eb-body p{font-size:11px;color:var(--sub);line-height:1.6;margin:0 0 14px}
+.ebook-card2 .eb-actions{display:flex;gap:8px}
+.ebook-card2 .eb-read-btn{flex:1;border:none;color:#fff;font-size:12.5px;font-weight:800;padding:12px;border-radius:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.ebook-card2 .eb-dl-btn{width:44px;flex-shrink:0;border:1.5px solid var(--line);background:#F8FAFC;color:var(--ink);border-radius:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px}
+.ebook-card2 .eb-dl-btn:active{background:var(--emerald-50)}
+.ebook-card2 .eb-del-btn{width:44px;flex-shrink:0;border:1.5px solid #FCA5A5;background:#FEF2F2;color:#DC2626;border-radius:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px}
+.ebook-progress-card{margin:0 16px 16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.ebook-progress-card .epc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
+.ebook-progress-card .epc-top span{font-size:12px;font-weight:700;color:var(--ink)}
+.ebook-progress-card .epc-top b{font-size:19px;font-weight:800;color:#EA580C}
+.ebook-progress-card .epc-bar{height:7px;border-radius:20px;background:var(--line);overflow:hidden}
+.ebook-progress-card .epc-fill{height:100%;background:linear-gradient(90deg,#F97316,#EA580C);border-radius:20px;transition:width .3s}
 #ebookViewerOverlay{position:fixed;inset:0;background:#525659;display:none;flex-direction:column;z-index:300}
 #ebookViewerOverlay.show{display:flex}
 .ebook-viewer-head{background:var(--emerald-900);padding:12px 14px;display:flex;align-items:center;gap:10px;padding-top:calc(12px + env(safe-area-inset-top))}
@@ -472,6 +504,7 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
         <p id="progressLine">Belum ada amalan yang ditandai hari ini.</p>
         <div class="streak-row">
           <div class="streak-chip">🔥 <b id="streakNum">0</b> <span>hari istiqamah</span></div>
+          <button class="haid-drop" id="haidToggle" onclick="toggleHaid()"><span class="hd-ico">🩸</span>Haid</button>
           <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙</button>
         </div>
       </div>
@@ -483,15 +516,15 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
     <p class="tr" id="quoteTr">"Maka sesungguhnya bersama kesulitan ada kemudahan."</p>
     <p class="src" id="quoteSrc">QS. Al-Insyirah: 5</p>
     <p class="tafsir" id="quoteTafsir"></p>
-    <button class="quote-next-btn" onclick="showNextQuote()">🔄 Baca Ayat Lain</button>
+    <button class="quote-next-btn" onclick="showNextQuote()" data-i18n="home.quoteBtn">🔄 Baca Ayat Lain</button>
   </div>
 
-  <div class="sec-head">🕌 12 Amalan Harian<span class="line"></span></div>
+  <div class="sec-head"><span data-i18n="home.dailyDeeds">🕌 16 Amalan Harian</span><span class="line"></span></div>
   <div class="grid" id="gridAmalan"></div>
 
   <div class="quest-map">
     <div class="qm-head">
-      <div><b>🗺️ Perjalanan Hijrahmu</b><span class="qm-level" id="qmLevelName">Belum memulai perjalanan</span></div>
+      <div><b data-i18n="home.questTitle">🗺️ Perjalanan Hijrahmu</b><span class="qm-level" id="qmLevelName">Belum memulai perjalanan</span></div>
       <div class="qm-streak-badge">🔥 <span id="qmStreakNum">0</span> hari</div>
     </div>
     <div class="qm-track-wrap"><div class="qm-track" id="milestoneRow"></div></div>
@@ -506,12 +539,12 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 <div class="page" id="page-riwayat" style="padding-top:0">
   <div class="back-bar" onclick="navTo('home', document.getElementById('nav-home'))">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-    Kembali ke Beranda
+    <span data-i18n="back.home">Kembali ke Beranda</span>
   </div>
   <div class="riwayat-toggle">
-    <button class="rt-btn active" id="rt-minggu" onclick="setRiwayatView('minggu')">Minggu</button>
-    <button class="rt-btn" id="rt-bulan" onclick="setRiwayatView('bulan')">Bulan</button>
-    <button class="rt-btn" id="rt-tahun" onclick="setRiwayatView('tahun')">Tahun</button>
+    <button class="rt-btn active" id="rt-minggu" onclick="setRiwayatView('minggu')" data-i18n="riwayat.week">Minggu</button>
+    <button class="rt-btn" id="rt-bulan" onclick="setRiwayatView('bulan')" data-i18n="riwayat.month">Bulan</button>
+    <button class="rt-btn" id="rt-tahun" onclick="setRiwayatView('tahun')" data-i18n="riwayat.year">Tahun</button>
   </div>
 
   <div class="sec-head" id="histChartLabel">📊 7 Hari Terakhir<span class="line"></span></div>
@@ -534,7 +567,7 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 <div class="page" id="page-ebook" style="padding-top:0">
   <div class="back-bar" onclick="navTo('home', document.getElementById('nav-home'))">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-    Kembali ke Beranda
+    <span data-i18n="back.home">Kembali ke Beranda</span>
   </div>
   <div style="padding:0 16px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px">
     <div>
@@ -542,6 +575,8 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
       <p style="font-size:10.5px;color:var(--sub);margin:2px 0 0">Simpan &amp; baca e-book kamu langsung di sini</p>
     </div>
   </div>
+
+  <div class="ebook-progress-card" id="ebookProgressCard"></div>
 
   <div class="sec-head">📖 Ebook Bawaan<span class="line"></span></div>
   <div id="builtinEbookList" style="padding:0 16px 16px;display:flex;flex-direction:column;gap:9px"></div>
@@ -566,7 +601,7 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 <div class="page" id="page-quran" style="padding-top:0">
   <div class="back-bar" onclick="navTo('home', document.getElementById('nav-home'))">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-    Kembali ke Beranda
+    <span data-i18n="back.home">Kembali ke Beranda</span>
   </div>
   <div class="quran-hero">
     <div class="qh-icon">📖</div>
@@ -618,7 +653,7 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 <div class="page" id="page-doa" style="padding-top:0">
   <div class="back-bar" onclick="navTo('home', document.getElementById('nav-home'))">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-    Kembali ke Beranda
+    <span data-i18n="back.home">Kembali ke Beranda</span>
   </div>
   <div class="sec-head">📖 Kumpulan Doa Harian<span class="line"></span></div>
   <div id="doaList"></div>
@@ -629,13 +664,20 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 <div class="page" id="page-info" style="padding-top:0">
   <div class="back-bar" onclick="navTo('home', document.getElementById('nav-home'))">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-    Kembali ke Beranda
+    <span data-i18n="back.home">Kembali ke Beranda</span>
   </div>
   <div class="support-hero">
     <div class="sh-icon">💚</div>
     <h2>Dukungan &amp; Sponsor</h2>
     <p>Hijrah Bareng hadir gratis &amp; bebas iklan berkat dukungan para sponsor dan mitra. Terima kasih! 🙏</p>
   </div>
+
+  <div class="sec-head" style="margin-top:20px">🌐 Bahasa / Language<span class="line"></span></div>
+  <div class="lang-switch">
+    <button class="lang-btn active" data-lang="id" onclick="setLang('id')">🇮🇩 Bahasa Indonesia</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
+  </div>
+  <p class="lang-note">Menu &amp; tampilan utama tersedia dalam Bahasa Indonesia dan English. Sebagian besar teks dalil, dzikir, dan tafsir masih dalam Bahasa Indonesia/Arab, dan akan terus ditambahkan versi Inggrisnya secara bertahap.</p>
 
   <div class="sec-head" style="margin-top:20px">📲 Install ke Layar Utama<span class="line"></span></div>
   <div class="install-card">
@@ -720,11 +762,11 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 <nav class="bnav">
   <div class="bnav-item active" id="nav-home" onclick="navTo('home',this)">
     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-    Beranda
+    <span data-i18n="nav.home">Beranda</span>
   </div>
   <div class="bnav-item" id="nav-riwayat" onclick="navTo('riwayat',this)">
     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 012-2h2a2 2 0 012 2v6m-9 0h14a1 1 0 001-1V9.5a1 1 0 00-.4-.8l-6-4.5a1 1 0 00-1.2 0l-6 4.5a1 1 0 00-.4.8V18a1 1 0 001 1z"/></svg>
-    Riwayat
+    <span data-i18n="nav.history">Riwayat</span>
   </div>
   <div class="bnav-item" id="nav-ebook" onclick="navTo('ebook',this)">
     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
@@ -736,11 +778,11 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
   </div>
   <div class="bnav-item" id="nav-doa" onclick="navTo('doa',this)">
     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-    Doa
+    <span data-i18n="nav.prayers">Doa</span>
   </div>
   <div class="bnav-item" id="nav-info" onclick="navTo('info',this)">
     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
-    Dukungan
+    <span data-i18n="nav.support">Dukungan</span>
   </div>
 </nav>
 
@@ -772,8 +814,77 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 <script src="ebook_alasr.b64.js"></script>
 <script src="ebook_aladiyat.b64.js"></script>
 <script src="ebook_allahab.b64.js"></script>
+<script src="ebook_alkautsar.b64.js"></script>
 <script>
 /* ============ DATA: 12 TAB AMALAN ============ */
+/* ====== I18N: Bahasa Indonesia / English ====== */
+let currentLang = 'id';
+const I18N_UI = {
+  'nav.home': {id:'Beranda', en:'Home'},
+  'nav.history': {id:'Riwayat', en:'History'},
+  'nav.prayers': {id:'Doa', en:'Prayers'},
+  'nav.support': {id:'Dukungan', en:'Support'},
+  'home.dailyDeeds': {id:'🕌 16 Amalan Harian', en:'🕌 16 Daily Deeds'},
+  'home.quoteBtn': {id:'🔄 Baca Ayat Lain', en:'🔄 Read Another Verse'},
+  'home.questTitle': {id:'🗺️ Perjalanan Hijrahmu', en:"🗺️ Your Hijrah Journey"},
+  'home.notStarted': {id:'Belum memulai perjalanan', en:'Journey not started yet'},
+  'riwayat.week': {id:'Minggu', en:'Week'},
+  'riwayat.month': {id:'Bulan', en:'Month'},
+  'riwayat.year': {id:'Tahun', en:'Year'},
+  'riwayat.achievements': {id:'🏆 Pencapaian', en:'🏆 Achievements'},
+  'riwayat.stats': {id:'📈 Statistik Amalan Bulan Ini', en:"📈 This Month's Deed Stats"},
+  'riwayat.dailyRecap': {id:'📅 Rekap Harian', en:'📅 Daily Recap'},
+  'ebook.title': {id:'📚 Perpustakaan Pribadi', en:'📚 My Library'},
+  'ebook.builtin': {id:'📖 Ebook Bawaan', en:'📖 Built-in E-Books'},
+  'ebook.upload': {id:'⬆️ Upload E-Book Sendiri', en:'⬆️ Upload Your Own E-Book'},
+  'quran.title': {id:"Al-Qur'an", en:"The Qur'an"},
+  'doa.title': {id:'🤲 Doa Harian', en:'🤲 Daily Prayers'},
+  'info.title': {id:'Dukungan & Sponsor', en:'Support & Sponsors'},
+  'markBtn.done': {id:'Tandai Sudah Dikerjakan', en:'Mark as Done'},
+  'markBtn.undo': {id:'✓ Sudah Ditandai — Batalkan', en:'✓ Marked Done — Undo'},
+  'back.home': {id:'Kembali ke Beranda', en:'Back to Home'},
+};
+function t(key){
+  const entry = I18N_UI[key];
+  if(!entry) return key;
+  return entry[currentLang] || entry.id;
+}
+const AMALAN_I18N = {
+  wajib:{lbl:'Obligatory Prayers', sub:'5 times daily'},
+  malam:{lbl:'Night Prayer', sub:'Tahajjud, etc.'},
+  sedekahsubuh:{lbl:'Morning Charity', sub:'Daily'},
+  dhuha:{lbl:'Dhuha Prayer', sub:'Sunnah'},
+  puasa:{lbl:'Sunnah Fasting', sub:'Mon-Thu, etc.'},
+  dzikirpagi:{lbl:'Morning Dhikr', sub:'With readings'},
+  dzikirsore:{lbl:'Evening Dhikr', sub:'With readings'},
+  doasetelahsholat:{lbl:'Post-Prayer Dhikr', sub:'Obligatory wird'},
+  quran:{lbl:"Qur'an Reading", sub:'Daily portion'},
+  kajian:{lbl:'Islamic Lecture', sub:'Gain knowledge'},
+  istighfar:{lbl:'Istighfar', sub:'100x'},
+  rezeki:{lbl:'Halal Income', sub:'13 Facts on Riba'},
+  rawatib:{lbl:'Rawatib Prayers', sub:'12 Sunnah Rak\'ahs'},
+  doaortu:{lbl:"Prayer for Parents", sub:'Complete collection'},
+  doaanak:{lbl:'Prayer for Children', sub:'Complete collection'},
+  doapasangan:{lbl:'Prayer for Spouse', sub:'Complete collection'},
+};
+function setLang(lang){
+  currentLang = lang;
+  try{ localStorage.setItem('hijrahBareng_lang', lang); }catch(e){}
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    el.textContent = t(el.getAttribute('data-i18n'));
+  });
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+  renderGrid();
+  setGreeting();
+  renderMilestones();
+}
+function initLang(){
+  let saved='id';
+  try{ saved = localStorage.getItem('hijrahBareng_lang') || 'id'; }catch(e){}
+  setLang(saved);
+}
+
 const AMALAN = [
   {id:'wajib', lbl:'Sholat Wajib', sub:'5 waktu', icon:'🕋', ibg:'#EFF6FF', type:'status', weight:5,
     warnGeneral:{ar:'فَخَلَفَ مِنْ بَعْدِهِمْ خَلْفٌ أَضَاعُوا الصَّلَاةَ وَاتَّبَعُوا الشَّهَوَاتِ فَسَوْفَ يَلْقَوْنَ غَيًّا',
@@ -807,6 +918,23 @@ const AMALAN = [
       {id:'witir', l:'Witir', hasBacaanKey:'witir', doaAr:'سُبْحَانَ الْمَلِكِ الْقُدُّوْسِ', doaLt:"Subhaanal Malikil Quddus.", doaMn:"Maha Suci Allah, Raja Yang Maha Suci. (Dibaca 3x setelah salam witir, suara dipanjangkan pada bacaan terakhir)",
         fadhilahAr:'إِنَّ اللّٰهَ وِتْرٌ يُحِبُّ الْوِتْرَ', fadhilahLt:"Innallaaha witruy-yuhibbul-witr.", fadhilahMn:"\"Sesungguhnya Allah itu witir (ganjil) dan mencintai yang ganjil.\" (HR. Bukhari-Muslim) — Witir adalah penutup sholat malam yang selalu dijaga Rasulullah ﷺ, baik dalam keadaan mukim maupun safar.",
         ancaman:"Jumhur ulama menghukuminya sunnah muakkadah (sangat dianjurkan), sedangkan Imam Abu Hanifah berpendapat wajib. Sebagian riwayat menyebut: \"Witir itu benar adanya (haq), maka barangsiapa tidak berwitir bukanlah golongan kami\" (HR. Abu Dawud, sanad diperselisihkan ulama hadits) — menunjukkan betapa ditekankannya amalan ini."},
+    ]},
+  {id:'rawatib', lbl:'Sholat Rawatib', sub:'12 Rakaat Sunnah', icon:'🕌', ibg:'#ECFEFF', type:'multi', weight:5,
+    items:[
+      {id:'qobliyahdzuhur', l:'4 Rakaat Sebelum Dzuhur', doaAr:'أُصَلِّي سُنَّةَ الظُّهْرِ أَرْبَعَ رَكَعَاتٍ قَبْلِيَّةً لِلّٰهِ تَعَالٰى', doaLt:"Ushallii sunnatazh-zhuhri arba'a raka'aatin qabliyyatal lillaahi ta'aalaa.", doaMn:"\"Aku niat sholat sunnah Dzuhur empat rakaat sebelum Dzuhur karena Allah Ta'ala.\"",
+        fadhilahAr:'مَنْ حَافَظَ عَلٰى أَرْبَعِ رَكَعَاتٍ قَبْلَ الظُّهْرِ وَأَرْبَعٍ بَعْدَهَا حَرَّمَهُ اللّٰهُ عَلَى النَّارِ', fadhilahLt:"Man haafazha 'alaa arba'i raka'aatin qablazh-zhuhri wa arba'im ba'dahaa harramahullaahu 'alan-naar.", fadhilahMn:"\"Barangsiapa menjaga empat rakaat sebelum Dzuhur dan empat rakaat sesudahnya, Allah haramkan dia dari api neraka.\" (HR. Abu Dawud, At-Tirmidzi — hasan shahih)",
+        ancaman:"Sunnah muakkadah (sangat dianjurkan), bukan wajib. Namun ini bagian dari 12 rakaat yang dijamin Rasulullah ﷺ dengan istana di surga bagi yang menjaganya (HR. Muslim no. 728)."},
+      {id:'badiyahdzuhur', l:'2 Rakaat Sesudah Dzuhur', doaAr:'أُصَلِّي سُنَّةَ الظُّهْرِ رَكْعَتَيْنِ بَعْدِيَّةً لِلّٰهِ تَعَالٰى', doaLt:"Ushallii sunnatazh-zhuhri rak'atayni ba'diyyatal lillaahi ta'aalaa.", doaMn:"\"Aku niat sholat sunnah Dzuhur dua rakaat sesudah Dzuhur karena Allah Ta'ala.\"",
+        fadhilahAr:'مَنْ ثَابَرَ عَلٰى ثِنْتَيْ عَشْرَةَ رَكْعَةً مِنَ السُّنَّةِ بَنَى اللّٰهُ لَهُ بَيْتًا فِي الْجَنَّةِ', fadhilahLt:"Man tsaabara 'alaa tsintay 'asyrata rak'atam-minas-sunnati banallaahu lahuu baytan fil-jannah.", fadhilahMn:"\"Barangsiapa senantiasa menjaga 12 rakaat sholat sunnah, Allah akan bangunkan untuknya rumah di surga.\" (HR. Muslim no. 728, dari Ummu Habibah radhiyallahu 'anha)",
+        ancaman:"Sunnah muakkadah — dua rakaat ini termasuk kebiasaan Rasulullah ﷺ yang paling jarang beliau tinggalkan, baik saat mukim maupun safar."},
+      {id:'badiyahmaghrib', l:'2 Rakaat Sesudah Maghrib', doaAr:'أُصَلِّي سُنَّةَ الْمَغْرِبِ رَكْعَتَيْنِ بَعْدِيَّةً لِلّٰهِ تَعَالٰى', doaLt:"Ushallii sunnatal-maghribi rak'atayni ba'diyyatal lillaahi ta'aalaa.", doaMn:"\"Aku niat sholat sunnah Maghrib dua rakaat sesudah Maghrib karena Allah Ta'ala.\"",
+        fadhilahAr:'كَانَ رَسُوْلُ اللّٰهِ ﷺ يُصَلِّيْ بَعْدَ الْمَغْرِبِ رَكْعَتَيْنِ فِيْ بَيْتِهِ', fadhilahLt:"Kaana Rasuulullaahi shallallaahu 'alayhi wa sallama yushallii ba'dal-maghribi rak'atayni fii baytih.", fadhilahMn:"Rasulullah ﷺ senantiasa sholat dua rakaat setelah Maghrib di rumah beliau (HR. Bukhari-Muslim) — bagian dari 12 rakaat rawatib yang dijamin surga baginya."},
+      {id:'badiyahisya', l:'2 Rakaat Sesudah Isya', doaAr:'أُصَلِّي سُنَّةَ الْعِشَاءِ رَكْعَتَيْنِ بَعْدِيَّةً لِلّٰهِ تَعَالٰى', doaLt:"Ushallii sunnatal-'isyaaa-i rak'atayni ba'diyyatal lillaahi ta'aalaa.", doaMn:"\"Aku niat sholat sunnah Isya dua rakaat sesudah Isya karena Allah Ta'ala.\"",
+        fadhilahAr:'مَنْ صَلّٰى فِيْ يَوْمٍ وَلَيْلَةٍ ثِنْتَيْ عَشْرَةَ رَكْعَةً بُنِيَ لَهُ بَيْتٌ فِي الْجَنَّةِ', fadhilahLt:"Man shallaa fii yawmiw-wa laylatin tsintay 'asyrata rak'atan buniya lahuu baytun fil-jannah.", fadhilahMn:"\"Barangsiapa sholat dua belas rakaat (sunnah rawatib) dalam sehari semalam, akan dibangunkan untuknya rumah di surga.\" (HR. Muslim)",
+        ancaman:"Penutup rangkaian 12 rakaat rawatib harian — melengkapi jaminan rumah di surga yang dijanjikan Rasulullah ﷺ."},
+      {id:'qobliyahsubuh', l:'2 Rakaat Sebelum Subuh', doaAr:'أُصَلِّي سُنَّةَ الصُّبْحِ رَكْعَتَيْنِ قَبْلِيَّةً لِلّٰهِ تَعَالٰى', doaLt:"Ushallii sunnatash-shubhi rak'atayni qabliyyatal lillaahi ta'aalaa.", doaMn:"\"Aku niat sholat sunnah Subuh dua rakaat sebelum Subuh karena Allah Ta'ala.\"",
+        fadhilahAr:'رَكْعَتَا الْفَجْرِ خَيْرٌ مِنَ الدُّنْيَا وَمَا فِيْهَا', fadhilahLt:"Rak'ataal-fajri khayrum-minad-dunyaa wa maa fiihaa.", fadhilahMn:"\"Dua rakaat (sunnah) Fajr lebih baik daripada dunia dan seisinya.\" (HR. Muslim no. 725) — Rasulullah ﷺ tidak pernah meninggalkannya, sekalipun dalam perjalanan atau tergesa-gesa.",
+        ancaman:"Sunnah muakkadah yang sangat ditekankan — nilainya melebihi dunia dan seisinya, sehingga sangat disayangkan bila terlewat begitu saja karena tergesa-gesa menuju sholat wajib."},
     ]},
   {id:'sedekahsubuh', lbl:'Sedekah Subuh', sub:'Harian', icon:'🌅', ibg:'#FFF7ED', type:'single', weight:1,
     doaAr:'اَللّٰهُمَّ أَعْطِ مُنْفِقًا خَلَفًا', doaLt:"Allahumma a'thi munfiqan khalafaa.", doaMn:"Ya Allah, berilah orang yang berinfak pengganti (rezeki yang lebih baik). (Doa malaikat untuk orang bersedekah di pagi hari, HR. Bukhari-Muslim)",
@@ -849,12 +977,48 @@ const AMALAN = [
     fadhilahAr:'وَاسْتَغْفِرُوْا رَبَّكُمْ ثُمَّ تُوْبُوْٓا إِلَيْهِ يُرْسِلِ السَّمَاۤءَ عَلَيْكُمْ مِدْرَارًا وَيَزِدْكُمْ قُوَّةً إِلٰى قُوَّتِكُمْ', fadhilahLt:"Wastaghfiruu rabbakum tsumma tuubuuu ilayhi yursilis-samaaa'a 'alaykum midraaraw-wa yazidkum quwwatan ilaa quwwatikum.", fadhilahMn:"\"Mohonlah ampun kepada Tuhanmu, sesungguhnya Dia Maha Pengampun, niscaya Dia menurunkan hujan yang lebat, membanyakkan harta dan anak-anakmu, serta menambah kekuatan kepada kekuatanmu.\" (QS. Nuh: 10-12)",
     ancaman:"Bukan wajib, tapi Nabi ﷺ yang maksum saja beristighfar lebih dari 70-100 kali sehari (HR. Bukhari, Muslim). Meninggalkannya berarti membiarkan hati berkarat oleh dosa: \"Sesungguhnya hati manusia bisa berkarat sebagaimana besi, dan pembersihnya adalah istighfar.\" (HR. Al-Baihaqi)"},
   {id:'rezeki', lbl:'Halal Rezeki', sub:'13 Fakta Riba', icon:'⚖️', ibg:'#FEF3C7', type:'rezeki', weight:1},
+  {id:'doaortu', lbl:'Doa Orang Tua', sub:'Kumpulan lengkap', icon:'🧓', ibg:'#FCE7F3', type:'single', weight:1, hasBacaan:'doaortu',
+    fadhilahAr:'رِضَا اللّٰهِ فِيْ رِضَا الْوَالِدَيْنِ وَسَخَطُ اللّٰهِ فِيْ سَخَطِ الْوَالِدَيْنِ', fadhilahLt:"Ridhallaahi fii ridhal-waalidayni wa sakhathullaahi fii sakhathil-waalidayn.", fadhilahMn:"\"Ridha Allah ada pada ridha kedua orang tua, dan murka Allah ada pada murka kedua orang tua.\" (HR. At-Tirmidzi — hasan shahih)",
+    ancaman:"Mendoakan orang tua bukan sekadar sunnah biasa — durhaka (uquuqul-waalidain) termasuk dosa besar yang disegerakan balasannya di dunia. Sebaliknya, doa anak yang shalih menjadi salah satu amal yang terus mengalir pahalanya bagi orang tua."},
+  {id:'doaanak', lbl:'Doa Anak', sub:'Kumpulan lengkap', icon:'🧒', ibg:'#DBEAFE', type:'single', weight:1, hasBacaan:'doaanak',
+    fadhilahAr:'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيّٰتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِيْنَ إِمَامًا', fadhilahLt:"Rabbanaa hab lanaa min azwaajinaa wa dzurriyyaatinaa qurrata a'yuniw-waj'alnaa lil-muttaqiina imaamaa.", fadhilahMn:"\"Ya Tuhan kami, anugerahkanlah kepada kami pasangan dan keturunan kami sebagai penyenang hati, dan jadikanlah kami pemimpin bagi orang-orang bertakwa.\" (QS. Al-Furqan: 74)",
+    ancaman:"Anak adalah amanah sekaligus ujian. Mendoakan anak agar menjadi shalih/shalihah adalah ikhtiar batin orang tua yang tak boleh diabaikan, karena doa orang tua untuk anaknya adalah salah satu doa yang mustajab (HR. Abu Dawud, At-Tirmidzi)."},
+  {id:'doapasangan', lbl:'Doa Pasangan', sub:'Untuk istri/suami', icon:'💞', ibg:'#FFE4E6', type:'single', weight:1, hasBacaan:'doapasangan',
+    fadhilahAr:'وَعَاشِرُوْهُنَّ بِالْمَعْرُوْفِ', fadhilahLt:"Wa 'aasyiruuhunna bil-ma'ruuf.", fadhilahMn:"\"Dan bergaullah dengan mereka (istri-istri kalian) secara patut.\" (QS. An-Nisa: 19) — mendoakan pasangan adalah bagian dari mempergauli dengan baik dan menjaga keharmonisan rumah tangga.",
+    ancaman:"Rumah tangga yang jarang diselipi doa cenderung rapuh menghadapi ujian. Rasulullah ﷺ mengajarkan doa-doa khusus untuk keberkahan pasangan — melewatkannya berarti kehilangan salah satu sumber keberkahan dalam pernikahan."},
 ];
 
 const TOTAL_WEIGHT = AMALAN.reduce((s,a)=>s+a.weight,0); // 18
 
 /* Bacaan lengkap: dzikir pagi, dzikir sore, doa setelah sholat */
 const BACAAN = {
+  doaortu:[
+    {t:'1. Doa Kasih Sayang untuk Orang Tua', ar:'رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِيْ صَغِيْرًا', lt:"Rabbir-hamhumaa kamaa rabbayaanii shaghiiraa.", mn:"\"Ya Tuhanku, kasihilah keduanya sebagaimana mereka telah mendidikku sewaktu kecil.\" (QS. Al-Isra: 24) — doa yang diperintahkan Allah untuk dibaca seorang anak, mengenang jasa pengasuhan orang tua sejak kecil."},
+    {t:'2. Doa Ampunan untuk Orang Tua', ar:'رَبَّنَا اغْفِرْ لِيْ وَلِوَالِدَيَّ وَلِلْمُؤْمِنِيْنَ يَوْمَ يَقُوْمُ الْحِسَابُ', lt:"Rabbanagh-fir lii wa liwaalidayya wa lil-mu-miniina yawma yaquumul-hisaab.", mn:"\"Ya Tuhan kami, ampunilah aku dan kedua ibu bapakku dan sekalian orang-orang mukmin pada hari terjadinya hisab (hari kiamat).\" (QS. Ibrahim: 41) — doa Nabi Ibrahim 'alaihissalam untuk kedua orang tuanya."},
+    {t:'3. Doa Rasa Syukur atas Orang Tua', ar:'رَبِّ أَوْزِعْنِيْٓ أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِيْٓ أَنْعَمْتَ عَلَيَّ وَعَلٰى وَالِدَيَّ', lt:"Rabbi awzi'nii an asykura ni'matakal-latii an'amta 'alayya wa 'alaa waalidayya.", mn:"\"Ya Tuhanku, berilah aku ilham untuk tetap mensyukuri nikmat-Mu yang telah Engkau anugerahkan kepadaku dan kepada kedua orang tuaku.\" (QS. An-Naml: 19) — doa Nabi Sulaiman 'alaihissalam."},
+    {t:'4. Doa Keberkahan & Keridhaan bagi Orang Tua', ar:'اَللّٰهُمَّ اغْفِرْ لِوَالِدَيَّ وَارْحَمْهُمَا وَبَارِكْ لَهُمَا فِيْ حَيَاتِهِمَا وَأَحْسِنْ إِلَيْهِمَا كَمَا أَحْسَنَا إِلَيَّ صَغِيْرًا', lt:"Allahummaghfir liwaalidayya warhamhumaa wa baarik lahumaa fii hayaatihimaa wa ahsin ilayhimaa kamaa ahsanaaa ilayya shaghiiraa.", mn:"\"Ya Allah, ampunilah kedua orang tuaku, sayangilah keduanya, berkahilah kehidupan mereka, dan berbuat baiklah kepada mereka sebagaimana mereka telah berbuat baik kepadaku sewaktu kecil.\" — dianjurkan dibaca setiap hari, baik orang tua masih hidup maupun telah wafat."},
+    {t:'5. Doa Ampunan bagi Orang Tua yang Telah Wafat', ar:'اَللّٰهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ وَعَافِهِ وَاعْفُ عَنْهُ وَأَكْرِمْ نُزُلَهُ وَوَسِّعْ مُدْخَلَهُ', lt:"Allahummaghfir lahu warhamhu wa 'aafihi wa'fu 'anhu wa akrim nuzulahu wa wassi' mudkhalahu.", mn:"\"Ya Allah, ampunilah dia, sayangilah dia, maafkanlah dia, muliakanlah tempat tinggalnya, dan lapangkanlah kuburnya.\" (HR. Muslim, dari doa jenazah Rasulullah ﷺ) — dapat disesuaikan dengan dhamir (lahu/lahaa) sesuai orang tua yang didoakan, dianjurkan dibaca bagi yang telah berpulang."},
+    {t:'6. Doa Agar Terus Berbakti', ar:'رَبِّ أَعِنِّيْ عَلٰى بِرِّ وَالِدَيَّ وَلَا تَجْعَلْنِيْ مِنَ الْعَاقِّيْنَ', lt:"Rabbi a'innii 'alaa birri waalidayya wa laa taj'alnii minal-'aaqqiin.", mn:"\"Ya Tuhanku, tolonglah aku untuk senantiasa berbakti kepada kedua orang tuaku, dan janganlah Engkau jadikan aku termasuk golongan yang durhaka.\" — doa memohon keteguhan hati agar tidak pernah lalai berbakti, mengingat durhaka kepada orang tua (uquuqul-waalidain) termasuk dosa besar yang paling disegerakan balasannya di dunia (HR. Al-Hakim, At-Tirmidzi)."},
+    {t:'7. Doa Kesehatan & Umur Berkah untuk Orang Tua', ar:'اَللّٰهُمَّ مَتِّعْنَا بِوَالِدَيْنَا وَأَطِلْ عُمُرَهُمَا عَلَى طَاعَتِكَ وَعَافِهِمَا فِيْ دِيْنِهِمَا وَأَبْدَانِهِمَا', lt:"Allahumma matti'naa biwaalidaynaa wa athil 'umurahumaa 'alaa thaa'atika wa 'aafihimaa fii diinihimaa wa abdaanihimaa.", mn:"\"Ya Allah, panjangkanlah kebersamaan kami dengan kedua orang tua kami, panjangkanlah usia mereka dalam ketaatan kepada-Mu, dan berikanlah kesehatan pada agama dan badan mereka.\" — doa yang baik dipanjatkan bagi orang tua yang masih hidup, memohon keberkahan usia dan kesehatan mereka."},
+  ],
+  doaanak:[
+    {t:'1. Doa Memohon Keturunan yang Shalih', ar:'رَبِّ هَبْ لِيْ مِنَ الصّٰلِحِيْنَ', lt:"Rabbi hab lii minash-shaalihiin.", mn:"\"Ya Tuhanku, anugerahkanlah kepadaku (seorang anak) yang termasuk orang-orang yang shalih.\" (QS. Ash-Shaffat: 100) — doa Nabi Ibrahim 'alaihissalam memohon keturunan yang shalih."},
+    {t:'2. Doa Anak sebagai Penyejuk Hati', ar:'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيّٰتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِيْنَ إِمَامًا', lt:"Rabbanaa hab lanaa min azwaajinaa wa dzurriyyaatinaa qurrata a'yuniw-waj'alnaa lil-muttaqiina imaamaa.", mn:"\"Ya Tuhan kami, anugerahkanlah kepada kami pasangan dan keturunan kami sebagai penyenang hati, dan jadikanlah kami pemimpin bagi orang-orang bertakwa.\" (QS. Al-Furqan: 74)"},
+    {t:'3. Doa Perlindungan untuk Anak', ar:'أُعِيْذُكَ بِكَلِمَاتِ اللّٰهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ', lt:"U'iidzuka bikalimaatillaahit-taammati min kulli syaythaaniw-wa haaammatiw-wa min kulli 'aynil-laammah.", mn:"\"Aku memohonkan perlindungan untukmu dengan kalimat-kalimat Allah yang sempurna, dari segala setan dan binatang berbisa, dan dari segala pandangan mata yang jahat (‘ain).\" (HR. Al-Bukhari) — doa yang selalu dibaca Nabi ﷺ untuk melindungi cucu-cucu beliau, Hasan dan Husain."},
+    {t:'4. Doa Anak yang Mendirikan Sholat', ar:'رَبِّ اجْعَلْنِيْ مُقِيْمَ الصَّلٰوةِ وَمِنْ ذُرِّيَّتِيْ رَبَّنَا وَتَقَبَّلْ دُعَاۤءِ', lt:"Rabbij-'alnii muqiimash-shalaati wa min dzurriyyatii rabbanaa wa taqabbal du'aaa'.", mn:"\"Ya Tuhanku, jadikanlah aku dan anak cucuku orang-orang yang tetap mendirikan sholat. Ya Tuhan kami, perkenankanlah doaku.\" (QS. Ibrahim: 40) — doa Nabi Ibrahim 'alaihissalam agar keturunannya senantiasa istiqamah beribadah."},
+    {t:'5. Doa Perlindungan dari Keburukan Zaman', ar:'أُعِيْذُ بَنِيَّ وَذُرِّيَّتِيْ مِنَ الشَّيْطَانِ الرَّجِيْمِ', lt:"U'iidzu baniyya wa dzurriyyatii minasy-syaythaanir-rajiim.", mn:"\"Aku memohonkan perlindungan bagi anak-anak dan keturunanku dari godaan setan yang terkutuk.\" — terinspirasi dari doa istri Imran (QS. Ali 'Imran: 36) yang memohonkan perlindungan untuk Maryam dan keturunannya dari gangguan setan."},
+    {t:'6. Doa Kebaikan Dunia & Akhirat untuk Anak', ar:'رَبَّنَا اٰتِ أَوْلَادَنَا فِى الدُّنْيَا حَسَنَةً وَفِى الْاٰخِرَةِ حَسَنَةً وَقِهِمْ عَذَابَ النَّارِ', lt:"Rabbanaa aati awlaadanaa fid-dunyaa hasanataw-wa fil-aakhirati hasanataw-wa qihim 'adzaaban-naar.", mn:"\"Ya Tuhan kami, berilah anak-anak kami kebaikan di dunia dan kebaikan di akhirat, dan peliharalah mereka dari siksa neraka.\" — diadaptasi dari doa masyhur QS. Al-Baqarah: 201, dikhususkan sebagai doa harian bagi buah hati."},
+    {t:'7. Doa agar Anak Dimudahkan dalam Menuntut Ilmu', ar:'رَبِّ اشْرَحْ لَهُ صَدْرَهُ وَيَسِّرْ لَهُٓ أَمْرَهُ وَاحْلُلْ عُقْدَةً مِّنْ لِّسَانِهٖ يَفْقَهُوْا قَوْلَهٗ', lt:"Rabbisyrah lahuu shadrahu wa yassir lahuu amrahu wahlul 'uqdatam-mil-lisaanihii yafqahuu qawlah.", mn:"\"Ya Tuhanku, lapangkanlah dadanya, mudahkanlah urusannya, dan lepaskanlah kekakuan dari lisannya, agar mereka mengerti perkataannya.\" — diadaptasi dari doa Nabi Musa 'alaihissalam (QS. Ta-Ha: 25-28), baik dibaca untuk memohonkan kemudahan belajar dan berbicara bagi anak."},
+  ],
+  doapasangan:[
+    {t:'1. Doa Pasangan & Keturunan Penyejuk Hati', ar:'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيّٰتِنَا قُرَّةَ أَعْيُنٍ', lt:"Rabbanaa hab lanaa min azwaajinaa wa dzurriyyaatinaa qurrata a'yun.", mn:"\"Ya Tuhan kami, anugerahkanlah kepada kami pasangan dan keturunan kami sebagai penyenang hati.\" (QS. Al-Furqan: 74) — doa memohon keharmonisan dan kebahagiaan bersama pasangan."},
+    {t:'2. Doa Keberkahan Pernikahan', ar:'بَارَكَ اللّٰهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِيْ خَيْرٍ', lt:"Baarakallaahu laka wa baaraka 'alayka wa jama'a baynakumaa fii khayr.", mn:"\"Semoga Allah memberkahimu, memberkahi (pernikahan)mu, dan menyatukan kalian berdua dalam kebaikan.\" (HR. Abu Dawud, At-Tirmidzi — hasan shahih) — doa yang diajarkan Rasulullah ﷺ untuk pasangan yang baru menikah, baik pula dibaca ulang sebagai doa keberkahan rumah tangga."},
+    {t:'3. Doa Memohon Kebaikan pada Pasangan', ar:'اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ خَيْرَهَا وَخَيْرَ مَا جَبَلْتَهَا عَلَيْهِ وَأَعُوْذُ بِكَ مِنْ شَرِّهَا وَشَرِّ مَا جَبَلْتَهَا عَلَيْهِ', lt:"Allahumma innii as-aluka khayrahaa wa khayra maa jabaltahaa 'alayhi wa a'uudzu bika min syarrihaa wa syarri maa jabaltahaa 'alayhi.", mn:"\"Ya Allah, aku memohon kepada-Mu kebaikannya dan kebaikan tabiat yang Engkau ciptakan padanya, dan aku berlindung kepada-Mu dari keburukannya dan keburukan tabiat yang Engkau ciptakan padanya.\" (HR. Abu Dawud, Ibnu Majah) — doa yang diajarkan Nabi ﷺ, dapat disesuaikan (khayrahu/syarrihi) bila didoakan untuk suami."},
+    {t:'4. Doa Persatuan Hati dalam Rumah Tangga', ar:'اَللّٰهُمَّ أَلِّفْ بَيْنَ قُلُوْبِنَا وَأَصْلِحْ ذَاتَ بَيْنِنَا وَاهْدِنَا سُبُلَ السَّلَامِ', lt:"Allahumma allif bayna quluubinaa wa ashlih dzaata baininaa wahdinaa subulas-salaam.", mn:"\"Ya Allah, satukanlah hati-hati kami, perbaikilah hubungan di antara kami, dan tunjukilah kami jalan-jalan keselamatan.\" — terinspirasi dari QS. Al-Anfal: 63 tentang persatuan hati yang hanya Allah yang mampu mempersatukannya, dianjurkan dibaca untuk menjaga keharmonisan rumah tangga."},
+    {t:'5. Doa Ketenteraman & Kasih Sayang Suami Istri', ar:'وَمِنْ اٰيٰتِهٖٓ أَنْ خَلَقَ لَكُمْ مِّنْ أَنْفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوْٓا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً', lt:"Wa min aayaatihii an khalaqa lakum min anfusikum azwaajal-litaskunuuu ilayhaa wa ja'ala baynakum mawaddataw-wa rahmah.", mn:"\"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan untukmu dari jenismu sendiri, agar kamu merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.\" (QS. Ar-Rum: 21) — direnungkan dan dijadikan doa harian memohon ketenteraman (sakinah), kasih (mawaddah), dan sayang (rahmah) dalam rumah tangga."},
+    {t:'6. Doa Perlindungan bagi Pasangan', ar:'اَللّٰهُمَّ إِنِّيْ أَسْتَوْدِعُكَ زَوْجِيْ فَاحْفَظْهُ/فَاحْفَظْهَا بِحِفْظِكَ وَارْزُقْهُ/وَارْزُقْهَا مِنْ فَضْلِكَ', lt:"Allahumma innii astawdi'uka zawjii fahfazh-hu/fahfazh-haa bihifzhika warzuq-hu/warzuq-haa min fadhlik.", mn:"\"Ya Allah, sesungguhnya aku titipkan pasanganku kepada-Mu, maka jagalah dia dengan penjagaan-Mu, dan berilah dia rezeki dari karunia-Mu.\" — doa harian memohon penjagaan Allah atas keselamatan, kesehatan, dan rezeki pasangan (sesuaikan dhamir hu/ha untuk suami/istri)."},
+    {t:'7. Doa agar Pasangan Menjadi Penyejuk Hati & Ahli Surga', ar:'اَللّٰهُمَّ اجْعَلْهُ/اجْعَلْهَا قُرَّةَ عَيْنٍ لِّيْ فِي الدُّنْيَا وَرَفِيْقًا/رَفِيْقَةً لِّيْ فِي الْجَنَّةِ', lt:"Allahummaj-'alhu/aj-'alhaa qurrata 'aynil-lii fid-dunyaa wa rafiiqal-lii/rafiiqatal-lii fil-jannah.", mn:"\"Ya Allah, jadikanlah dia penyejuk hatiku di dunia, dan pendampingku kelak di surga.\" — doa harapan agar kebersamaan dengan pasangan tidak berhenti di dunia, tetapi berlanjut hingga ke surga (sesuaikan dhamir hu/ha untuk suami/istri)."},
+  ],
   pagi:[
     {t:'1. Dzikir Pembuka Pagi', ar:'اَللّٰهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوْتُ، وَإِلَيْكَ النُّشُوْرُ', lt:"Allahumma bika ashbahnaa, wa bika amsaynaa, wa bika nahyaa, wa bika namuutu, wa ilaykan-nusyuur.", mn:"\"Ya Allah, hanya dengan rahmat dan pertolongan-Mu kami memasuki pagi, dan dengan rahmat dan pertolongan-Mu kami memasuki sore, hanya dengan rahmat dan kehendak-Mu kami hidup, dan dengan rahmat dan kehendak-Mu kami mati, dan hanya kepada-Mulah kembali (makhluk setelah dibangkitkan).\" [Dibaca 1x] — HR. Al-Bukhari dalam Adabul Mufrad, Abu Dawud, at-Tirmidzi, Ibnu Majah, Ahmad."},
     {t:'2. Dzikir Fitrah Islam', ar:'أَصْبَحْنَا عَلٰى فِطْرَةِ الْإِسْلَامِ، وَعَلٰى كَلِمَةِ الْإِخْلَاصِ، وَعَلٰى دِيْنِ نَبِيِّنَا مُحَمَّدٍ ﷺ، وَعَلٰى مِلَّةِ أَبِيْنَا إِبْرَاهِيْمَ حَنِيْفًا مُسْلِمًا وَمَا كَانَ مِنَ الْمُشْرِكِيْنَ', lt:"Ashbahnaa 'alaa fithratil-islaam, wa 'alaa kalimatil-ikhlaash, wa 'alaa diini nabiyyinaa Muhammadin shallallaahu 'alayhi wa sallam, wa 'alaa millati abiinaa Ibraahiima haniifam-muslimaw-wa maa kaana minal-musyrikiin.", mn:"\"Pada waktu pagi kami berada di atas fitrah Islam, kalimat ikhlas (dua kalimat syahadat), agama Nabi kami Muhammad ﷺ dan agama ayah kami Ibrahim yang hanif (lurus), Muslim (tunduk patuh), dan dia tidak tergolong orang-orang musyrik.\" [Dibaca 1x] — HR. Ahmad (III/406-407), ad-Darimi, Ibnu Sunni."},
@@ -1050,6 +1214,33 @@ const KAJIAN_CHANNELS = [
 
 
 
+/* ====== MODE HAID: logika amalan yang dilarang/boleh saat haid ====== */
+// Amalan yang TIDAK BOLEH dikerjakan saat haid (ijma' ulama): sholat wajib & sunnah, puasa.
+const HAID_RESTRICTED = ['wajib','rawatib','malam','dhuha','puasa','doasetelahsholat'];
+// Amalan yang masih diperselisihkan ulama saat haid (boleh dengan catatan, mis. baca Qur'an tanpa menyentuh mushaf/lewat HP menurut sebagian ulama).
+const HAID_KHILAFIYAH = ['quran'];
+// Amalan yang TETAP BOLEH dikerjakan penuh saat haid: dzikir, doa, istighfar, sedekah, kajian, muhasabah rezeki, doa keluarga.
+
+function isHaidToday(){ return !!todayData().haid; }
+function isHaidOnDay(k){ const d=state.days[k]; return !!(d && d.haid); }
+function toggleHaid(){
+  const data=todayData();
+  data.haid = !data.haid;
+  saveState(state);
+  renderGrid();
+  updateHaidUI();
+}
+function updateHaidUI(){
+  const btn=document.getElementById('haidToggle');
+  if(btn) btn.classList.toggle('active', isHaidToday());
+}
+// Total bobot amalan yang relevan untuk 1 hari (amalan terlarang saat haid dikeluarkan dari penyebut agar persentase tetap adil)
+function totalWeightForDay(k){
+  const haid = isHaidOnDay(k);
+  if(!haid) return TOTAL_WEIGHT;
+  return AMALAN.reduce((s,a)=> s + (HAID_RESTRICTED.includes(a.id) ? 0 : a.weight), 0);
+}
+
 /* ====== STATE ====== */
 const todayKey = ()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');};
 const LS_KEY='hijrahBareng_v2';
@@ -1079,23 +1270,34 @@ function unitsFor(amalan, entry){
 function renderGrid(){
   const wrap=document.getElementById('gridAmalan');
   const data=todayData();
+  const haid=isHaidToday();
   wrap.innerHTML='';
   AMALAN.forEach(a=>{
     const entry=data[a.id];
     const units=unitsFor(a, entry);
     const full = units>=a.weight;
     const partial = units>0 && !full;
+    const locked = haid && HAID_RESTRICTED.includes(a.id);
+    const caution = haid && HAID_KHILAFIYAH.includes(a.id);
     const box=document.createElement('div');
-    box.className='box'+(full?' done':'')+(partial?' partial':'');
-    box.onclick=()=>openSheet(a.id);
+    box.className='box'+(full?' done':'')+(partial?' partial':'')+(locked?' locked':'');
+    box.onclick = locked ? ()=>showHaidInfo(a.id) : ()=>openSheet(a.id);
     let checkLabel='';
     if(a.weight>1) checkLabel = units+'/'+a.weight;
     else if(a.type==='counter') checkLabel = (entry&&entry.count?entry.count:0);
-    box.innerHTML=`<div class="check">${full?'✓':checkLabel}</div><div class="ico" style="background:${a.ibg}">${a.icon}</div><div class="lbl">${a.lbl}</div><div class="sub">${a.sub}</div>`;
+    const lblText = (currentLang==='en' && AMALAN_I18N[a.id]) ? AMALAN_I18N[a.id].lbl : a.lbl;
+    const subText = (currentLang==='en' && AMALAN_I18N[a.id]) ? AMALAN_I18N[a.id].sub : a.sub;
+    box.innerHTML=`<div class="check">${locked?'🌸':full?'✓':checkLabel}</div><div class="ico" style="background:${a.ibg}">${a.icon}</div><div class="lbl">${lblText}</div><div class="sub">${subText}</div>${caution?'<div class="caution-dot" title="Diperselisihkan ulama saat haid">⚠️</div>':''}`;
     wrap.appendChild(box);
   });
   updateProgress();
   renderMilestones();
+  updateHaidUI();
+}
+function showHaidInfo(id){
+  const a=AMALAN.find(x=>x.id===id);
+  const lbl=(currentLang==='en' && AMALAN_I18N[id]) ? AMALAN_I18N[id].lbl : a.lbl;
+  alert(`🌸 ${lbl} tidak diwajibkan/tidak sah dikerjakan saat haid.\n\nIni bukan hukuman — Allah meringankan wanita haid dari kewajiban ini. Perbanyak dzikir, doa, istighfar, dan sedekah sebagai gantinya. Kartu ini otomatis tidak dihitung dalam target harianmu selama mode haid aktif.`);
 }
 
 function totalUnitsToday(){
@@ -1105,7 +1307,8 @@ function totalUnitsToday(){
 
 function updateProgress(){
   const units=totalUnitsToday();
-  const pct=Math.round((units/TOTAL_WEIGHT)*100);
+  const tw=totalWeightForDay(todayKey());
+  const pct=Math.round((units/tw)*100);
   document.getElementById('pctNum').textContent=pct+'%';
   const circumference=282.7;
   document.getElementById('ringProgress').style.strokeDashoffset = circumference - (circumference*pct/100);
@@ -1113,7 +1316,7 @@ function updateProgress(){
     ? 'Belum ada amalan yang ditandai hari ini.'
     : pct>=100
       ? 'Masya Allah, semua amalan hari ini tuntas! 🎉'
-      : `${units} dari ${TOTAL_WEIGHT} poin amalan tercapai. Semangat lanjutkan!`;
+      : `${units} dari ${tw} poin amalan tercapai. Semangat lanjutkan!`;
   document.getElementById('streakNum').textContent = computeStreak();
 }
 
@@ -1121,7 +1324,8 @@ function pctForDay(k){
   const data=state.days[k];
   if(!data) return 0;
   const units=AMALAN.reduce((s,a)=>s+unitsFor(a, data[a.id]),0);
-  return Math.round((units/TOTAL_WEIGHT)*100);
+  const tw=totalWeightForDay(k);
+  return Math.round((units/tw)*100);
 }
 
 function computeStreak(){
@@ -1165,7 +1369,7 @@ function renderMilestones(){
   const lastDone = QUEST_LEVELS.slice().reverse().find(lv=>streak>=lv.d);
 
   if(streak===0){
-    levelNameEl.textContent = 'Belum memulai perjalanan';
+    levelNameEl.textContent = t('home.notStarted');
     note.innerHTML='Mulai tandai amalan hari ini untuk memulai petualanganmu menuju istiqamah. Setiap langkah kecil, tetap langkah! 🚶';
   } else if(!nextLv){
     levelNameEl.textContent = '👑 ' + QUEST_LEVELS[QUEST_LEVELS.length-1].lbl + ' — Level Maksimum!';
@@ -1840,7 +2044,7 @@ function renderRiwayat(){
         if(r.pct===0)return;
         const row=document.createElement('div');
         row.style.cssText='background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 13px;display:flex;justify-content:space-between;align-items:center';
-        row.innerHTML=`<span style="font-size:12px;font-weight:700;color:var(--ink)">${r.d.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long'})}</span><span style="font-size:12px;font-weight:800;color:var(--emerald-700)">${r.pct}%</span>`;
+        row.innerHTML=`<span style="font-size:12px;font-weight:700;color:var(--ink)">${isHaidOnDay(r.k)?'🌸 ':''}${r.d.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long'})}</span><span style="font-size:12px;font-weight:800;color:var(--emerald-700)">${r.pct}%</span>`;
         list.appendChild(row);
       });
     }
@@ -1873,7 +2077,7 @@ function renderRiwayat(){
         if(r.pct===0)return;
         const row=document.createElement('div');
         row.style.cssText='background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 13px;display:flex;justify-content:space-between;align-items:center';
-        row.innerHTML=`<span style="font-size:12px;font-weight:700;color:var(--ink)">${r.d.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long'})}</span><span style="font-size:12px;font-weight:800;color:var(--emerald-700)">${r.pct}%</span>`;
+        row.innerHTML=`<span style="font-size:12px;font-weight:700;color:var(--ink)">${isHaidOnDay(r.k)?'🌸 ':''}${r.d.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long'})}</span><span style="font-size:12px;font-weight:800;color:var(--emerald-700)">${r.pct}%</span>`;
         list.appendChild(row);
       });
     }
@@ -2138,10 +2342,16 @@ async function handleEbookUpload(e){
 }
 /* ====== EBOOK BAWAAN (built-in, base64) ====== */
 const BUILTIN_EBOOKS = [
-  {key:'alfalaq', title:"Tafsir Surat Al-Falaq", desc:"Infografis · @dokrifqi"},
-  {key:'alasr', title:"Tafsir Surat Al-'Asr (Part 1)", desc:"Infografis · @dokrifqi"},
-  {key:'aladiyat', title:"Tafsir Surat Al-'Adiyat", desc:"Infografis · @dokrifqi"},
-  {key:'allahab', title:"Tafsir Surat Al-Lahab", desc:"Infografis · @dokrifqi"},
+  {key:'alfalaq', title:"Tafsir Surat Al-Falaq", category:"Tafsir Qur'an", pages:20, gradient:"linear-gradient(155deg,#7C3AED,#4C1D95)", icon:"🌅",
+    desc:"Kupasan makna perlindungan dalam surat Al-Falaq: dari kejahatan makhluk ciptaan, malam yang gelap gulita, sihir, hingga kedengkian."},
+  {key:'alasr', title:"Tafsir Surat Al-'Asr (Part 1)", category:"Tafsir Qur'an", pages:22, gradient:"linear-gradient(155deg,#0EA5E9,#1D4ED8)", icon:"⏳",
+    desc:"Renungan tentang waktu dan kerugian manusia, serta empat kunci keselamatan: iman, amal shalih, saling menasihati kebenaran & kesabaran."},
+  {key:'aladiyat', title:"Tafsir Surat Al-'Adiyat", category:"Tafsir Qur'an", pages:12, gradient:"linear-gradient(155deg,#EA580C,#9A3412)", icon:"🐎",
+    desc:"Kisah sumpah Allah dengan kuda perang yang berlari kencang — teknik menarik perhatian dalam Al-Qur'an dan pelajaran tentang sifat kufur nikmat manusia."},
+  {key:'allahab', title:"Tafsir Surat Al-Lahab", category:"Tafsir Qur'an", pages:20, gradient:"linear-gradient(155deg,#DC2626,#7F1D1D)", icon:"🔥",
+    desc:"Kisah Abu Lahab & istrinya yang divonis neraka 10 tahun sebelum wafat — bukti nyata mukjizat kepastian Al-Qur'an yang tak pernah meleset."},
+  {key:'alkautsar', title:"Tafsir Surat Al-Kautsar", category:"Tafsir Qur'an", pages:12, gradient:"linear-gradient(155deg,#0D9488,#134E4A)", icon:"🥛",
+    desc:"Nikmat yang banyak dari Allah, perintah sholat & berkurban sebagai bukti syukur, serta pelajaran menghadapi celaan dari kisah fitnah 'Abtar' kepada Nabi ﷺ."},
 ];
 let builtinBlobUrlCache = {};
 function base64ToBlob(b64, mime){
@@ -2156,29 +2366,81 @@ function getBuiltinB64(key){
   if(key==='alasr') return (typeof EBOOK_ALASR_B64!=='undefined') ? EBOOK_ALASR_B64 : null;
   if(key==='aladiyat') return (typeof EBOOK_ALADIYAT_B64!=='undefined') ? EBOOK_ALADIYAT_B64 : null;
   if(key==='allahab') return (typeof EBOOK_ALLAHAB_B64!=='undefined') ? EBOOK_ALLAHAB_B64 : null;
+  if(key==='alkautsar') return (typeof EBOOK_ALKAUTSAR_B64!=='undefined') ? EBOOK_ALKAUTSAR_B64 : null;
   return null;
+}
+function getBuiltinBlobUrl(key){
+  if(!builtinBlobUrlCache[key]){
+    const b64 = getBuiltinB64(key);
+    if(!b64) return null;
+    const blob = base64ToBlob(b64, 'application/pdf');
+    builtinBlobUrlCache[key] = URL.createObjectURL(blob);
+  }
+  return builtinBlobUrlCache[key];
+}
+function markEbookRead(key){
+  const readList = JSON.parse(localStorage.getItem('hijrahBareng_ebookRead')||'[]');
+  if(!readList.includes(key)){ readList.push(key); localStorage.setItem('hijrahBareng_ebookRead', JSON.stringify(readList)); }
+}
+function isEbookRead(key){
+  const readList = JSON.parse(localStorage.getItem('hijrahBareng_ebookRead')||'[]');
+  return readList.includes(key);
 }
 function openBuiltinEbook(key){
   const item = BUILTIN_EBOOKS.find(x=>x.key===key);
   if(!item) return;
-  if(!builtinBlobUrlCache[key]){
-    const b64 = getBuiltinB64(key);
-    if(!b64){ alert('File belum termuat. Pastikan file ebook_alfalaq.b64.js dan ebook_alasr.b64.js berada di folder yang sama dengan hijrah-bareng.html.'); return; }
-    const blob = base64ToBlob(b64, 'application/pdf');
-    builtinBlobUrlCache[key] = URL.createObjectURL(blob);
-  }
+  const url = getBuiltinBlobUrl(key);
+  if(!url){ alert('File belum termuat. Pastikan file ebook_'+key+'.b64.js berada di folder yang sama dengan index.html.'); return; }
+  markEbookRead(key);
   document.getElementById('ebookViewerTitle').textContent = item.title;
-  document.getElementById('ebookViewerFrame').src = builtinBlobUrlCache[key];
+  document.getElementById('ebookViewerFrame').src = url;
   document.getElementById('ebookViewerOverlay').classList.add('show');
+  renderBuiltinEbookList();
+}
+function downloadBuiltinEbook(key){
+  const item = BUILTIN_EBOOKS.find(x=>x.key===key);
+  if(!item) return;
+  const url = getBuiltinBlobUrl(key);
+  if(!url){ alert('File belum termuat. Pastikan file ebook_'+key+'.b64.js berada di folder yang sama dengan index.html.'); return; }
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = item.title.replace(/[^a-z0-9]+/gi,'-').toLowerCase() + '.pdf';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 }
 function renderBuiltinEbookList(){
   const wrap = document.getElementById('builtinEbookList');
   if(!wrap) return;
-  wrap.innerHTML = BUILTIN_EBOOKS.map(b=>`
-    <div class="ebook-card" onclick="openBuiltinEbook('${b.key}')">
-      <div class="ic">PDF</div>
-      <div class="info"><b>${b.title}</b><span>${b.desc}</span></div>
-    </div>`).join('');
+  const readCount = BUILTIN_EBOOKS.filter(b=>isEbookRead(b.key)).length;
+  const total = BUILTIN_EBOOKS.length;
+  const pct = total ? Math.round(readCount/total*100) : 0;
+  const progCard = document.getElementById('ebookProgressCard');
+  if(progCard){
+    progCard.innerHTML = `
+      <div class="epc-top"><span>Ebook bawaan: ${readCount}/${total} selesai dibaca</span><b>${pct}%</b></div>
+      <div class="epc-bar"><div class="epc-fill" style="width:${pct}%"></div></div>`;
+  }
+  wrap.innerHTML = BUILTIN_EBOOKS.map(b=>{
+    const read = isEbookRead(b.key);
+    return `
+    <div class="ebook-card2">
+      <div class="eb-banner" style="background:${b.gradient}">
+        ${read?'<div class="eb-badge">✓ Dibaca</div>':''}
+        <div class="eb-ico">${b.icon}</div>
+        <span class="eb-chip">${b.category}</span>
+      </div>
+      <div class="eb-body">
+        <h4>${b.title}</h4>
+        <span class="eb-author">✳ @dokrifqi • Hijrah Bareng</span>
+        <p>${b.desc}</p>
+        <div class="eb-actions">
+          <button class="eb-read-btn" style="background:${b.gradient}" onclick="openBuiltinEbook('${b.key}')">📚 Baca PDF (${b.pages} hal)</button>
+          <button class="eb-dl-btn" onclick="downloadBuiltinEbook('${b.key}')" title="Download PDF">⬇️</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
 }
 
 async function renderEbookList(){
@@ -2193,16 +2455,40 @@ async function renderEbookList(){
     wrap.innerHTML='';
     books.forEach(b=>{
       const card=document.createElement('div');
-      card.className='ebook-card';
-      card.onclick=(ev)=>{ if(ev.target.closest('.del')) return; openEbookViewer(b.id,b.title); };
-      card.innerHTML=`<div class="ic">PDF</div>
-        <div class="info"><b>${b.title}</b><span>${formatBytes(b.size)} · ${new Date(b.addedAt).toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'})}</span></div>
-        <button class="del" onclick="event.stopPropagation();deleteEbook(${b.id})">🗑</button>`;
+      card.className='ebook-card2';
+      card.innerHTML=`
+        <div class="eb-banner" style="background:linear-gradient(155deg,#0D7A5A,#053B2E)">
+          <div class="eb-ico">📄</div>
+          <span class="eb-chip">Koleksi Pribadi</span>
+        </div>
+        <div class="eb-body">
+          <h4>${b.title}</h4>
+          <span class="eb-author">${formatBytes(b.size)} • ${new Date(b.addedAt).toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'})}</span>
+          <div class="eb-actions">
+            <button class="eb-read-btn" style="background:linear-gradient(155deg,#0D7A5A,#053B2E)" data-act="baca">📚 Baca PDF</button>
+            <button class="eb-dl-btn" data-act="download" title="Download PDF">⬇️</button>
+            <button class="eb-del-btn" data-act="hapus" title="Hapus">🗑</button>
+          </div>
+        </div>`;
+      card.querySelector('[data-act="baca"]').onclick=()=>openEbookViewer(b.id,b.title);
+      card.querySelector('[data-act="download"]').onclick=()=>downloadUserEbook(b.id,b.title);
+      card.querySelector('[data-act="hapus"]').onclick=()=>deleteEbook(b.id);
       wrap.appendChild(card);
     });
   }catch(err){
     wrap.innerHTML='<div class="empty"><div class="ico">⚠️</div>Perpustakaan tidak didukung di browser ini.</div>';
   }
+}
+async function downloadUserEbook(id, title){
+  const book=await getEbookById(id);
+  if(!book) return;
+  const url=URL.createObjectURL(book.blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download=(title||'ebook').replace(/[^a-z0-9]+/gi,'-').toLowerCase()+'.pdf';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 }
 async function deleteEbook(id){
   if(!confirm('Hapus e-book ini dari perpustakaan?')) return;
@@ -2398,7 +2684,9 @@ function setDateBox(){
 }
 function setGreeting(){
   const h=new Date().getHours();
-  const g = h<10 ? 'Selamat pagi 👋' : h<15 ? 'Selamat siang 👋' : h<18 ? 'Selamat sore 👋' : 'Selamat malam 👋';
+  const g = currentLang==='en'
+    ? (h<10 ? 'Good morning 👋' : h<15 ? 'Good afternoon 👋' : h<18 ? 'Good evening 👋' : 'Good night 👋')
+    : (h<10 ? 'Selamat pagi 👋' : h<15 ? 'Selamat siang 👋' : h<18 ? 'Selamat sore 👋' : 'Selamat malam 👋');
   document.getElementById('greetName').textContent = g;
 }
 
@@ -2455,6 +2743,7 @@ updateLastReadUI();
 renderBuiltinEbookList();
 initQuote();
 initTheme();
+initLang();
 
 /* ====== PWA: Registrasi Service Worker ====== */
 if('serviceWorker' in navigator){
