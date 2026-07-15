@@ -104,6 +104,16 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 .box.locked .lbl,.box.locked .sub{color:#BE185D}
 .box.locked .check{background:#FBCFE8;border-color:#FBCFE8;color:#9D174D}
 .caution-dot{position:absolute;top:6px;right:6px;font-size:11px}
+.yt-shortcut{display:flex;align-items:center;gap:11px;background:linear-gradient(135deg,#FEF2F2,#FFF);border:1.5px solid #FCA5A5;border-radius:14px;padding:11px 13px;text-decoration:none;cursor:pointer}
+.yt-shortcut .yt-ico{width:38px;height:38px;border-radius:50%;background:#DC2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.yt-shortcut .yt-info{flex:1;min-width:0}
+.yt-shortcut .yt-info b{font-size:12px;font-weight:800;color:var(--ink);display:block}
+.yt-shortcut .yt-info span{font-size:9.5px;color:var(--sub);line-height:1.4}
+.yt-shortcut svg{color:#DC2626;flex-shrink:0;transition:transform .2s}
+.yt-shortcut.open svg{transform:rotate(90deg)}
+.yt-embed-wrap{margin-bottom:14px}
+.yt-player-box{margin-top:8px;border-radius:14px;overflow:hidden;background:#000;position:relative;aspect-ratio:16/9}
+.yt-player-box iframe{width:100%;height:100%;border:none;display:block}
 .box .check{position:absolute;top:5px;right:5px;min-width:15px;height:15px;border-radius:7px;border:1.5px solid #D1DAD6;background:#fff;font-size:7.5px;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 2px;color:#9AA8A2}
 .box.done .check{background:var(--emerald-600);border-color:var(--emerald-600);color:#fff}
 .box.partial .check{background:#EAB308;border-color:#EAB308;color:#fff}
@@ -201,6 +211,7 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 #overlay.show{display:flex}
 .sheet{background:#fff;width:100%;max-width:480px;margin:0 auto;border-radius:24px 24px 0 0;max-height:88vh;overflow-y:auto;overflow-x:hidden;padding:8px 18px 26px;box-sizing:border-box;animation:up .22s ease}
 @keyframes up{from{transform:translateY(24px);opacity:0}to{transform:translateY(0);opacity:1}}
+.sheet-close-btn{position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);left:16px;z-index:210;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.95);color:var(--emerald-800);border:none;border-radius:20px;padding:9px 15px;font-size:12px;font-weight:800;cursor:pointer;box-shadow:0 4px 14px -4px rgba(0,0,0,.3)}
 .sheet-handle{width:38px;height:4px;background:#E2E8E5;border-radius:99px;margin:8px auto 14px}
 .sheet-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .sheet-head .ico{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
@@ -238,6 +249,24 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 .riba-h:first-of-type{margin-top:0}
 .riba-p{font-size:11.5px;color:var(--sub);line-height:1.65;margin:0 0 10px}
 .app-footer{text-align:center;font-size:10px;color:var(--sub);font-weight:600;margin-top:22px;padding-top:14px;border-top:1px solid var(--line)}
+.prayer-card{margin:0 16px 16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 15px}
+.pc-setup p{font-size:11px;color:var(--sub);line-height:1.6;margin:0 0 12px}
+.pc-btn{width:100%;border:none;background:var(--emerald-700);color:#fff;font-size:12.5px;font-weight:800;padding:12px;border-radius:13px;cursor:pointer}
+.pc-btn:active{background:var(--emerald-800)}
+.pc-note{font-size:10px;color:var(--sub);margin:8px 0 0;text-align:center;line-height:1.5}
+.pc-times{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.pc-time-chip{background:#F8FAFC;border:1.5px solid var(--line);border-radius:12px;padding:9px 4px;text-align:center}
+.pc-time-chip.next{background:var(--emerald-50);border-color:var(--emerald-600)}
+.pc-time-chip .pt-name{font-size:8.5px;font-weight:800;color:var(--sub);display:block}
+.pc-time-chip.next .pt-name{color:var(--emerald-700)}
+.pc-time-chip .pt-clock{font-size:12px;font-weight:800;color:var(--ink);display:block;margin-top:3px}
+.pc-loc{grid-column:span 5;font-size:9.5px;color:var(--sub);text-align:center;margin-top:4px}
+.journal-card{margin:0 16px 4px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 15px}
+.jc-label{font-size:11px;color:var(--sub);line-height:1.6;margin:0 0 10px}
+.jc-textarea{width:100%;border:1.5px solid var(--line);border-radius:13px;padding:11px 12px;font-size:12.5px;color:var(--ink);font-family:inherit;box-sizing:border-box;resize:vertical}
+.jc-textarea:focus{outline:none;border-color:var(--emerald-600)}
+.jc-foot{text-align:right;margin-top:6px;min-height:14px}
+.jc-foot span{font-size:9.5px;color:var(--emerald-700);font-weight:700}
 .app-footer a{color:var(--emerald-700);font-weight:800;text-decoration:none}
 /* CHANNEL USTADZ SUNNAH */
 .ustadz-list{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
@@ -474,6 +503,47 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 .qs-card b{font-size:15px;font-weight:800;color:#fff;display:block;margin-bottom:5px}
 .qs-card p{font-size:10.5px;color:rgba(255,255,255,.8);margin:0 0 12px;line-height:1.5}
 .qs-btn{border:none;background:var(--gold-500);color:#3A2E0A;font-size:12px;font-weight:800;padding:10px 18px;border-radius:12px;cursor:pointer}
+.khatam-card{margin:0 16px 16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px 16px}
+.kh-intro{font-size:11px;color:var(--sub);line-height:1.6;margin:0 0 12px}
+.kh-modes{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
+.kh-mode-btn{border:1.5px solid var(--line);background:#F8FAFC;border-radius:13px;padding:11px 8px;text-align:center;cursor:pointer}
+.kh-mode-btn .kh-dot{width:9px;height:9px;border-radius:50%;margin:0 auto 5px}
+.kh-mode-btn.easy .kh-dot{background:#22C55E}
+.kh-mode-btn.medium .kh-dot{background:#EAB308}
+.kh-mode-btn.hard .kh-dot{background:#F97316}
+.kh-mode-btn.extreme .kh-dot{background:#DC2626}
+.kh-mode-btn b{font-size:12px;font-weight:800;color:var(--ink);display:block}
+.kh-mode-btn span{font-size:9.5px;color:var(--sub);display:block;margin-top:2px}
+.kh-mode-btn.selected{border-color:var(--emerald-700);background:var(--emerald-50)}
+.kh-start-opts{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.kh-start-opt{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;cursor:pointer}
+.kh-start-opt.selected{border-color:var(--emerald-700);background:var(--emerald-50)}
+.kh-start-opt input[type=radio]{accent-color:var(--emerald-700)}
+.kh-start-opt label{font-size:11.5px;font-weight:700;color:var(--ink);flex:1}
+.kh-start-opt input[type=number]{width:64px;border:1.5px solid var(--line);border-radius:9px;padding:6px 7px;font-size:12px}
+.kh-go-btn{width:100%;border:none;background:var(--emerald-700);color:#fff;font-size:12.5px;font-weight:800;padding:12px;border-radius:13px;cursor:pointer}
+.kh-progress-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.kh-progress-head b{font-size:13.5px;font-weight:800;color:var(--ink);display:block}
+.kh-progress-head span{font-size:10px;color:var(--sub)}
+.kh-mode-badge{font-size:9.5px;font-weight:800;padding:4px 10px;border-radius:20px;flex-shrink:0}
+.kh-mode-badge.easy{background:#DCFCE7;color:#15803D}
+.kh-mode-badge.medium{background:#FEF9C3;color:#854D0E}
+.kh-mode-badge.hard{background:#FFEDD5;color:#9A3412}
+.kh-mode-badge.extreme{background:#FEE2E2;color:#991B1B}
+.kh-bar-track{height:14px;border-radius:20px;background:var(--line);overflow:hidden;margin-bottom:6px}
+.kh-bar-fill{height:100%;background:linear-gradient(90deg,var(--emerald-600),var(--emerald-800));border-radius:20px;transition:width .3s;display:flex;align-items:center;justify-content:flex-end}
+.kh-bar-label{text-align:center;font-size:10.5px;color:var(--sub);font-weight:700;margin-bottom:12px}
+.kh-status{border-radius:12px;padding:10px 12px;font-size:11px;line-height:1.6;margin-bottom:12px}
+.kh-status.ontrack{background:var(--emerald-50);color:var(--emerald-800)}
+.kh-status.behind{background:#FEF2F2;color:#991B1B}
+.kh-add-row{display:flex;gap:8px;margin-bottom:10px}
+.kh-add-row input{flex:1;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13px}
+.kh-add-row button{border:none;background:var(--gold-500);color:#3A2E0A;font-size:12px;font-weight:800;padding:0 16px;border-radius:12px;cursor:pointer}
+.kh-reset-link{text-align:center;font-size:10px;color:var(--sub);text-decoration:underline;cursor:pointer;margin:0}
+.kh-done-banner{text-align:center;padding:8px 0}
+.kh-done-banner .kd-emoji{font-size:38px;margin-bottom:8px}
+.kh-done-banner b{font-size:15px;font-weight:800;color:var(--emerald-800);display:block;margin-bottom:4px}
+.kh-done-banner p{font-size:11px;color:var(--sub);margin:0 0 14px}
 </style>
 </head>
 <body>
@@ -529,6 +599,23 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
     </div>
     <div class="qm-track-wrap"><div class="qm-track" id="milestoneRow"></div></div>
     <div class="qm-note" id="milestoneText">Mulai tandai amalan hari ini untuk memulai petualanganmu.</div>
+  </div>
+
+  <div class="sec-head">🕌 Jadwal Sholat &amp; Pengingat<span class="line"></span></div>
+  <div class="prayer-card" id="prayerCard">
+    <div class="pc-setup" id="prayerSetup">
+      <p>Aktifkan lokasi untuk melihat jadwal sholat hari ini dan dapatkan notifikasi otomatis saat masuk waktu sholat (selama aplikasi ini terbuka).</p>
+      <button class="pc-btn" onclick="setupPrayerTimes()">📍 Aktifkan Lokasi &amp; Notifikasi</button>
+      <p class="pc-note" id="prayerStatusNote"></p>
+    </div>
+    <div class="pc-times" id="prayerTimes" style="display:none"></div>
+  </div>
+
+  <div class="sec-head">📔 Jurnal Muhasabah<span class="line"></span></div>
+  <div class="journal-card">
+    <p class="jc-label">Tulis refleksi, syukur, atau catatan hatimu hari ini (opsional, hanya tersimpan di HP-mu sendiri):</p>
+    <textarea id="journalInput" class="jc-textarea" rows="4" placeholder="Hari ini aku bersyukur karena... / Yang perlu aku perbaiki..." oninput="onJournalInput(this.value)"></textarea>
+    <div class="jc-foot"><span id="journalSaved"></span></div>
   </div>
 
   <div class="app-footer">Hijrah Bareng by <a href="https://lynk.id/dokterrifqi" target="_blank" rel="noopener">@dokrifqi</a></div>
@@ -636,6 +723,9 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 
   <div id="quranModeBody"></div>
 
+  <div class="sec-head" style="margin:20px 16px 10px">🏆 Challenge Khatam Qur'an<span class="line"></span></div>
+  <div class="khatam-card" id="khatamCard"></div>
+
   <div class="quran-shortcut">
     <span class="qs-label">PINTASAN CEPAT</span>
     <div class="qs-card">
@@ -736,6 +826,17 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
     <button class="qc-btn" onclick="openQrisModal()">📱 Tampilkan QRIS Donasi</button>
   </div>
 
+  <div class="sec-head" style="margin-top:20px">👥 Komunitas<span class="line"></span></div>
+  <div style="padding:0 16px">
+    <a href="https://chat.whatsapp.com/L7auX9hrVJo89ZjAHqP87V?s=cl&p=a&ilr=1&amv=0" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:13px;text-decoration:none;padding:13px;background:linear-gradient(135deg,#DCFCE7,#F0FDF4);border-radius:14px;border:1.5px solid #86EFAC">
+      <div style="width:40px;height:40px;border-radius:50%;background:#22C55E;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </div>
+      <div style="flex:1;min-width:0"><p style="font-size:9px;font-weight:700;color:#15803D;text-transform:uppercase;letter-spacing:.05em">Grup WhatsApp</p><p style="font-size:13.5px;font-weight:800;color:#166534;margin-top:1px">Join Komunitas Hijrah Bareng</p><p style="font-size:10px;color:#166534;opacity:.75;margin-top:2px">Diskusi, saran fitur, &amp; kabar update terbaru bareng @dokrifqi</p></div>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2.2" style="flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
   <div class="sec-head" style="margin-top:20px">📮 Hubungi Kami<span class="line"></span></div>
   <div style="padding:0 16px;display:flex;flex-direction:column;gap:10px">
     <a href="https://wa.me/628XXXXXXXXXX" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;padding:12px 13px;background:#F0FDF4;border-radius:14px;border:1.5px solid #BBF7D0">
@@ -797,6 +898,10 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 
 <!-- MODAL -->
 <div id="overlay" onclick="if(event.target===this)closeSheet()">
+  <button class="sheet-close-btn" onclick="closeSheet()">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    Kembali
+  </button>
   <div class="sheet" id="sheetContent"></div>
 </div>
 
@@ -1874,8 +1979,18 @@ function openSheet(id){
   } else if(a.type==='counter'){
     body += `<p class="doa-ar">${a.doaAr}</p><p class="doa-lt">${a.doaLt}</p><p class="doa-mn">${a.doaMn}</p>
       <div class="fadhilah-box"><div class="fb-label">✨ Keutamaan</div><p class="doa-ar">${a.fadhilahAr}</p><p class="doa-lt">${a.fadhilahLt}</p><p class="doa-mn">${a.fadhilahMn}</p></div>
-      <div class="ancaman-box"><div class="ab-label">⚠️ Jika Ditinggalkan</div><p>${a.ancaman}</p></div>
-      <div class="counter-row">
+      <div class="ancaman-box"><div class="ab-label">⚠️ Jika Ditinggalkan</div><p>${a.ancaman}</p></div>`;
+    if(a.id==='istighfar'){
+      body += `<div class="yt-embed-wrap">
+        <div class="yt-shortcut" onclick="toggleYtEmbed(this)" data-vid="GA6aherm6Vs">
+          <div class="yt-ico">▶️</div>
+          <div class="yt-info"><b>Putar Video Istighfar</b><span>Tap untuk putar di sini — sambil hitung istighfar di bawah</span></div>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </div>
+        <div class="yt-player-box" style="display:none"></div>
+      </div>`;
+    }
+    body += `<div class="counter-row">
         <button class="counter-btn" onclick="bumpCounter('${a.id}',-1)">–</button>
         <div class="counter-num" id="counterVal">${entry.count||0}<span style="font-size:13px;color:var(--sub);font-weight:600">/${a.target}</span></div>
         <button class="counter-btn" onclick="bumpCounter('${a.id}',1)">+</button>
@@ -1923,6 +2038,26 @@ function openSheet(id){
     if(a.id==='dzikirpagi' || a.id==='dzikirsore'){
       body += renderManfaatDzikirCard(a.id);
     }
+    if(a.id==='dzikirpagi'){
+      body += `<div class="yt-embed-wrap">
+        <div class="yt-shortcut" onclick="toggleYtEmbed(this)" data-vid="8Pyo5IZvA14">
+          <div class="yt-ico">▶️</div>
+          <div class="yt-info"><b>Putar Video Dzikir Pagi</b><span>Tap untuk putar di sini — dengarkan sambil baca manual di bawah</span></div>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </div>
+        <div class="yt-player-box" style="display:none"></div>
+      </div>`;
+    }
+    if(a.id==='dzikirsore'){
+      body += `<div class="yt-embed-wrap">
+        <div class="yt-shortcut" onclick="toggleYtEmbed(this)" data-vid="NF3DrA-ldUI">
+          <div class="yt-ico">▶️</div>
+          <div class="yt-info"><b>Putar Video Dzikir Sore</b><span>Tap untuk putar di sini — dengarkan sambil baca manual di bawah</span></div>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </div>
+        <div class="yt-player-box" style="display:none"></div>
+      </div>`;
+    }
     if(a.hasBacaan){
       body += BACAAN[a.hasBacaan].map(b=>`<div class="bacaan-block"><div class="bl-title">${b.t}</div><p class="doa-ar">${b.ar}</p><p class="doa-lt">${b.lt}</p><p class="doa-mn">${b.mn}</p></div>`).join('');
     } else {
@@ -1946,6 +2081,134 @@ function openSheet(id){
   document.getElementById('overlay').classList.add('show');
 }
 function closeSheet(){document.getElementById('overlay').classList.remove('show'); renderGrid();}
+
+/* ====== JADWAL SHOLAT & PENGINGAT ====== */
+let scheduledPrayerTimers = [];
+function setupPrayerTimes(){
+  const noteEl = document.getElementById('prayerStatusNote');
+  if(!navigator.geolocation){
+    noteEl.textContent = 'Perangkat/browser ini tidak mendukung deteksi lokasi.';
+    return;
+  }
+  noteEl.textContent = 'Mendeteksi lokasi...';
+  navigator.geolocation.getCurrentPosition(
+    (pos)=>{
+      const {latitude, longitude} = pos.coords;
+      try{ localStorage.setItem('hijrahBareng_loc', JSON.stringify({lat:latitude, lon:longitude})); }catch(e){}
+      fetchAndRenderPrayerTimes(latitude, longitude);
+    },
+    (err)=>{ noteEl.textContent = 'Izin lokasi ditolak/gagal. Aktifkan izin lokasi lalu coba lagi.'; },
+    {timeout:10000}
+  );
+}
+async function fetchAndRenderPrayerTimes(lat, lon){
+  const noteEl = document.getElementById('prayerStatusNote');
+  noteEl.textContent = 'Mengambil jadwal sholat...';
+  try{
+    const today = new Date();
+    const dateStr = String(today.getDate()).padStart(2,'0')+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+today.getFullYear();
+    const res = await fetch(`https://api.aladhan.com/v1/timings/${dateStr}?latitude=${lat}&longitude=${lon}&method=20`);
+    const json = await res.json();
+    const t = json.data.timings;
+    const schedule = [
+      {name:'Subuh', time:t.Fajr},
+      {name:'Dzuhur', time:t.Dhuhr},
+      {name:'Ashar', time:t.Asr},
+      {name:'Maghrib', time:t.Maghrib},
+      {name:'Isya', time:t.Isha},
+    ];
+    renderPrayerTimes(schedule, json.data.meta && json.data.meta.timezone);
+    requestNotifPermissionAndSchedule(schedule);
+  }catch(err){
+    noteEl.textContent = 'Gagal mengambil jadwal sholat. Cek koneksi internet lalu coba lagi.';
+  }
+}
+function renderPrayerTimes(schedule, tz){
+  document.getElementById('prayerSetup').style.display = 'none';
+  const wrap = document.getElementById('prayerTimes');
+  wrap.style.display = 'grid';
+  const now = new Date();
+  const nowMin = now.getHours()*60 + now.getMinutes();
+  let nextIdx = schedule.findIndex(s=>{
+    const [h,m] = s.time.split(':').map(Number);
+    return (h*60+m) > nowMin;
+  });
+  wrap.innerHTML = schedule.map((s,i)=>`
+    <div class="pc-time-chip ${i===nextIdx?'next':''}">
+      <span class="pt-name">${s.name}</span>
+      <span class="pt-clock">${s.time}</span>
+    </div>`).join('') + `<div class="pc-loc">🔔 Notifikasi aktif selama app terbuka${tz?' · '+tz:''}</div>`;
+  try{ localStorage.setItem('hijrahBareng_prayerSchedule', JSON.stringify({schedule, day: todayKey()})); }catch(e){}
+}
+function requestNotifPermissionAndSchedule(schedule){
+  if(!('Notification' in window)) return;
+  if(Notification.permission === 'granted'){ schedulePrayerNotifs(schedule); return; }
+  if(Notification.permission !== 'denied'){
+    Notification.requestPermission().then(perm=>{ if(perm==='granted') schedulePrayerNotifs(schedule); });
+  }
+}
+function schedulePrayerNotifs(schedule){
+  scheduledPrayerTimers.forEach(id=>clearTimeout(id));
+  scheduledPrayerTimers = [];
+  const now = new Date();
+  schedule.forEach(s=>{
+    const [h,m] = s.time.split(':').map(Number);
+    const target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, m, 0);
+    const delay = target - now;
+    if(delay > 0 && delay < 24*60*60*1000){
+      const id = setTimeout(()=>{
+        try{
+          new Notification('🕌 Waktu Sholat ' + s.name, {
+            body: 'Sudah masuk waktu sholat ' + s.name + ' (' + s.time + '). Yuk segera tunaikan.',
+            icon: 'icon-192.png'
+          });
+        }catch(e){}
+      }, delay);
+      scheduledPrayerTimers.push(id);
+    }
+  });
+}
+function initPrayerTimes(){
+  let loc = null;
+  try{ loc = JSON.parse(localStorage.getItem('hijrahBareng_loc')||'null'); }catch(e){}
+  if(!loc) return;
+  fetchAndRenderPrayerTimes(loc.lat, loc.lon);
+}
+
+/* ====== JURNAL MUHASABAH ====== */
+let journalSaveTimeout = null;
+function onJournalInput(val){
+  const data = todayData();
+  data.journal = val;
+  clearTimeout(journalSaveTimeout);
+  journalSaveTimeout = setTimeout(()=>{
+    saveState(state);
+    const el = document.getElementById('journalSaved');
+    if(el){ el.textContent = '✓ Tersimpan'; setTimeout(()=>{ if(el) el.textContent=''; }, 1800); }
+  }, 500);
+}
+function initJournal(){
+  const data = todayData();
+  const el = document.getElementById('journalInput');
+  if(el) el.value = data.journal || '';
+}
+
+/* ====== EMBED VIDEO YOUTUBE DI DALAM KARTU ====== */
+function toggleYtEmbed(el){
+  const wrap = el.parentElement;
+  const box = wrap.querySelector('.yt-player-box');
+  const vid = el.getAttribute('data-vid');
+  const isOpen = box.style.display !== 'none';
+  if(isOpen){
+    box.style.display = 'none';
+    box.innerHTML = '';
+    el.classList.remove('open');
+  } else {
+    box.innerHTML = `<iframe src="https://www.youtube.com/embed/${vid}?rel=0&autoplay=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    box.style.display = 'block';
+    el.classList.add('open');
+  }
+}
 
 /* ====== MODAL QRIS DONASI ====== */
 function openQrisModal(){
@@ -2659,6 +2922,155 @@ function setQuranMode(mode){
   }
 }
 
+/* ====== CHALLENGE KHATAM QUR'AN ====== */
+const QURAN_TOTAL_PAGES = 604;
+const KHATAM_MODES = {
+  easy:{days:365, label:'Easy', desc:'Tamat 1 tahun'},
+  medium:{days:182, label:'Medium', desc:'Tamat 6 bulan'},
+  hard:{days:30, label:'Hard', desc:'Tamat 1 bulan'},
+  extreme:{days:14, label:'Extreme', desc:'Tamat 2 minggu'},
+};
+let khatamSelectedMode = null;
+let khatamStartOpt = 'awal';
+function getKhatam(){ return state.khatam || null; }
+function selectKhatamMode(mode){
+  khatamSelectedMode = mode;
+  document.querySelectorAll('.kh-mode-btn').forEach(b=>b.classList.toggle('selected', b.dataset.mode===mode));
+}
+function selectKhatamStart(opt){
+  khatamStartOpt = opt;
+  document.querySelectorAll('.kh-start-opt').forEach(el=>el.classList.toggle('selected', el.dataset.opt===opt));
+  const numInput = document.getElementById('khStartPage');
+  if(numInput) numInput.disabled = (opt!=='lanjut');
+}
+function startKhatamChallenge(){
+  if(!khatamSelectedMode){ alert('Pilih mode challenge terlebih dahulu.'); return; }
+  let startPage = 1;
+  if(khatamStartOpt==='lanjut'){
+    const val = parseInt(document.getElementById('khStartPage').value, 10);
+    if(!val || val<1 || val>QURAN_TOTAL_PAGES){ alert('Masukkan nomor halaman terakhir yang valid (1-604).'); return; }
+    startPage = val;
+  }
+  state.khatam = {
+    mode: khatamSelectedMode,
+    startDateKey: todayKey(),
+    targetDays: KHATAM_MODES[khatamSelectedMode].days,
+    startPage: startPage,
+    pagesDone: 0,
+    log: {},
+    completed: false,
+    completedOn: null,
+  };
+  saveState(state);
+  renderKhatamCard();
+}
+function computeKhatamDaysElapsed(kh){
+  const start = new Date(kh.startDateKey+'T00:00:00');
+  const now = new Date(todayKey()+'T00:00:00');
+  return Math.max(1, Math.round((now-start)/86400000)+1);
+}
+function addKhatamProgress(){
+  const kh = getKhatam();
+  if(!kh || kh.completed) return;
+  const input = document.getElementById('khAddInput');
+  const n = parseInt(input.value, 10);
+  if(!n || n<=0){ return; }
+  const remaining = QURAN_TOTAL_PAGES - kh.startPage + 1 - kh.pagesDone;
+  const add = Math.min(n, Math.max(0, remaining));
+  kh.pagesDone += add;
+  kh.log[todayKey()] = (kh.log[todayKey()]||0) + add;
+  if(kh.pagesDone >= (QURAN_TOTAL_PAGES - kh.startPage + 1)){
+    kh.completed = true;
+    kh.completedOn = todayKey();
+  }
+  saveState(state);
+  input.value = '';
+  renderKhatamCard();
+}
+function resetKhatamChallenge(){
+  if(!confirm('Reset challenge khatam saat ini? Progres yang sudah tercatat akan dihapus.')) return;
+  delete state.khatam;
+  khatamSelectedMode = null;
+  khatamStartOpt = 'awal';
+  saveState(state);
+  renderKhatamCard();
+}
+function renderKhatamCard(){
+  const wrap = document.getElementById('khatamCard');
+  if(!wrap) return;
+  const kh = getKhatam();
+
+  if(!kh){
+    wrap.innerHTML = `
+      <p class="kh-intro">Tantang dirimu untuk khatam 604 halaman Al-Qur'an dalam target waktu tertentu. Pilih mode, lalu mulai dari halaman 1 atau lanjutkan dari bacaanmu yang sudah ada.</p>
+      <div class="kh-modes">
+        ${Object.entries(KHATAM_MODES).map(([key,m])=>`
+          <div class="kh-mode-btn ${key}" data-mode="${key}" onclick="selectKhatamMode('${key}')">
+            <div class="kh-dot"></div>
+            <b>${m.label}</b>
+            <span>${m.desc}</span>
+          </div>`).join('')}
+      </div>
+      <div class="kh-start-opts">
+        <div class="kh-start-opt selected" data-opt="awal" onclick="selectKhatamStart('awal')">
+          <input type="radio" name="khStart" checked>
+          <label>Mulai dari Awal (halaman 1)</label>
+        </div>
+        <div class="kh-start-opt" data-opt="lanjut" onclick="selectKhatamStart('lanjut')">
+          <input type="radio" name="khStart">
+          <label>Lanjutkan dari halaman ke-</label>
+          <input type="number" id="khStartPage" min="1" max="604" placeholder="mis: 120" disabled onclick="event.stopPropagation()">
+        </div>
+      </div>
+      <button class="kh-go-btn" onclick="startKhatamChallenge()">🚀 Mulai Challenge</button>
+    `;
+    return;
+  }
+
+  if(kh.completed){
+    const daysUsed = computeKhatamDaysElapsed(kh) ;
+    wrap.innerHTML = `
+      <div class="kh-done-banner">
+        <div class="kd-emoji">🎉</div>
+        <b>Alhamdulillah, Khatam!</b>
+        <p>Kamu menyelesaikan mode <b>${KHATAM_MODES[kh.mode].label}</b> dalam ${daysUsed} hari (target ${kh.targetDays} hari).</p>
+        <button class="kh-go-btn" onclick="resetKhatamChallenge()">🚀 Mulai Challenge Baru</button>
+      </div>`;
+    return;
+  }
+
+  const totalTarget = QURAN_TOTAL_PAGES - kh.startPage + 1;
+  const pct = Math.min(100, Math.round((kh.pagesDone/totalTarget)*100));
+  const daysElapsed = computeKhatamDaysElapsed(kh);
+  const daysLeft = Math.max(0, kh.targetDays - daysElapsed + 1);
+  const expectedPages = Math.min(totalTarget, Math.round((daysElapsed/kh.targetDays)*totalTarget));
+  const diff = kh.pagesDone - expectedPages;
+  const perDayNeeded = daysLeft>0 ? Math.ceil((totalTarget-kh.pagesDone)/daysLeft) : (totalTarget-kh.pagesDone);
+  const modeInfo = KHATAM_MODES[kh.mode];
+
+  let statusHTML;
+  if(diff >= 0){
+    statusHTML = `<div class="kh-status ontrack">✅ <b>On track!</b> Kamu ${diff>0?('unggul '+diff+' halaman dari target'):'tepat sesuai target'}. Lanjutkan sekitar <b>${perDayNeeded} halaman/hari</b> untuk tetap on track.</div>`;
+  } else {
+    statusHTML = `<div class="kh-status behind">⚠️ <b>Tertinggal ${Math.abs(diff)} halaman.</b> Kejar sekitar <b>${perDayNeeded} halaman/hari</b> di ${daysLeft} hari tersisa agar tetap bisa khatam tepat waktu.</div>`;
+  }
+
+  wrap.innerHTML = `
+    <div class="kh-progress-head">
+      <div><b>${kh.pagesDone} / ${totalTarget} halaman</b><span>Hari ke-${daysElapsed} dari ${kh.targetDays} hari · sisa ${daysLeft} hari</span></div>
+      <span class="kh-mode-badge ${kh.mode}">${modeInfo.label}</span>
+    </div>
+    <div class="kh-bar-track"><div class="kh-bar-fill" style="width:${pct}%"></div></div>
+    <div class="kh-bar-label">${pct}% selesai</div>
+    ${statusHTML}
+    <div class="kh-add-row">
+      <input type="number" id="khAddInput" min="1" placeholder="Tambah halaman dibaca hari ini">
+      <button onclick="addKhatamProgress()">Simpan</button>
+    </div>
+    <p class="kh-reset-link" onclick="resetKhatamChallenge()">Reset / ganti mode challenge</p>
+  `;
+}
+
 
 /* ====== NAV ====== */
 function navTo(tab, el){
@@ -2668,7 +3080,7 @@ function navTo(tab, el){
   el.classList.add('active');
   if(tab==='riwayat')renderRiwayat();
   if(tab==='ebook'){renderEbookList(); renderBuiltinEbookList();}
-  if(tab==='quran'){setQuranMode(quranMode); updateLastReadUI();}
+  if(tab==='quran'){setQuranMode(quranMode); updateLastReadUI(); renderKhatamCard();}
   window.scrollTo(0,0);
 }
 
@@ -2744,6 +3156,9 @@ renderBuiltinEbookList();
 initQuote();
 initTheme();
 initLang();
+initPrayerTimes();
+initJournal();
+renderKhatamCard();
 
 /* ====== PWA: Registrasi Service Worker ====== */
 if('serviceWorker' in navigator){
