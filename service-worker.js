@@ -1,5 +1,5 @@
 /* Hijrah Bareng — Service Worker */
-const CACHE_NAME = 'hijrah-bareng-cache-v12';
+const CACHE_NAME = 'hijrah-bareng-cache-v17';
 
 // App shell + data assets to pre-cache on install.
 // Large ebook/QRIS data files are included so the app works fully offline
@@ -59,6 +59,32 @@ self.addEventListener('fetch', (event) => {
         })
         .catch(() => cached);
       return cached || networkFetch;
+    })
+  );
+});
+
+self.addEventListener('notificationclick', (event) => {
+  const notif = event.notification;
+  const action = event.action;
+  notif.close();
+
+  if(action === 'mark_prayer' && notif.data && notif.data.wajibId){
+    event.waitUntil(
+      self.clients.matchAll({type:'window', includeUncontrolled:true}).then((clientList) => {
+        if(clientList.length > 0){
+          clientList[0].postMessage({type:'MARK_PRAYER', wajibId: notif.data.wajibId});
+          return clientList[0].focus();
+        }
+        return self.clients.openWindow('./index.html');
+      })
+    );
+    return;
+  }
+
+  event.waitUntil(
+    self.clients.matchAll({type:'window', includeUncontrolled:true}).then((clientList) => {
+      if(clientList.length > 0) return clientList[0].focus();
+      return self.clients.openWindow('./index.html');
     })
   );
 });

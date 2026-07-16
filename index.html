@@ -89,6 +89,8 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 .qm-line{flex:0 0 20px;height:3px;background:rgba(255,255,255,.15);margin-bottom:19px;border-radius:2px}
 .qm-line.done{background:linear-gradient(90deg,var(--gold-400),var(--gold-500))}
 .qm-note{text-align:center;font-size:10.5px;color:rgba(255,255,255,.82);margin-top:12px;line-height:1.6;position:relative;z-index:1}
+.share-progress-btn{width:100%;margin-top:14px;border:none;background:var(--gold-500);color:#3A2E0A;font-size:12px;font-weight:800;padding:11px;border-radius:13px;cursor:pointer;position:relative;z-index:1}
+.share-progress-btn:active{background:var(--gold-600)}
 .qm-note b{color:var(--gold-400)}
 .mnote b{color:var(--emerald-700)}
 /* GRID AMALAN */
@@ -133,13 +135,33 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 .hist-bar-row.scrollx .hist-col{flex:0 0 20px}
 .hist-summary{padding:10px 16px 0;font-size:11px;color:var(--sub);display:flex;gap:14px;flex-wrap:wrap}
 .hist-summary b{color:var(--emerald-700);font-weight:800}
-.achieve-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;padding:0 16px}
-.ach-badge{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:3px}
-.ach-badge.unlocked{border-color:var(--gold-500);background:linear-gradient(160deg,#FFFBEF,#FFF3D6)}
-.ach-badge .ab-ico{font-size:22px;filter:grayscale(1) opacity(.35)}
+.achieve-grid{padding:0 16px}
+.ach-summary{text-align:center;font-size:12px;font-weight:700;color:var(--ink);background:#F8FAFC;border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:14px}
+.ach-summary b{color:var(--gold-600);font-size:15px}
+.ach-cat-head{font-size:11px;font-weight:800;color:var(--emerald-700);margin:0 0 8px;text-transform:uppercase;letter-spacing:.03em}
+.ach-grid-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:18px}
+.ach-badge{position:relative;overflow:hidden;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 6px 10px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:3px}
+.ach-badge .ab-ico{font-size:24px;filter:grayscale(1) opacity(.35)}
+.ach-badge .ab-lbl{font-size:9px;font-weight:800;color:var(--sub);line-height:1.25;min-height:22px;display:flex;align-items:center}
+.ach-badge .ab-prog-track{width:100%;height:4px;border-radius:20px;background:var(--line);margin-top:4px;overflow:hidden}
+.ach-badge .ab-prog-fill{height:100%;background:var(--emerald-600);border-radius:20px}
+.ach-badge .ab-prog-num{font-size:7.5px;color:var(--sub);font-weight:700;margin-top:2px}
 .ach-badge.unlocked .ab-ico{filter:none}
-.ach-badge .ab-lbl{font-size:8.5px;font-weight:800;color:var(--sub);line-height:1.25}
-.ach-badge.unlocked .ab-lbl{color:var(--gold-600)}
+.ach-badge.unlocked .ab-lbl{color:var(--ink)}
+.ach-badge .ab-tier{font-size:7px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;margin-top:2px;padding:2px 8px;border-radius:10px}
+.ach-badge .ab-shine{position:absolute;top:-50%;left:-20%;width:40%;height:200%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.85),transparent);transform:rotate(20deg);animation:achShine 3s ease-in-out infinite}
+@keyframes achShine{0%{left:-40%}100%{left:140%}}
+.ach-badge.unlocked.tier-bronze{border-color:#C08552;background:linear-gradient(160deg,#FDF1E7,#F3D9BF)}
+.ach-badge.unlocked.tier-bronze .ab-tier{background:#EAD4BC;color:#8A5A2B}
+.ach-badge.unlocked.tier-silver{border-color:#9CA3AF;background:linear-gradient(160deg,#F8FAFC,#E2E8F0)}
+.ach-badge.unlocked.tier-silver .ab-tier{background:#E2E8F0;color:#475569}
+.ach-badge.unlocked.tier-gold{border-color:var(--gold-500);background:linear-gradient(160deg,#FFFBEF,#FFF3D6)}
+.ach-badge.unlocked.tier-gold .ab-tier{background:#FDE9B8;color:#92600C}
+.ach-badge.unlocked.tier-diamond{border-color:#38BDF8;background:linear-gradient(160deg,#F0F9FF,#DBEEFB)}
+.ach-badge.unlocked.tier-diamond .ab-tier{background:#D3ECFB;color:#0369A1}
+.ach-badge.unlocked.tier-legend{border-color:#A855F7;background:linear-gradient(160deg,#FAF5FF,#F0E2FF)}
+.ach-badge.unlocked.tier-legend .ab-tier{background:#EDDCFB;color:#7E22CE}
+.ach-badge.unlocked.tier-legend .ab-lbl{color:#7E22CE}
 .amalan-stat-row{background:#fff;border:1px solid var(--line);border-radius:13px;padding:10px 12px;display:flex;align-items:center;gap:10px}
 .amalan-stat-row .as-ico{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 .amalan-stat-row .as-info{flex:1;min-width:0}
@@ -149,6 +171,21 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 .amalan-stat-row .as-count small{font-size:9px;color:var(--sub);font-weight:700;display:block;text-align:right}
 /* DUKUNGAN & SPONSOR */
 .support-hero{background:linear-gradient(155deg,var(--emerald-900) 0%,var(--emerald-600) 100%);border-radius:20px;margin:0 16px;padding:24px 20px;text-align:center}
+.community-stats{display:flex;gap:10px;margin:14px 16px 4px}
+.cs-item{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 8px;text-align:center}
+.cs-item b{font-size:18px;font-weight:800;color:var(--emerald-700);display:block}
+.cs-item span{font-size:9.5px;color:var(--sub);font-weight:700}
+.wof-scroll{display:flex;gap:10px;overflow-x:auto;padding:2px 16px 4px;-webkit-overflow-scrolling:touch}
+.wof-scroll::-webkit-scrollbar{display:none}
+.wof-card{flex:0 0 220px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 15px}
+.wof-card .wof-quote{font-size:11.5px;color:var(--ink);line-height:1.6;margin:0 0 10px;font-style:italic}
+.wof-card .wof-who{display:flex;align-items:center;gap:8px}
+.wof-card .wof-avatar{width:30px;height:30px;border-radius:50%;background:var(--emerald-100);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.wof-card .wof-name{font-size:10.5px;font-weight:800;color:var(--emerald-700);display:block}
+.wof-card .wof-badge{font-size:9px;color:var(--sub)}
+.referral-card{margin:0 16px;background:linear-gradient(155deg,#1D4ED8,#1E3A8A);border-radius:16px;padding:16px}
+.referral-card .rf-label{font-size:11.5px;color:rgba(255,255,255,.9);line-height:1.6;margin:0 0 12px}
+.referral-card .rf-btn{width:100%;border:none;background:#fff;color:#1E3A8A;font-size:12.5px;font-weight:800;padding:12px;border-radius:13px;cursor:pointer}
 .support-hero .sh-icon{font-size:36px;margin-bottom:8px}
 .support-hero h2{font-size:18px;font-weight:800;color:#fff;margin:0 0 8px}
 .support-hero p{font-size:11.5px;color:rgba(255,255,255,.88);line-height:1.6;margin:0}
@@ -262,10 +299,40 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 .pc-time-chip .pt-clock{font-size:12px;font-weight:800;color:var(--ink);display:block;margin-top:3px}
 .pc-loc{grid-column:span 5;font-size:9.5px;color:var(--sub);text-align:center;margin-top:4px}
 .journal-card{margin:0 16px 4px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 15px}
+.c40-card{margin:0 16px 16px;background:linear-gradient(155deg,#7C2D12,#B45309);border-radius:16px;padding:16px;color:#fff}
+.c40-card .c40-intro{font-size:11px;color:rgba(255,255,255,.9);line-height:1.65;margin:0 0 12px}
+.c40-card .c40-intro b{color:#FDE68A}
+.c40-modes{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:12px}
+.c40-mode-btn{border:1.5px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);border-radius:12px;padding:10px 6px;text-align:center;cursor:pointer}
+.c40-mode-btn b{font-size:11.5px;font-weight:800;color:#fff;display:block}
+.c40-mode-btn span{font-size:8.5px;color:rgba(255,255,255,.75);display:block;margin-top:2px}
+.c40-mode-btn.selected{background:#FDE68A;border-color:#FDE68A}
+.c40-mode-btn.selected b{color:#7C2D12}
+.c40-mode-btn.selected span{color:#92400E}
+.c40-go-btn{width:100%;border:none;background:#FDE68A;color:#7C2D12;font-size:12.5px;font-weight:800;padding:12px;border-radius:13px;cursor:pointer}
+.c40-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.c40-head b{font-size:14px;font-weight:800;color:#fff;display:block}
+.c40-head span{font-size:10px;color:rgba(255,255,255,.75)}
+.c40-badge{background:rgba(255,255,255,.18);font-size:9.5px;font-weight:800;padding:4px 10px;border-radius:20px;flex-shrink:0}
+.c40-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;margin-bottom:10px}
+.c40-dot{aspect-ratio:1;border-radius:5px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:rgba(255,255,255,.55)}
+.c40-dot.pass{background:#4ADE80;color:#065F46}
+.c40-dot.fail{background:rgba(220,38,38,.55);color:#fff}
+.c40-dot.today{box-shadow:0 0 0 2px #FDE68A}
+.c40-stats{display:flex;gap:14px;margin-bottom:12px;font-size:10.5px;color:rgba(255,255,255,.85)}
+.c40-stats b{color:#FDE68A;font-size:13px;display:block}
+.c40-reset-link{text-align:center;font-size:10px;color:rgba(255,255,255,.65);text-decoration:underline;cursor:pointer;margin:0}
+.c40-done-emoji{font-size:38px;text-align:center;margin-bottom:8px}
+.c40-done b{display:block;text-align:center;font-size:15px;margin-bottom:4px}
+.c40-done p{text-align:center;font-size:11px;color:rgba(255,255,255,.85);margin:0 0 14px}
 .jc-label{font-size:11px;color:var(--sub);line-height:1.6;margin:0 0 10px}
 .jc-textarea{width:100%;border:1.5px solid var(--line);border-radius:13px;padding:11px 12px;font-size:12.5px;color:var(--ink);font-family:inherit;box-sizing:border-box;resize:vertical}
 .jc-textarea:focus{outline:none;border-color:var(--emerald-600)}
-.jc-foot{text-align:right;margin-top:6px;min-height:14px}
+.jc-foot{display:flex;align-items:center;gap:8px;margin-top:10px}
+.jc-history-btn{flex:1;border:1.5px solid var(--line);background:#F8FAFC;color:var(--emerald-700);font-size:11px;font-weight:800;padding:9px 8px;border-radius:12px;cursor:pointer}
+.jc-save-btn{border:none;background:var(--emerald-700);color:#fff;font-size:11px;font-weight:800;padding:9px 14px;border-radius:12px;cursor:pointer;flex-shrink:0}
+.jc-save-btn:active{background:var(--emerald-800)}
+.jc-foot span{font-size:9.5px;color:var(--emerald-700);font-weight:700;white-space:nowrap}
 .jc-foot span{font-size:9.5px;color:var(--emerald-700);font-weight:700}
 .app-footer a{color:var(--emerald-700);font-weight:800;text-decoration:none}
 /* CHANNEL USTADZ SUNNAH */
@@ -426,6 +493,10 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
 .page{display:none}
 .page.active{display:block}
 .empty{text-align:center;padding:40px 20px;color:var(--sub);font-size:12px}
+.journal-history-list{display:flex;flex-direction:column;gap:12px}
+.jh-entry{background:#F8FAFC;border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.jh-entry .jh-date{font-size:10.5px;font-weight:800;color:var(--emerald-700);margin-bottom:6px}
+.jh-entry .jh-text{font-size:12px;color:var(--ink);line-height:1.7;margin:0;white-space:pre-wrap}
 .empty .ico{font-size:34px;margin-bottom:8px}
 /* EBOOK */
 .ebook-upload-btn{width:100%;padding:13px;border-radius:14px;border:1.5px dashed var(--emerald-600);background:var(--emerald-50);color:var(--emerald-800);font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:7px;cursor:pointer}
@@ -599,6 +670,7 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
     </div>
     <div class="qm-track-wrap"><div class="qm-track" id="milestoneRow"></div></div>
     <div class="qm-note" id="milestoneText">Mulai tandai amalan hari ini untuk memulai petualanganmu.</div>
+    <button class="share-progress-btn" onclick="shareProgressCard()">📸 Bagikan Progress Hari Ini</button>
   </div>
 
   <div class="sec-head">🕌 Jadwal Sholat &amp; Pengingat<span class="line"></span></div>
@@ -611,11 +683,18 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
     <div class="pc-times" id="prayerTimes" style="display:none"></div>
   </div>
 
+  <div class="sec-head">🎯 Challenge 40 Hari<span class="line"></span></div>
+  <div class="c40-card" id="c40Card"></div>
+
   <div class="sec-head">📔 Jurnal Muhasabah<span class="line"></span></div>
   <div class="journal-card">
     <p class="jc-label">Tulis refleksi, syukur, atau catatan hatimu hari ini (opsional, hanya tersimpan di HP-mu sendiri):</p>
-    <textarea id="journalInput" class="jc-textarea" rows="4" placeholder="Hari ini aku bersyukur karena... / Yang perlu aku perbaiki..." oninput="onJournalInput(this.value)"></textarea>
-    <div class="jc-foot"><span id="journalSaved"></span></div>
+    <textarea id="journalInput" class="jc-textarea" rows="4" placeholder="Hari ini aku bersyukur karena... / Yang perlu aku perbaiki..." oninput="onJournalInput(this.value)" onblur="saveJournalNow()"></textarea>
+    <div class="jc-foot">
+      <button class="jc-history-btn" onclick="openJournalHistory()">📖 Baca Jurnal Lama</button>
+      <button class="jc-save-btn" onclick="saveJournalNow(true)">💾 Simpan</button>
+      <span id="journalSaved"></span>
+    </div>
   </div>
 
   <div class="app-footer">Hijrah Bareng by <a href="https://lynk.id/dokterrifqi" target="_blank" rel="noopener">@dokrifqi</a></div>
@@ -762,6 +841,20 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
     <p>Hijrah Bareng hadir gratis &amp; bebas iklan berkat dukungan para sponsor dan mitra. Terima kasih! 🙏</p>
   </div>
 
+  <div class="community-stats" id="communityStats">
+    <div class="cs-item"><b id="csAmalan">–</b><span>Amalan tercatat</span></div>
+    <div class="cs-item"><b id="csUsers">–</b><span>Pengguna aktif</span></div>
+  </div>
+
+  <div class="sec-head" style="margin-top:8px">🌟 Wall of Fame<span class="line"></span></div>
+  <div class="wof-scroll" id="wofScroll"></div>
+
+  <div class="sec-head" style="margin-top:20px">🙌 Ajak Teman<span class="line"></span></div>
+  <div class="referral-card">
+    <p class="rf-label">Yuk ajak 3 teman/keluarga ikut Challenge 40 Hari bareng Hijrah Bareng — makin rame, makin semangat istiqamahnya!</p>
+    <button class="rf-btn" onclick="shareReferral()">💬 Ajak via WhatsApp</button>
+  </div>
+
   <div class="sec-head" style="margin-top:20px">🌐 Bahasa / Language<span class="line"></span></div>
   <div class="lang-switch">
     <button class="lang-btn active" data-lang="id" onclick="setLang('id')">🇮🇩 Bahasa Indonesia</button>
@@ -851,19 +944,6 @@ body.dark .theme-toggle{filter:invert(1) hue-rotate(180deg)}
       </div>
       <div><p style="font-size:9px;font-weight:700;color:#404040;text-transform:uppercase;letter-spacing:.05em">Threads</p><p style="font-size:13.5px;font-weight:800;color:#171717;margin-top:1px">@dokrifqi</p></div>
     </a>
-  </div>
-
-  <div class="sec-head" style="margin-top:20px">💾 Backup &amp; Pulihkan Data<span class="line"></span></div>
-  <div style="padding:0 16px">
-    <div style="background:#F0FDF4;border:1.5px solid #BBF7D0;border-radius:14px;padding:14px">
-      <p style="font-size:11.5px;color:#166534;line-height:1.5;margin-bottom:12px">Simpan cadangan data amalanmu sebelum update aplikasi, atau pindahkan data ke perangkat lain. File backup berisi seluruh progres, riwayat, dan pengaturanmu.</p>
-      <div style="display:flex;gap:8px">
-        <button onclick="exportHijrahData()" style="flex:1;background:linear-gradient(135deg,#22C55E,#16A34A);color:#fff;border:none;font-size:12px;font-weight:700;padding:11px 10px;border-radius:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px">⬇️ Download Data</button>
-        <button onclick="document.getElementById('restoreFileInput').click()" style="flex:1;background:#fff;color:#15803D;border:1.5px solid #22C55E;font-size:12px;font-weight:700;padding:11px 10px;border-radius:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px">⬆️ Upload Data</button>
-      </div>
-      <input type="file" id="restoreFileInput" accept="application/json,.json" style="display:none" onchange="importHijrahData(event)">
-      <p id="backupStatusMsg" style="font-size:10.5px;color:#166534;opacity:.8;margin-top:9px;display:none"></p>
-    </div>
   </div>
 
   <div style="padding:18px 16px 0;text-align:center">
@@ -1138,46 +1218,38 @@ const BACAAN = {
     {t:'7. Doa agar Pasangan Menjadi Penyejuk Hati & Ahli Surga', ar:'اَللّٰهُمَّ اجْعَلْهُ/اجْعَلْهَا قُرَّةَ عَيْنٍ لِّيْ فِي الدُّنْيَا وَرَفِيْقًا/رَفِيْقَةً لِّيْ فِي الْجَنَّةِ', lt:"Allahummaj-'alhu/aj-'alhaa qurrata 'aynil-lii fid-dunyaa wa rafiiqal-lii/rafiiqatal-lii fil-jannah.", mn:"\"Ya Allah, jadikanlah dia penyejuk hatiku di dunia, dan pendampingku kelak di surga.\" — doa harapan agar kebersamaan dengan pasangan tidak berhenti di dunia, tetapi berlanjut hingga ke surga (sesuaikan dhamir hu/ha untuk suami/istri)."},
   ],
   pagi:[
-    {t:'1. Dzikir Pembuka Pagi', ar:'اَللّٰهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوْتُ، وَإِلَيْكَ النُّشُوْرُ', lt:"Allahumma bika ashbahnaa, wa bika amsaynaa, wa bika nahyaa, wa bika namuutu, wa ilaykan-nusyuur.", mn:"\"Ya Allah, hanya dengan rahmat dan pertolongan-Mu kami memasuki pagi, dan dengan rahmat dan pertolongan-Mu kami memasuki sore, hanya dengan rahmat dan kehendak-Mu kami hidup, dan dengan rahmat dan kehendak-Mu kami mati, dan hanya kepada-Mulah kembali (makhluk setelah dibangkitkan).\" [Dibaca 1x] — HR. Al-Bukhari dalam Adabul Mufrad, Abu Dawud, at-Tirmidzi, Ibnu Majah, Ahmad."},
-    {t:'2. Dzikir Fitrah Islam', ar:'أَصْبَحْنَا عَلٰى فِطْرَةِ الْإِسْلَامِ، وَعَلٰى كَلِمَةِ الْإِخْلَاصِ، وَعَلٰى دِيْنِ نَبِيِّنَا مُحَمَّدٍ ﷺ، وَعَلٰى مِلَّةِ أَبِيْنَا إِبْرَاهِيْمَ حَنِيْفًا مُسْلِمًا وَمَا كَانَ مِنَ الْمُشْرِكِيْنَ', lt:"Ashbahnaa 'alaa fithratil-islaam, wa 'alaa kalimatil-ikhlaash, wa 'alaa diini nabiyyinaa Muhammadin shallallaahu 'alayhi wa sallam, wa 'alaa millati abiinaa Ibraahiima haniifam-muslimaw-wa maa kaana minal-musyrikiin.", mn:"\"Pada waktu pagi kami berada di atas fitrah Islam, kalimat ikhlas (dua kalimat syahadat), agama Nabi kami Muhammad ﷺ dan agama ayah kami Ibrahim yang hanif (lurus), Muslim (tunduk patuh), dan dia tidak tergolong orang-orang musyrik.\" [Dibaca 1x] — HR. Ahmad (III/406-407), ad-Darimi, Ibnu Sunni."},
-    {t:'3. Dzikir Kerajaan Milik Allah', ar:'أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلّٰهِ، وَالْحَمْدُ لِلّٰهِ، لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلٰى كُلِّ شَيْءٍ قَدِيْرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِيْ هٰذَا الْيَوْمِ وَخَيْرَ مَا بَعْدَهُ، وَأَعُوْذُ بِكَ مِنْ شَرِّ مَا فِيْ هٰذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ، رَبِّ أَعُوْذُ بِكَ مِنَ الْكَسَلِ وَسُوْءِ الْكِبَرِ، رَبِّ أَعُوْذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ', lt:"Ashbahnaa wa ashbahal-mulku lillaah, wal-hamdu lillaah, laa ilaaha illallaahu wahdahu laa syariika lah, lahul-mulku wa lahul-hamdu wa huwa 'alaa kulli syay-in qadiir, rabbi as-aluka khayra maa fii haadzal-yawmi wa khayra maa ba'dah, wa a'uudzu bika min syarri maa fii haadzal-yawmi wa syarri maa ba'dah, rabbi a'uudzu bika minal-kasali wa suu-il-kibar, rabbi a'uudzu bika min 'adzaabin fin-naari wa 'adzaabin fil-qabr.", mn:"\"Kami telah memasuki waktu pagi dan kerajaan hanyalah milik Allah, segala puji hanya milik Allah. Tidak ada ilah selain Allah Yang Maha Esa, tiada sekutu bagi-Nya. Bagi-Nya kerajaan dan bagi-Nya pujian. Dia Yang Mahakuasa atas segala sesuatu. Wahai Rabbku, aku mohon kepada-Mu kebaikan pada hari ini dan kebaikan sesudahnya. Aku berlindung kepada-Mu dari kejahatan hari ini dan kejahatan sesudahnya. Wahai Rabbku, aku berlindung kepada-Mu dari kemalasan dan keburukan di hari tua. Wahai Rabbku, aku berlindung pada-Mu dari siksa di Neraka dan siksa di kubur.\" [Dibaca 1x] — HR. Muslim, Abu Dawud, at-Tirmidzi."},
-    {t:'4. Membaca Sayyidul Istighfar', ar:'اَللّٰهُمَّ أَنْتَ رَبِّيْ لَا إِلٰهَ إِلَّا أَنْتَ، خَلَقْتَنِيْ وَأَنَا عَبْدُكَ، وَأَنَا عَلٰى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوْذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوْءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوْءُ بِذَنْۢبِيْ فَاغْفِرْ لِيْ فَإِنَّهُ لَا يَغْفِرُ الذُّنُوْبَ إِلَّا أَنْتَ', lt:"Allahumma anta Rabbii laa ilaaha illaa anta, khalaqtanii wa ana 'abduk, wa ana 'alaa 'ahdika wa wa'dika mas-tatha'tu, a'uudzu bika min syarri maa shana'tu, abuu-u laka bini'matika 'alayya, wa abuu-u bidzambii faghfir lii fa-innahuu laa yaghfirudz-dzunuuba illaa anta.", mn:"\"Ya Allah, Engkau adalah Rabbku, tidak ada ilah yang berhak diibadahi dengan benar kecuali Engkau, Engkaulah yang menciptakanku. Aku adalah hamba-Mu. Aku (yakin) dengan janji-Mu dan aku akan setia pada perjanjianku kepada-Mu semampuku. Aku berlindung kepada-Mu dari keburukan (apa) yang kuperbuat. Aku mengakui nikmat-Mu (yang diberikan) kepadaku dan aku mengakui dosaku, maka ampunilah aku. Dan sesungguhnya tidak ada yang dapat mengampuni dosa kecuali Engkau.\" [Dibaca 1x] — Barangsiapa membacanya di waktu pagi dengan yakin lalu meninggal sebelum masuk waktu sore, ia termasuk penghuni Surga. Begitu pula sebaliknya di waktu sore. (HR. Al-Bukhari, an-Nasa'i, Ahmad)"},
-    {t:'5. Doa Keselamatan Badan', ar:'اَللّٰهُمَّ عَافِنِيْ فِيْ بَدَنِيْ، اَللّٰهُمَّ عَافِنِيْ فِيْ سَمْعِيْ، اَللّٰهُمَّ عَافِنِيْ فِيْ بَصَرِيْ، لَا إِلٰهَ إِلَّا أَنْتَ، اَللّٰهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنَ الْكُفْرِ وَالْفَقْرِ، اَللّٰهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنْ عَذَابِ الْقَبْرِ، لَا إِلٰهَ إِلَّا أَنْتَ', lt:"Allahumma 'aafinii fii badanii, Allahumma 'aafinii fii sam'ii, Allahumma 'aafinii fii bashariy, laa ilaaha illaa anta, Allahumma innii a'uudzu bika minal-kufri wal-faqr, Allahumma innii a'uudzu bika min 'adzaabil-qabr, laa ilaaha illaa anta.", mn:"\"Ya Allah, selamatkanlah tubuhku ini (dari penyakit dan dari apa yang tidak aku inginkan), Ya Allah, selamatkanlah pendengaranku, Ya Allah, selamatkanlah penglihatanku, tidak ada ilah melainkan Engkau. Ya Allah, sesungguhnya aku berlindung kepada-Mu dari kekufuran dan kefakiran. Ya Allah, aku berlindung kepada-Mu dari siksa kubur, tidak ada ilah melainkan Engkau.\" [Dibaca 3x] — HR. Al-Bukhari dalam Adabul Mufrad, Abu Dawud, Ahmad."},
-    {t:'6. Doa Memohon Ampunan & Keselamatan', ar:'اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ، اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِيْ دِيْنِيْ وَدُنْيَايَ وَأَهْلِيْ وَمَالِيْ، اَللّٰهُمَّ اسْتُرْ عَوْرَاتِيْ وَآمِنْ رَوْعَاتِيْ، اَللّٰهُمَّ احْفَظْنِيْ مِنْ بَيْنِ يَدَيَّ وَمِنْ خَلْفِيْ وَعَنْ يَمِيْنِيْ وَعَنْ شِمَالِيْ وَمِنْ فَوْقِيْ وَأَعُوْذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِيْ', lt:"Allahumma innii as-alukal-'afwa wal-'aafiyata fid-dunyaa wal-aakhirah, Allahumma innii as-alukal-'afwa wal-'aafiyata fii diinii wa dunyaaya wa ahlii wa maalii, Allahumma-stur 'awraatii wa aamin raw'aatii, Allahummahfazhnii mim bayni yadayya wa min khalfii wa 'an yamiinii wa 'an syimaalii wa min fawqii wa a'uudzu bi'azhamatika an ughtaala min tahtii.", mn:"\"Ya Allah, sesungguhnya aku mohon maaf (ampunan) dan keselamatan di dunia dan di akhirat. Ya Allah, sesungguhnya aku mohon maaf (ampunan) dan keselamatan dalam agama, dunia, keluarga, dan dalam harta-bendaku. Ya Allah tutupilah auratku (aib ataupun sesuatu yang tidak layak dilihat orang lain), dan tenteramkanlah aku dari rasa takut. Ya Allah peliharalah aku dari depan, belakang, kanan, kiri, dan dari atasku. Aku berlindung dengan kebesaran-Mu, agar aku tidak disambar dari bawahku (yakni aku berlindung dari dibenamkan ke dalam bumi).\" [Dibaca 1x] — HR. Al-Bukhari dalam Adabul Mufrad, Abu Dawud, an-Nasa'i, Ibnu Majah, Al-Hakim."},
-    {t:'7. Doa Perlindungan dari Kejahatan Diri & Syaitan', ar:'اَللّٰهُمَّ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ، فَاطِرَ السَّمٰوَاتِ وَالْأَرْضِ، رَبَّ كُلِّ شَيْءٍ وَمَلِيْكَهُ، أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا أَنْتَ، أَعُوْذُ بِكَ مِنْ شَرِّ نَفْسِيْ وَمِنْ شَرِّ الشَّيْطَانِ وَشِرْكِهِ، وَأَنْ أَقْتَرِفَ عَلٰى نَفْسِيْ سُوْءًا أَوْ أَجُرَّهُ إِلٰى مُسْلِمٍ', lt:"Allahumma 'aalimal-ghaybi wasy-syahaadah, faathiras-samaawaati wal-ardh, rabba kulli syay-iw-wa maliikah, asyhadu allaa ilaaha illaa anta, a'uudzu bika min syarri nafsii wa min syarrisy-syaythaani wa syirkih, wa an aqtarifa 'alaa nafsii suu-an aw ajurrahuu ilaa muslim.", mn:"\"Ya Allah Yang Maha Mengetahui sesuatu yang ghaib dan yang nyata, wahai Rabb Pencipta langit dan bumi, Rabb segala sesuatu dan Yang merajainya, aku bersaksi bahwa tidak ada ilah kecuali Engkau, aku berlindung kepada-Mu dari kejahatan diriku, kejahatan syaitan dan ajakannya menyekutukan Allah, dan (aku berlindung kepada-Mu) dari berbuat keburukan atas diriku, atau mendorong seorang Muslim padanya (berbuat keburukan tersebut).\" [Dibaca 1x] — Diucapkan Rasulullah ﷺ kepada Abu Bakar ash-Shiddiq radhiyallahu 'anhu pagi, sore, dan menjelang tidur. (HR. Al-Bukhari, at-Tirmidzi, Abu Dawud, Ahmad)"},
-    {t:'8. Doa Perlindungan dengan Nama Allah', ar:'بِسْمِ اللّٰهِ الَّذِيْ لَا يَضُرُّ مَعَ اسْمِهٖ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ، وَهُوَ السَّمِيْعُ الْعَلِيْمُ', lt:"Bismillaahil-ladzii laa yadhurru ma'as-mihii syay-un fil-ardhi wa laa fis-samaa-i, wa huwas-samii'ul-'aliim.", mn:"\"Dengan menyebut nama Allah yang dengan nama-Nya tidak ada sesuatu pun yang dapat membahayakan baik yang di bumi maupun di langit, Dialah Yang Maha Mendengar dan Yang Maha Mengetahui.\" [Dibaca 3x] — Barangsiapa membacanya tiga kali pada pagi dan sore hari, maka tidak ada sesuatu pun yang bisa membahayakan dirinya. (Hasan shahih: HR. Abu Dawud, at-Tirmidzi, Ibnu Majah, Ahmad)"},
-    {t:'9. Doa Keridhaan', ar:'رَضِيْتُ بِاللّٰهِ رَبًّا، وَبِالْإِسْلَامِ دِيْنًا، وَبِمُحَمَّدٍ ﷺ نَبِيًّا', lt:"Radhiitu billaahi rabbaw-wa bil-islaami diinaw-wa bimuhammadin nabiyyaa.", mn:"\"Aku ridha (rela) Allah sebagai Rabbku, Islam sebagai agamaku, dan Muhammad sebagai Nabiku.\" [Dibaca 3x] — Barangsiapa membacanya tiga kali pada pagi dan sore hari, maka Allah memberikan keridhaan-Nya kepadanya pada hari Kiamat. (Hasan: HR. Ahmad, Abu Dawud, Ibnu Majah, an-Nasa'i)"},
-    {t:'10. Doa Memohon Perbaikan Urusan', ar:'يَا حَيُّ يَا قَيُّوْمُ بِرَحْمَتِكَ أَسْتَغِيْثُ، أَصْلِحْ لِيْ شَأْنِيْ كُلَّهُ، وَلَا تَكِلْنِيْ إِلٰى نَفْسِيْ طَرْفَةَ عَيْنٍ', lt:"Yaa Hayyu yaa Qayyuumu birahmatika astaghiits, ashlih lii sya'nii kullah, wa laa takilnii ilaa nafsii tharfata 'ayn.", mn:"\"Wahai (Rabb) Yang Mahahidup, Yang Mahaberdiri sendiri (tidak butuh segala sesuatu), dengan rahmat-Mu aku meminta pertolongan, perbaikilah segala keadaan dan urusanku, jangan Engkau serahkan aku kepada diriku meski sekejap mata pun (tanpa mendapat pertolongan dari-Mu).\" [Dibaca 1x] — Hasan: HR. An-Nasa'i, Ibnu Sunni, Al-Hakim."},
-    {t:'11. Tahlil', ar:'لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلٰى كُلِّ شَيْءٍ قَدِيْرٌ', lt:"Laa ilaaha illallaahu wahdahu laa syariika lah, lahul-mulku wa lahul-hamdu wa huwa 'alaa kulli syay-in qadiir.", mn:"\"Tidak ada ilah yang berhak diibadahi dengan benar selain Allah Yang Maha Esa, tidak ada sekutu bagi-Nya, Bagi-Nya kerajaan, dan bagi-Nya segala pujian, Dan Dia Mahakuasa atas segala sesuatu.\" [Dibaca 1x atau 10x, dan boleh juga dibaca 100x pada pagi atau sore] — HR. Abu Dawud, Ibnu Majah, an-Nasa'i."},
-    {t:'12. Tasbih Panjang', ar:'سُبْحَانَ اللّٰهِ وَبِحَمْدِهٖ عَدَدَ خَلْقِهٖ وَرِضَا نَفْسِهٖ وَزِنَةَ عَرْشِهٖ وَمِدَادَ كَلِمَاتِهٖ', lt:"Subhaanallaahi wa bihamdihii 'adada khalqihii wa ridhaa nafsihii wa zinata 'arsyihii wa midaada kalimaatih.", mn:"\"Mahasuci Allah, dan aku memuji-Nya sebanyak bilangan makhluk-Nya, dan Mahasuci Allah sesuai keridhaan-Nya, dan Mahasuci Allah seberat timbangan Arsy-Nya, dan Mahasuci Allah sebanyak tinta (yang menulis) kalimat-Nya.\" [Dibaca 3x] — HR. Muslim."},
-    {t:'13. Doa Ilmu, Rezeki, dan Amal', ar:'اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا مُتَقَبَّلًا', lt:"Allahumma innii as-aluka 'ilman naafi'aa, wa rizqan thayyibaa, wa 'amalam mutaqabbalaa.", mn:"\"Ya Allah, sesungguhnya aku meminta kepada-Mu ilmu yang bermanfaat, rezeki yang halal, dan amalan yang diterima.\" [Dibaca 1x] — Shahih: HR. Ibnu Majah, Ibnu Sunni, Ahmad."},
-    {t:'14. Tasbih Ringkas', ar:'سُبْحَانَ اللّٰهِ وَبِحَمْدِهٖ', lt:"Subhaanallaahi wa bihamdih.", mn:"\"Mahasuci Allah, dan aku memuji-Nya.\" [Dibaca 100x] — Barangsiapa membacanya 100x dalam sehari, dihapus darinya seratus keburukan, dilindungi dari gangguan syaitan hingga sore harinya. (HR. Al-Bukhari no. 6405, Muslim no. 2691-2692)"},
-    {t:'15. Istighfar', ar:'أَسْتَغْفِرُ اللّٰهَ وَأَتُوْبُ إِلَيْهِ', lt:"Astaghfirullaaha wa atuubu ilayh.", mn:"\"Aku memohon ampunan kepada Allah dan bertaubat kepada-Nya.\" [Dibaca setiap hari 100x, dan boleh juga dibaca pada waktu pagi atau waktu sore] — HR. Al-Bukhari no. 6307, Muslim no. 2702."},
-    {t:'16. Ayat Kursi', ar:'أَعُوْذُ بِاللّٰهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ ۝ اَللّٰهُ لَا إِلٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّوْمُ ۚ لَا تَأْخُذُهٗ سِنَةٌ وَلَا نَوْمٌ ۚ لَهٗ مَا فِي السَّمٰوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِيْ يَشْفَعُ عِنْدَهٗٓ إِلَّا بِإِذْنِهٖ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيْهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيْطُوْنَ بِشَيْءٍ مِّنْ عِلْمِهٖٓ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمٰوَاتِ وَالْأَرْضَ ۚ وَلَا يَـُٔوْدُهٗ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيْمُ', lt:"A'uudzu billaahi minasy-syaythaanir-rajiim. Allaahu laa ilaaha illaa huwal-hayyul-qayyuum, laa ta'khudzuhuu sinatuw-wa laa nawm, lahuu maa fis-samaawaati wa maa fil-ardh, man dzalladzii yasyfa'u 'indahuu illaa bi-idznih, ya'lamu maa bayna aydiihim wa maa khalfahum, wa laa yuhiithuuna bisyay-im-min 'ilmihii illaa bimaa syaa-a, wasi'a kursiyyuhus-samaawaati wal-ardh, wa laa ya-uuduhuu hifzhuhumaa, wa huwal-'aliyyul-'azhiim.", mn:"\"Aku berlindung kepada Allah dari godaan syaitan yang terkutuk. Allah, tidak ada ilah yang berhak diibadahi dengan benar selain Dia. Yang Mahahidup, Yang terus-menerus mengurus (makhluk-Nya), tidak mengantuk dan tidak tidur. Milik-Nya apa yang ada di langit dan apa yang ada di bumi. Tidak ada yang dapat memberi syafaat di sisi-Nya tanpa izin-Nya. Dia mengetahui apa yang di hadapan mereka dan apa yang di belakang mereka, dan mereka tidak mengetahui sesuatu apa pun tentang ilmu-Nya melainkan apa yang Dia kehendaki. Kursi-Nya meliputi langit dan bumi. Dan Dia tidak merasa berat memelihara keduanya, dan Dia Mahatinggi, Mahabesar.\" (QS. Al-Baqarah: 255) [Dibaca 1x] — Barangsiapa membacanya di pagi hari, dilindungi dari gangguan jin hingga sore hari; barangsiapa membacanya di sore hari, dilindungi hingga pagi hari. (HR. Al-Hakim)"},
-    {t:'17. Surat Al-Ikhlas', ar:'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ ۝ قُلْ هُوَ اللّٰهُ أَحَدٌ ۝ اَللّٰهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُوْلَدْ ۝ وَلَمْ يَكُنْ لَّهٗ كُفُوًا أَحَدٌ', lt:"Bismillaahir-rahmaanir-rahiim. Qul huwallaahu ahad. Allaahush-shamad. Lam yalid wa lam yuulad. Wa lam yakul-lahuu kufuwan ahad.", mn:"\"Dengan nama Allah Yang Maha Pengasih, Maha Penyayang. Katakanlah (Muhammad): 'Dialah Allah, Yang Maha Esa. Allah tempat meminta segala sesuatu. (Allah) tidak beranak dan tidak pula diperanakkan. Dan tidak ada sesuatu yang setara dengan Dia.'\" (QS. Al-Ikhlas: 1-4) [Dibaca 3x]"},
-    {t:'18. Surat Al-Falaq', ar:'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ ۝ قُلْ أَعُوْذُ بِرَبِّ الْفَلَقِ ۝ مِنْ شَرِّ مَا خَلَقَ ۝ وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِنْ شَرِّ النَّفّٰثٰتِ فِي الْعُقَدِ ۝ وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ', lt:"Bismillaahir-rahmaanir-rahiim. Qul a'uudzu birabbil-falaq. Min syarri maa khalaq. Wa min syarri ghaasiqin idzaa waqab. Wa min syarrin-naffaatsaati fil-'uqad. Wa min syarri haasidin idzaa hasad.", mn:"\"Dengan nama Allah Yang Maha Pengasih, Maha Penyayang. Katakanlah: 'Aku berlindung kepada Rabb yang menguasai shubuh (fajar), dari kejahatan (makhluk yang) Dia ciptakan, dan dari kejahatan malam apabila telah gelap gulita, dan dari kejahatan (perempuan-perempuan) penyihir yang meniup pada buhul-buhul (talinya), dan dari kejahatan orang yang dengki apabila dia dengki.'\" (QS. Al-Falaq: 1-5) [Dibaca 3x]"},
-    {t:'19. Surat An-Nas', ar:'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ ۝ قُلْ أَعُوْذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلٰهِ النَّاسِ ۝ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِيْ يُوَسْوِسُ فِيْ صُدُوْرِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ', lt:"Bismillaahir-rahmaanir-rahiim. Qul a'uudzu birabbin-naas. Malikin-naas. Ilaahin-naas. Min syarril-waswaasil-khannaas. Alladzii yuwaswisu fii shuduurin-naas. Minal-jinnati wan-naas.", mn:"\"Dengan nama Allah Yang Maha Pengasih, Maha Penyayang. Katakanlah: 'Aku berlindung kepada Rabbnya manusia, Raja manusia, sembahan manusia, dari kejahatan (bisikan) setan yang bersembunyi, yang membisikkan (kejahatan) ke dalam dada manusia, dari (golongan) jin dan manusia.'\" (QS. An-Nas: 1-6) [Dibaca 3x] — Barangsiapa membaca ketiga surah ini (Al-Ikhlas, Al-Falaq, An-Nas) setiap pagi dan sore hari sebanyak 3 kali, maka (ketiga surah ini) sudah cukup baginya dari segala sesuatu (mencegahnya dari berbagai kejahatan/keburukan). (Hasan shahih: HR. Abu Dawud, at-Tirmidzi, an-Nasa'i, Ahmad)"},
+    {t:'1. Membaca Ayat Kursi (1x)', ar:'أَعُوْذُ بِاللّٰهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ ۝ اَللّٰهُ لَا إِلٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّوْمُ ۚ لَا تَأْخُذُهٗ سِنَةٌ وَلَا نَوْمٌ ۚ لَهٗ مَا فِي السَّمٰوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِيْ يَشْفَعُ عِنْدَهٗٓ إِلَّا بِإِذْنِهٖ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيْهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيْطُوْنَ بِشَيْءٍ مِّنْ عِلْمِهٖٓ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمٰوَاتِ وَالْأَرْضَ ۚ وَلَا يَـُٔوْدُهٗ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيْمُ', lt:"A'uudzu billaahi minasy-syaythaanir-rajiim. Allaahu laa ilaaha illaa huwal-hayyul-qayyuum, laa ta'khudzuhuu sinatuw-wa laa nawm, lahuu maa fis-samaawaati wa maa fil-ardh, man dzalladzii yasyfa'u 'indahuu illaa bi-idznih, ya'lamu maa bayna aydiihim wa maa khalfahum, wa laa yuhiithuuna bisyay-im-min 'ilmihii illaa bimaa syaa-a, wasi'a kursiyyuhus-samaawaati wal-ardh, wa laa ya-uuduhuu hifzhuhumaa, wa huwal-'aliyyul-'azhiim.", mn:"(QS. Al-Baqarah: 255) — Dibaca untuk memohon perlindungan dari gangguan setan hingga petang hari. \"Allah, tidak ada ilah yang berhak diibadahi dengan benar selain Dia. Yang Mahahidup, Yang terus-menerus mengurus (makhluk-Nya), tidak mengantuk dan tidak tidur... Kursi-Nya meliputi langit dan bumi. Dan Dia tidak merasa berat memelihara keduanya, dan Dia Mahatinggi, Mahabesar.\" — Barangsiapa membacanya di pagi hari, dilindungi dari gangguan jin hingga sore hari. (HR. Al-Hakim)"},
+    {t:'2. Surat Al-Ikhlas, Al-Falaq, An-Nas (Masing-Masing 3x)', ar:'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ ۝ قُلْ هُوَ اللّٰهُ أَحَدٌ ۝ اَللّٰهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُوْلَدْ ۝ وَلَمْ يَكُنْ لَّهٗ كُفُوًا أَحَدٌ<br><br>قُلْ أَعُوْذُ بِرَبِّ الْفَلَقِ ۝ مِنْ شَرِّ مَا خَلَقَ ۝ وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِنْ شَرِّ النَّفّٰثٰتِ فِي الْعُقَدِ ۝ وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ<br><br>قُلْ أَعُوْذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلٰهِ النَّاسِ ۝ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِيْ يُوَسْوِسُ فِيْ صُدُوْرِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ', lt:"Qul huwallaahu ahad. Allaahush-shamad. Lam yalid wa lam yuulad. Wa lam yakul-lahuu kufuwan ahad. — Qul a'uudzu birabbil-falaq... — Qul a'uudzu birabbin-naas...", mn:"(QS. Al-Ikhlas, Al-Falaq, An-Nas) — Dibaca untuk mencukupkan dan melindungi diri dari segala keburukan. \"Katakanlah: Dialah Allah, Yang Maha Esa...\" · \"Aku berlindung kepada Rabb yang menguasai shubuh, dari segala kejahatan...\" · \"Aku berlindung kepada Rabbnya manusia, dari kejahatan bisikan setan...\" — Barangsiapa membaca ketiga surah ini pagi dan sore 3 kali, sudah cukup baginya dari segala sesuatu. (Hasan shahih: HR. Abu Dawud, at-Tirmidzi, an-Nasa'i, Ahmad)"},
+    {t:'3. Doa Pengakuan Kekuasaan Allah di Pagi Hari (1x)', ar:'أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلّٰهِ، وَالْحَمْدُ لِلّٰهِ، لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلٰى كُلِّ شَيْءٍ قَدِيْرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِيْ هٰذَا الْيَوْمِ وَخَيْرَ مَا بَعْدَهُ، وَأَعُوْذُ بِكَ مِنْ شَرِّ مَا فِيْ هٰذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ، رَبِّ أَعُوْذُ بِكَ مِنَ الْكَسَلِ وَسُوْءِ الْكِبَرِ، رَبِّ أَعُوْذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ', lt:"Ashbahnaa wa ashbahal-mulku lillaah, wal-hamdu lillaah, laa ilaaha illallaahu wahdahu laa syariika lah, lahul-mulku wa lahul-hamdu wa huwa 'alaa kulli syay-in qadiir, rabbi as-aluka khayra maa fii haadzal-yawmi wa khayra maa ba'dah, wa a'uudzu bika min syarri maa fii haadzal-yawmi wa syarri maa ba'dah, rabbi a'uudzu bika minal-kasali wa suu-il-kibar, rabbi a'uudzu bika min 'adzaabin fin-naari wa 'adzaabin fil-qabr.", mn:"\"Kami telah memasuki waktu pagi dan kerajaan hanyalah milik Allah, segala puji hanya milik Allah. Tidak ada ilah selain Allah Yang Maha Esa, tiada sekutu bagi-Nya. Bagi-Nya kerajaan dan bagi-Nya pujian. Dia Yang Mahakuasa atas segala sesuatu. Wahai Rabbku, aku mohon kepada-Mu kebaikan pada hari ini dan kebaikan sesudahnya...\" [Dibaca 1x] — HR. Muslim, Abu Dawud, at-Tirmidzi."},
+    {t:'4. Doa Memasuki Pagi (1x)', ar:'اَللّٰهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوْتُ، وَإِلَيْكَ النُّشُوْرُ', lt:"Allahumma bika ashbahnaa, wa bika amsaynaa, wa bika nahyaa, wa bika namuutu, wa ilaykan-nusyuur.", mn:"\"Ya Allah, hanya dengan rahmat dan pertolongan-Mu kami memasuki pagi, dan dengan rahmat dan pertolongan-Mu kami memasuki sore, hanya dengan rahmat dan kehendak-Mu kami hidup, dan dengan rahmat dan kehendak-Mu kami mati, dan hanya kepada-Mulah kembali (makhluk setelah dibangkitkan).\" [Dibaca 1x] — HR. Al-Bukhari dalam Adabul Mufrad, Abu Dawud, at-Tirmidzi, Ibnu Majah, Ahmad."},
+    {t:'5. Sayyidul Istighfar / Induk Istighfar (1x)', ar:'اَللّٰهُمَّ أَنْتَ رَبِّيْ لَا إِلٰهَ إِلَّا أَنْتَ، خَلَقْتَنِيْ وَأَنَا عَبْدُكَ، وَأَنَا عَلٰى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوْذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوْءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوْءُ بِذَنْۢبِيْ فَاغْفِرْ لِيْ فَإِنَّهُ لَا يَغْفِرُ الذُّنُوْبَ إِلَّا أَنْتَ', lt:"Allahumma anta Rabbii laa ilaaha illaa anta, khalaqtanii wa ana 'abduk, wa ana 'alaa 'ahdika wa wa'dika mas-tatha'tu, a'uudzu bika min syarri maa shana'tu, abuu-u laka bini'matika 'alayya, wa abuu-u bidzambii faghfir lii fa-innahuu laa yaghfirudz-dzunuuba illaa anta.", mn:"\"Ya Allah, Engkau adalah Rabbku, tidak ada ilah yang berhak diibadahi dengan benar kecuali Engkau, Engkaulah yang menciptakanku. Aku adalah hamba-Mu...\" [Dibaca 1x] — Barangsiapa membacanya di waktu pagi dengan yakin lalu meninggal sebelum masuk waktu sore, ia termasuk penghuni Surga. (HR. Al-Bukhari, an-Nasa'i, Ahmad)"},
+    {t:"6. Doa Memohon Keselamatan / Al-'Afiyah (1x)", ar:'اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ، اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِيْ دِيْنِيْ وَدُنْيَايَ وَأَهْلِيْ وَمَالِيْ، اَللّٰهُمَّ اسْتُرْ عَوْرَاتِيْ وَآمِنْ رَوْعَاتِيْ، اَللّٰهُمَّ احْفَظْنِيْ مِنْ بَيْنِ يَدَيَّ وَمِنْ خَلْفِيْ وَعَنْ يَمِيْنِيْ وَعَنْ شِمَالِيْ وَمِنْ فَوْقِيْ وَأَعُوْذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِيْ', lt:"Allahumma innii as-alukal-'afwa wal-'aafiyata fid-dunyaa wal-aakhirah, Allahumma innii as-alukal-'afwa wal-'aafiyata fii diinii wa dunyaaya wa ahlii wa maalii, Allahumma-stur 'awraatii wa aamin raw'aatii, Allahummahfazhnii mim bayni yadayya wa min khalfii wa 'an yamiinii wa 'an syimaalii wa min fawqii wa a'uudzu bi'azhamatika an ughtaala min tahtii.", mn:"\"Ya Allah, sesungguhnya aku mohon maaf (ampunan) dan keselamatan di dunia dan di akhirat. Ya Allah, sesungguhnya aku mohon maaf (ampunan) dan keselamatan dalam agama, dunia, keluarga, dan dalam harta-bendaku...\" [Dibaca 1x] — HR. Al-Bukhari dalam Adabul Mufrad, Abu Dawud, an-Nasa'i, Ibnu Majah, Al-Hakim."},
+    {t:'7. Doa Berlindung dari Keburukan Diri & Setan (1x)', ar:'اَللّٰهُمَّ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ، فَاطِرَ السَّمٰوَاتِ وَالْأَرْضِ، رَبَّ كُلِّ شَيْءٍ وَمَلِيْكَهُ، أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا أَنْتَ، أَعُوْذُ بِكَ مِنْ شَرِّ نَفْسِيْ وَمِنْ شَرِّ الشَّيْطَانِ وَشِرْكِهِ، وَأَنْ أَقْتَرِفَ عَلٰى نَفْسِيْ سُوْءًا أَوْ أَجُرَّهُ إِلٰى مُسْلِمٍ', lt:"Allahumma 'aalimal-ghaybi wasy-syahaadah, faathiras-samaawaati wal-ardh, rabba kulli syay-iw-wa maliikah, asyhadu allaa ilaaha illaa anta, a'uudzu bika min syarri nafsii wa min syarrisy-syaythaani wa syirkih, wa an aqtarifa 'alaa nafsii suu-an aw ajurrahuu ilaa muslim.", mn:"\"Ya Allah Yang Maha Mengetahui sesuatu yang ghaib dan yang nyata, wahai Rabb Pencipta langit dan bumi, Rabb segala sesuatu dan Yang merajainya, aku bersaksi bahwa tidak ada ilah kecuali Engkau, aku berlindung kepada-Mu dari kejahatan diriku, kejahatan syaitan dan ajakannya menyekutukan Allah...\" [Dibaca 1x] — Diucapkan Rasulullah ﷺ kepada Abu Bakar ash-Shiddiq radhiyallahu 'anhu pagi, sore, dan menjelang tidur. (HR. Al-Bukhari, at-Tirmidzi, Abu Dawud, Ahmad)"},
+    {t:'8. Doa Perlindungan dari Segala Bahaya (3x)', ar:'بِسْمِ اللّٰهِ الَّذِيْ لَا يَضُرُّ مَعَ اسْمِهٖ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ، وَهُوَ السَّمِيْعُ الْعَلِيْمُ', lt:"Bismillaahil-ladzii laa yadhurru ma'as-mihii syay-un fil-ardhi wa laa fis-samaa-i, wa huwas-samii'ul-'aliim.", mn:"\"Dengan menyebut nama Allah yang dengan nama-Nya tidak ada sesuatu pun yang dapat membahayakan baik yang di bumi maupun di langit, Dialah Yang Maha Mendengar dan Yang Maha Mengetahui.\" [Dibaca 3x] — Barangsiapa membacanya tiga kali pada pagi dan sore hari, maka tidak ada sesuatu pun yang bisa membahayakan dirinya. (Hasan shahih: HR. Abu Dawud, at-Tirmidzi, Ibnu Majah, Ahmad)"},
+    {t:'9. Doa Ridha terhadap Allah, Islam, dan Nabi Muhammad (3x)', ar:'رَضِيْتُ بِاللّٰهِ رَبًّا، وَبِالْإِسْلَامِ دِيْنًا، وَبِمُحَمَّدٍ ﷺ نَبِيًّا', lt:"Radhiitu billaahi rabbaw-wa bil-islaami diinaw-wa bimuhammadin nabiyyaa.", mn:"\"Aku ridha (rela) Allah sebagai Rabbku, Islam sebagai agamaku, dan Muhammad sebagai Nabiku.\" [Dibaca 3x] — Barangsiapa membacanya tiga kali pada pagi dan sore hari, maka Allah memberikan keridhaan-Nya kepadanya pada hari Kiamat. (Hasan: HR. Ahmad, Abu Dawud, Ibnu Majah, an-Nasa'i)"},
+    {t:'10. Doa Memohon Pertolongan dengan Rahmat Allah (1x)', ar:'يَا حَيُّ يَا قَيُّوْمُ بِرَحْمَتِكَ أَسْتَغِيْثُ، أَصْلِحْ لِيْ شَأْنِيْ كُلَّهُ، وَلَا تَكِلْنِيْ إِلٰى نَفْسِيْ طَرْفَةَ عَيْنٍ', lt:"Yaa Hayyu yaa Qayyuumu birahmatika astaghiits, ashlih lii sya'nii kullah, wa laa takilnii ilaa nafsii tharfata 'ayn.", mn:"\"Wahai (Rabb) Yang Mahahidup, Yang Mahaberdiri sendiri (tidak butuh segala sesuatu), dengan rahmat-Mu aku meminta pertolongan, perbaikilah segala keadaan dan urusanku, jangan Engkau serahkan aku kepada diriku meski sekejap mata pun.\" [Dibaca 1x] — Hasan: HR. An-Nasa'i, Ibnu Sunni, Al-Hakim."},
+    {t:'11. Doa Istiqomah di atas Fitrah Islam (1x)', ar:'أَصْبَحْنَا عَلٰى فِطْرَةِ الْإِسْلَامِ، وَعَلٰى كَلِمَةِ الْإِخْلَاصِ، وَعَلٰى دِيْنِ نَبِيِّنَا مُحَمَّدٍ ﷺ، وَعَلٰى مِلَّةِ أَبِيْنَا إِبْرَاهِيْمَ حَنِيْفًا مُسْلِمًا وَمَا كَانَ مِنَ الْمُشْرِكِيْنَ', lt:"Ashbahnaa 'alaa fithratil-islaam, wa 'alaa kalimatil-ikhlaash, wa 'alaa diini nabiyyinaa Muhammadin shallallaahu 'alayhi wa sallam, wa 'alaa millati abiinaa Ibraahiima haniifam-muslimaw-wa maa kaana minal-musyrikiin.", mn:"\"Pada waktu pagi kami berada di atas fitrah Islam, kalimat ikhlas (dua kalimat syahadat), agama Nabi kami Muhammad ﷺ dan agama ayah kami Ibrahim yang hanif (lurus), Muslim (tunduk patuh), dan dia tidak tergolong orang-orang musyrik.\" [Dibaca 1x] — HR. Ahmad (III/406-407), ad-Darimi, Ibnu Sunni."},
+    {t:'12. Dzikir Tasbih (100x)', ar:'سُبْحَانَ اللّٰهِ وَبِحَمْدِهٖ', lt:"Subhaanallaahi wa bihamdih.", mn:"\"Mahasuci Allah, dan aku memuji-Nya.\" [Dibaca 100x] — Barangsiapa membacanya 100x dalam sehari, dihapus darinya seratus keburukan, dilindungi dari gangguan syaitan hingga sore harinya. (HR. Al-Bukhari no. 6405, Muslim no. 2691-2692)"},
+    {t:'13. Dzikir Tahlil (10x atau 100x)', ar:'لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلٰى كُلِّ شَيْءٍ قَدِيْرٌ', lt:"Laa ilaaha illallaahu wahdahu laa syariika lah, lahul-mulku wa lahul-hamdu wa huwa 'alaa kulli syay-in qadiir.", mn:"\"Tidak ada ilah yang berhak diibadahi dengan benar selain Allah Yang Maha Esa, tidak ada sekutu bagi-Nya, Bagi-Nya kerajaan, dan bagi-Nya segala pujian, Dan Dia Mahakuasa atas segala sesuatu.\" [Dibaca 1x atau 10x, dan boleh juga dibaca 100x pada pagi atau sore] — HR. Abu Dawud, Ibnu Majah, an-Nasa'i."},
+    {t:'14. Dzikir Tasbih Mengagungkan Ciptaan Allah (3x)', ar:'سُبْحَانَ اللّٰهِ وَبِحَمْدِهٖ عَدَدَ خَلْقِهٖ وَرِضَا نَفْسِهٖ وَزِنَةَ عَرْشِهٖ وَمِدَادَ كَلِمَاتِهٖ', lt:"Subhaanallaahi wa bihamdihii 'adada khalqihii wa ridhaa nafsihii wa zinata 'arsyihii wa midaada kalimaatih.", mn:"\"Mahasuci Allah, dan aku memuji-Nya sebanyak bilangan makhluk-Nya, dan Mahasuci Allah sesuai keridhaan-Nya, dan Mahasuci Allah seberat timbangan Arsy-Nya, dan Mahasuci Allah sebanyak tinta (yang menulis) kalimat-Nya.\" [Dibaca 3x] — HR. Muslim."},
+    {t:'15. Doa Memohon Ilmu, Rezeki Halal, dan Amal Diterima (1x)', ar:'اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا مُتَقَبَّلًا', lt:"Allahumma innii as-aluka 'ilman naafi'aa, wa rizqan thayyibaa, wa 'amalam mutaqabbalaa.", mn:"\"Ya Allah, sesungguhnya aku meminta kepada-Mu ilmu yang bermanfaat, rezeki yang halal, dan amalan yang diterima.\" [Dibaca 1x] — Shahih: HR. Ibnu Majah, Ibnu Sunni, Ahmad."},
   ],
   sore:[
-    {t:'1. Dzikir Pembuka Petang', ar:'اَللّٰهُمَّ بِكَ أَمْسَيْنَا، وَبِكَ أَصْبَحْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوْتُ، وَإِلَيْكَ الْمَصِيْرُ', lt:"Allahumma bika amsaynaa, wa bika ashbahnaa, wa bika nahyaa, wa bika namuutu, wa ilaykal-mashiir.", mn:"\"Ya Allah, hanya dengan rahmat dan pertolongan-Mu kami memasuki sore, dan dengan rahmat dan pertolongan-Mu kami memasuki pagi, hanya dengan rahmat dan kehendak-Mu kami hidup, dan dengan rahmat dan kehendak-Mu kami mati, dan hanya kepada-Mulah tempat kembali.\" [Dibaca 1x] — HR. At-Tirmidzi, versi petang dari dzikir pembuka pagi (HR. Al-Bukhari dalam Adabul Mufrad, Abu Dawud, Ibnu Majah)."},
-    {t:'2. Dzikir Fitrah Islam (Sore)', ar:'أَمْسَيْنَا عَلٰى فِطْرَةِ الْإِسْلَامِ، وَعَلٰى كَلِمَةِ الْإِخْلَاصِ، وَعَلٰى دِيْنِ نَبِيِّنَا مُحَمَّدٍ ﷺ، وَعَلٰى مِلَّةِ أَبِيْنَا إِبْرَاهِيْمَ حَنِيْفًا مُسْلِمًا وَمَا كَانَ مِنَ الْمُشْرِكِيْنَ', lt:"Amsaynaa 'alaa fithratil-islaam, wa 'alaa kalimatil-ikhlaash, wa 'alaa diini nabiyyinaa Muhammadin shallallaahu 'alayhi wa sallam, wa 'alaa millati abiinaa Ibraahiima haniifam-muslimaw-wa maa kaana minal-musyrikiin.", mn:"\"Pada waktu petang kami berada di atas fitrah Islam, kalimat ikhlas (dua kalimat syahadat), agama Nabi kami Muhammad ﷺ dan agama ayah kami Ibrahim yang hanif (lurus), Muslim (tunduk patuh), dan dia tidak tergolong orang-orang musyrik.\" [Dibaca 1x] — HR. Ahmad (III/406-407), ad-Darimi, Ibnu Sunni."},
-    {t:'3. Dzikir Kerajaan Milik Allah (Sore)', ar:'أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلّٰهِ، وَالْحَمْدُ لِلّٰهِ، لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلٰى كُلِّ شَيْءٍ قَدِيْرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِيْ هٰذِهِ اللَّيْلَةِ وَخَيْرَ مَا بَعْدَهَا، وَأَعُوْذُ بِكَ مِنْ شَرِّ مَا فِيْ هٰذِهِ اللَّيْلَةِ وَشَرِّ مَا بَعْدَهَا، رَبِّ أَعُوْذُ بِكَ مِنَ الْكَسَلِ وَسُوْءِ الْكِبَرِ، رَبِّ أَعُوْذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ', lt:"Amsaynaa wa amsal-mulku lillaah, wal-hamdu lillaah, laa ilaaha illallaahu wahdahu laa syariika lah, lahul-mulku wa lahul-hamdu wa huwa 'alaa kulli syay-in qadiir, rabbi as-aluka khayra maa fii haadzihil-laylati wa khayra maa ba'dahaa, wa a'uudzu bika min syarri maa fii haadzihil-laylati wa syarri maa ba'dahaa, rabbi a'uudzu bika minal-kasali wa suu-il-kibar, rabbi a'uudzu bika min 'adzaabin fin-naari wa 'adzaabin fil-qabr.", mn:"\"Kami telah memasuki waktu petang dan kerajaan hanyalah milik Allah, segala puji hanya milik Allah. Tidak ada ilah selain Allah Yang Maha Esa, tiada sekutu bagi-Nya. Bagi-Nya kerajaan dan bagi-Nya pujian. Dia Yang Mahakuasa atas segala sesuatu. Wahai Rabbku, aku mohon kepada-Mu kebaikan malam ini dan kebaikan sesudahnya. Aku berlindung kepada-Mu dari kejahatan malam ini dan kejahatan sesudahnya. Wahai Rabbku, aku berlindung kepada-Mu dari kemalasan dan keburukan di hari tua. Wahai Rabbku, aku berlindung pada-Mu dari siksa di Neraka dan siksa di kubur.\" [Dibaca 1x] — HR. Muslim, Abu Dawud, at-Tirmidzi."},
-    {t:'4. Membaca Sayyidul Istighfar (Sore)', ar:'اَللّٰهُمَّ أَنْتَ رَبِّيْ لَا إِلٰهَ إِلَّا أَنْتَ، خَلَقْتَنِيْ وَأَنَا عَبْدُكَ، وَأَنَا عَلٰى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوْذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوْءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوْءُ بِذَنْۢبِيْ فَاغْفِرْ لِيْ فَإِنَّهُ لَا يَغْفِرُ الذُّنُوْبَ إِلَّا أَنْتَ', lt:"Allahumma anta Rabbii laa ilaaha illaa anta, khalaqtanii wa ana 'abduk, wa ana 'alaa 'ahdika wa wa'dika mas-tatha'tu, a'uudzu bika min syarri maa shana'tu, abuu-u laka bini'matika 'alayya, wa abuu-u bidzambii faghfir lii fa-innahuu laa yaghfirudz-dzunuuba illaa anta.", mn:"\"Ya Allah, Engkau adalah Rabbku, tidak ada ilah yang berhak diibadahi dengan benar kecuali Engkau, Engkaulah yang menciptakanku. Aku adalah hamba-Mu. Aku (yakin) dengan janji-Mu dan aku akan setia pada perjanjianku kepada-Mu semampuku. Aku berlindung kepada-Mu dari keburukan (apa) yang kuperbuat. Aku mengakui nikmat-Mu (yang diberikan) kepadaku dan aku mengakui dosaku, maka ampunilah aku. Dan sesungguhnya tidak ada yang dapat mengampuni dosa kecuali Engkau.\" [Dibaca 1x] — Barangsiapa membacanya di waktu sore dengan yakin lalu meninggal sebelum masuk waktu pagi, ia termasuk penghuni Surga. (HR. Al-Bukhari, an-Nasa'i, Ahmad)"},
-    {t:'5. Doa Keselamatan Badan', ar:'اَللّٰهُمَّ عَافِنِيْ فِيْ بَدَنِيْ، اَللّٰهُمَّ عَافِنِيْ فِيْ سَمْعِيْ، اَللّٰهُمَّ عَافِنِيْ فِيْ بَصَرِيْ، لَا إِلٰهَ إِلَّا أَنْتَ، اَللّٰهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنَ الْكُفْرِ وَالْفَقْرِ، اَللّٰهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنْ عَذَابِ الْقَبْرِ، لَا إِلٰهَ إِلَّا أَنْتَ', lt:"Allahumma 'aafinii fii badanii, Allahumma 'aafinii fii sam'ii, Allahumma 'aafinii fii bashariy, laa ilaaha illaa anta, Allahumma innii a'uudzu bika minal-kufri wal-faqr, Allahumma innii a'uudzu bika min 'adzaabil-qabr, laa ilaaha illaa anta.", mn:"\"Ya Allah, selamatkanlah tubuhku ini (dari penyakit dan dari apa yang tidak aku inginkan), Ya Allah, selamatkanlah pendengaranku, Ya Allah, selamatkanlah penglihatanku, tidak ada ilah melainkan Engkau. Ya Allah, sesungguhnya aku berlindung kepada-Mu dari kekufuran dan kefakiran. Ya Allah, aku berlindung kepada-Mu dari siksa kubur, tidak ada ilah melainkan Engkau.\" [Dibaca 3x] — HR. Al-Bukhari dalam Adabul Mufrad, Abu Dawud, Ahmad."},
-    {t:'6. Doa Memohon Ampunan & Keselamatan', ar:'اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ، اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِيْ دِيْنِيْ وَدُنْيَايَ وَأَهْلِيْ وَمَالِيْ، اَللّٰهُمَّ اسْتُرْ عَوْرَاتِيْ وَآمِنْ رَوْعَاتِيْ، اَللّٰهُمَّ احْفَظْنِيْ مِنْ بَيْنِ يَدَيَّ وَمِنْ خَلْفِيْ وَعَنْ يَمِيْنِيْ وَعَنْ شِمَالِيْ وَمِنْ فَوْقِيْ وَأَعُوْذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِيْ', lt:"Allahumma innii as-alukal-'afwa wal-'aafiyata fid-dunyaa wal-aakhirah, Allahumma innii as-alukal-'afwa wal-'aafiyata fii diinii wa dunyaaya wa ahlii wa maalii, Allahumma-stur 'awraatii wa aamin raw'aatii, Allahummahfazhnii mim bayni yadayya wa min khalfii wa 'an yamiinii wa 'an syimaalii wa min fawqii wa a'uudzu bi'azhamatika an ughtaala min tahtii.", mn:"\"Ya Allah, sesungguhnya aku mohon maaf (ampunan) dan keselamatan di dunia dan di akhirat. Ya Allah, sesungguhnya aku mohon maaf (ampunan) dan keselamatan dalam agama, dunia, keluarga, dan dalam harta-bendaku. Ya Allah tutupilah auratku, dan tenteramkanlah aku dari rasa takut. Ya Allah peliharalah aku dari depan, belakang, kanan, kiri, dan dari atasku. Aku berlindung dengan kebesaran-Mu, agar aku tidak disambar dari bawahku.\" [Dibaca 1x] — HR. Al-Bukhari dalam Adabul Mufrad, Abu Dawud, an-Nasa'i, Ibnu Majah, Al-Hakim."},
-    {t:'7. Doa Perlindungan dari Kejahatan Diri & Syaitan', ar:'اَللّٰهُمَّ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ، فَاطِرَ السَّمٰوَاتِ وَالْأَرْضِ، رَبَّ كُلِّ شَيْءٍ وَمَلِيْكَهُ، أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا أَنْتَ، أَعُوْذُ بِكَ مِنْ شَرِّ نَفْسِيْ وَمِنْ شَرِّ الشَّيْطَانِ وَشِرْكِهِ، وَأَنْ أَقْتَرِفَ عَلٰى نَفْسِيْ سُوْءًا أَوْ أَجُرَّهُ إِلٰى مُسْلِمٍ', lt:"Allahumma 'aalimal-ghaybi wasy-syahaadah, faathiras-samaawaati wal-ardh, rabba kulli syay-iw-wa maliikah, asyhadu allaa ilaaha illaa anta, a'uudzu bika min syarri nafsii wa min syarrisy-syaythaani wa syirkih, wa an aqtarifa 'alaa nafsii suu-an aw ajurrahuu ilaa muslim.", mn:"\"Ya Allah Yang Maha Mengetahui sesuatu yang ghaib dan yang nyata, wahai Rabb Pencipta langit dan bumi, Rabb segala sesuatu dan Yang merajainya, aku bersaksi bahwa tidak ada ilah kecuali Engkau, aku berlindung kepada-Mu dari kejahatan diriku, kejahatan syaitan dan ajakannya menyekutukan Allah, dan dari berbuat keburukan atas diriku, atau mendorong seorang Muslim padanya.\" [Dibaca 1x] — Diucapkan Rasulullah ﷺ kepada Abu Bakar ash-Shiddiq radhiyallahu 'anhu pagi, sore, dan menjelang tidur. (HR. Al-Bukhari, at-Tirmidzi, Abu Dawud, Ahmad)"},
-    {t:'8. Doa Perlindungan dengan Nama Allah', ar:'بِسْمِ اللّٰهِ الَّذِيْ لَا يَضُرُّ مَعَ اسْمِهٖ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ، وَهُوَ السَّمِيْعُ الْعَلِيْمُ', lt:"Bismillaahil-ladzii laa yadhurru ma'as-mihii syay-un fil-ardhi wa laa fis-samaa-i, wa huwas-samii'ul-'aliim.", mn:"\"Dengan menyebut nama Allah yang dengan nama-Nya tidak ada sesuatu pun yang dapat membahayakan baik yang di bumi maupun di langit, Dialah Yang Maha Mendengar dan Yang Maha Mengetahui.\" [Dibaca 3x] — Barangsiapa membacanya tiga kali pada pagi dan sore hari, maka tidak ada sesuatu pun yang bisa membahayakan dirinya. (Hasan shahih: HR. Abu Dawud, at-Tirmidzi, Ibnu Majah, Ahmad)"},
-    {t:'9. Doa Keridhaan', ar:'رَضِيْتُ بِاللّٰهِ رَبًّا، وَبِالْإِسْلَامِ دِيْنًا، وَبِمُحَمَّدٍ ﷺ نَبِيًّا', lt:"Radhiitu billaahi rabbaw-wa bil-islaami diinaw-wa bimuhammadin nabiyyaa.", mn:"\"Aku ridha (rela) Allah sebagai Rabbku, Islam sebagai agamaku, dan Muhammad sebagai Nabiku.\" [Dibaca 3x] — Barangsiapa membacanya tiga kali pada pagi dan sore hari, maka Allah memberikan keridhaan-Nya kepadanya pada hari Kiamat. (Hasan: HR. Ahmad, Abu Dawud, Ibnu Majah, an-Nasa'i)"},
-    {t:'10. Doa Memohon Perbaikan Urusan', ar:'يَا حَيُّ يَا قَيُّوْمُ بِرَحْمَتِكَ أَسْتَغِيْثُ، أَصْلِحْ لِيْ شَأْنِيْ كُلَّهُ، وَلَا تَكِلْنِيْ إِلٰى نَفْسِيْ طَرْفَةَ عَيْنٍ', lt:"Yaa Hayyu yaa Qayyuumu birahmatika astaghiits, ashlih lii sya'nii kullah, wa laa takilnii ilaa nafsii tharfata 'ayn.", mn:"\"Wahai (Rabb) Yang Mahahidup, Yang Mahaberdiri sendiri, dengan rahmat-Mu aku meminta pertolongan, perbaikilah segala keadaan dan urusanku, jangan Engkau serahkan aku kepada diriku meski sekejap mata pun.\" [Dibaca 1x] — Hasan: HR. An-Nasa'i, Ibnu Sunni, Al-Hakim."},
-    {t:'11. Tahlil', ar:'لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلٰى كُلِّ شَيْءٍ قَدِيْرٌ', lt:"Laa ilaaha illallaahu wahdahu laa syariika lah, lahul-mulku wa lahul-hamdu wa huwa 'alaa kulli syay-in qadiir.", mn:"\"Tidak ada ilah yang berhak diibadahi dengan benar selain Allah Yang Maha Esa, tidak ada sekutu bagi-Nya, Bagi-Nya kerajaan, dan bagi-Nya segala pujian, Dan Dia Mahakuasa atas segala sesuatu.\" [Dibaca 1x atau 10x, dan boleh juga dibaca 100x pada pagi atau sore] — HR. Abu Dawud, Ibnu Majah, an-Nasa'i."},
-    {t:'12. Tasbih Panjang', ar:'سُبْحَانَ اللّٰهِ وَبِحَمْدِهٖ عَدَدَ خَلْقِهٖ وَرِضَا نَفْسِهٖ وَزِنَةَ عَرْشِهٖ وَمِدَادَ كَلِمَاتِهٖ', lt:"Subhaanallaahi wa bihamdihii 'adada khalqihii wa ridhaa nafsihii wa zinata 'arsyihii wa midaada kalimaatih.", mn:"\"Mahasuci Allah, dan aku memuji-Nya sebanyak bilangan makhluk-Nya, dan Mahasuci Allah sesuai keridhaan-Nya, dan Mahasuci Allah seberat timbangan Arsy-Nya, dan Mahasuci Allah sebanyak tinta (yang menulis) kalimat-Nya.\" [Dibaca 3x] — HR. Muslim."},
-    {t:'13. Doa Ilmu, Rezeki, dan Amal', ar:'اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا مُتَقَبَّلًا', lt:"Allahumma innii as-aluka 'ilman naafi'aa, wa rizqan thayyibaa, wa 'amalam mutaqabbalaa.", mn:"\"Ya Allah, sesungguhnya aku meminta kepada-Mu ilmu yang bermanfaat, rezeki yang halal, dan amalan yang diterima.\" [Dibaca 1x] — Shahih: HR. Ibnu Majah, Ibnu Sunni, Ahmad."},
-    {t:'14. Tasbih Ringkas', ar:'سُبْحَانَ اللّٰهِ وَبِحَمْدِهٖ', lt:"Subhaanallaahi wa bihamdih.", mn:"\"Mahasuci Allah, dan aku memuji-Nya.\" [Dibaca 100x] — Barangsiapa membacanya 100x dalam sehari, dihapus darinya seratus keburukan, dilindungi dari gangguan syaitan hingga pagi harinya jika dibaca petang. (HR. Al-Bukhari no. 6405, Muslim no. 2691-2692)"},
-    {t:'15. Istighfar', ar:'أَسْتَغْفِرُ اللّٰهَ وَأَتُوْبُ إِلَيْهِ', lt:"Astaghfirullaaha wa atuubu ilayh.", mn:"\"Aku memohon ampunan kepada Allah dan bertaubat kepada-Nya.\" [Dibaca setiap hari 100x, dan boleh juga dibaca pada waktu pagi atau waktu sore] — HR. Al-Bukhari no. 6307, Muslim no. 2702."},
-    {t:'16. Ayat Kursi', ar:'أَعُوْذُ بِاللّٰهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ ۝ اَللّٰهُ لَا إِلٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّوْمُ ۚ لَا تَأْخُذُهٗ سِنَةٌ وَلَا نَوْمٌ ۚ لَهٗ مَا فِي السَّمٰوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِيْ يَشْفَعُ عِنْدَهٗٓ إِلَّا بِإِذْنِهٖ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيْهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيْطُوْنَ بِشَيْءٍ مِّنْ عِلْمِهٖٓ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمٰوَاتِ وَالْأَرْضَ ۚ وَلَا يَـُٔوْدُهٗ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيْمُ', lt:"A'uudzu billaahi minasy-syaythaanir-rajiim. Allaahu laa ilaaha illaa huwal-hayyul-qayyuum, laa ta'khudzuhuu sinatuw-wa laa nawm, lahuu maa fis-samaawaati wa maa fil-ardh, man dzalladzii yasyfa'u 'indahuu illaa bi-idznih, ya'lamu maa bayna aydiihim wa maa khalfahum, wa laa yuhiithuuna bisyay-im-min 'ilmihii illaa bimaa syaa-a, wasi'a kursiyyuhus-samaawaati wal-ardh, wa laa ya-uuduhuu hifzhuhumaa, wa huwal-'aliyyul-'azhiim.", mn:"\"Aku berlindung kepada Allah dari godaan syaitan yang terkutuk. Allah, tidak ada ilah yang berhak diibadahi dengan benar selain Dia. Yang Mahahidup, Yang terus-menerus mengurus (makhluk-Nya), tidak mengantuk dan tidak tidur. Milik-Nya apa yang ada di langit dan apa yang ada di bumi. Tidak ada yang dapat memberi syafaat di sisi-Nya tanpa izin-Nya. Dia mengetahui apa yang di hadapan mereka dan apa yang di belakang mereka, dan mereka tidak mengetahui sesuatu apa pun tentang ilmu-Nya melainkan apa yang Dia kehendaki. Kursi-Nya meliputi langit dan bumi. Dan Dia tidak merasa berat memelihara keduanya, dan Dia Mahatinggi, Mahabesar.\" (QS. Al-Baqarah: 255) [Dibaca 1x] — Barangsiapa membacanya di sore hari, dilindungi dari gangguan jin hingga pagi hari. (HR. Al-Hakim)"},
-    {t:'17. Surat Al-Ikhlas', ar:'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ ۝ قُلْ هُوَ اللّٰهُ أَحَدٌ ۝ اَللّٰهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُوْلَدْ ۝ وَلَمْ يَكُنْ لَّهٗ كُفُوًا أَحَدٌ', lt:"Bismillaahir-rahmaanir-rahiim. Qul huwallaahu ahad. Allaahush-shamad. Lam yalid wa lam yuulad. Wa lam yakul-lahuu kufuwan ahad.", mn:"\"Dengan nama Allah Yang Maha Pengasih, Maha Penyayang. Katakanlah (Muhammad): 'Dialah Allah, Yang Maha Esa. Allah tempat meminta segala sesuatu. (Allah) tidak beranak dan tidak pula diperanakkan. Dan tidak ada sesuatu yang setara dengan Dia.'\" (QS. Al-Ikhlas: 1-4) [Dibaca 3x]"},
-    {t:'18. Surat Al-Falaq', ar:'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ ۝ قُلْ أَعُوْذُ بِرَبِّ الْفَلَقِ ۝ مِنْ شَرِّ مَا خَلَقَ ۝ وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِنْ شَرِّ النَّفّٰثٰتِ فِي الْعُقَدِ ۝ وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ', lt:"Bismillaahir-rahmaanir-rahiim. Qul a'uudzu birabbil-falaq. Min syarri maa khalaq. Wa min syarri ghaasiqin idzaa waqab. Wa min syarrin-naffaatsaati fil-'uqad. Wa min syarri haasidin idzaa hasad.", mn:"\"Dengan nama Allah Yang Maha Pengasih, Maha Penyayang. Katakanlah: 'Aku berlindung kepada Rabb yang menguasai shubuh (fajar), dari kejahatan (makhluk yang) Dia ciptakan, dan dari kejahatan malam apabila telah gelap gulita, dan dari kejahatan (perempuan-perempuan) penyihir yang meniup pada buhul-buhul (talinya), dan dari kejahatan orang yang dengki apabila dia dengki.'\" (QS. Al-Falaq: 1-5) [Dibaca 3x]"},
-    {t:'19. Surat An-Nas', ar:'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ ۝ قُلْ أَعُوْذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلٰهِ النَّاسِ ۝ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِيْ يُوَسْوِسُ فِيْ صُدُوْرِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ', lt:"Bismillaahir-rahmaanir-rahiim. Qul a'uudzu birabbin-naas. Malikin-naas. Ilaahin-naas. Min syarril-waswaasil-khannaas. Alladzii yuwaswisu fii shuduurin-naas. Minal-jinnati wan-naas.", mn:"\"Dengan nama Allah Yang Maha Pengasih, Maha Penyayang. Katakanlah: 'Aku berlindung kepada Rabbnya manusia, Raja manusia, sembahan manusia, dari kejahatan (bisikan) setan yang bersembunyi, yang membisikkan (kejahatan) ke dalam dada manusia, dari (golongan) jin dan manusia.'\" (QS. An-Nas: 1-6) [Dibaca 3x] — Barangsiapa membaca ketiga surah ini (Al-Ikhlas, Al-Falaq, An-Nas) setiap pagi dan sore hari sebanyak 3 kali, maka (ketiga surah ini) sudah cukup baginya dari segala sesuatu. (Hasan shahih: HR. Abu Dawud, at-Tirmidzi, an-Nasa'i, Ahmad)"},
+    {t:'1. Membaca Ayat Kursi (1x)', ar:'أَعُوْذُ بِاللّٰهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ ۝ اَللّٰهُ لَا إِلٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّوْمُ ۚ لَا تَأْخُذُهٗ سِنَةٌ وَلَا نَوْمٌ ۚ لَهٗ مَا فِي السَّمٰوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِيْ يَشْفَعُ عِنْدَهٗٓ إِلَّا بِإِذْنِهٖ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيْهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيْطُوْنَ بِشَيْءٍ مِّنْ عِلْمِهٖٓ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمٰوَاتِ وَالْأَرْضَ ۚ وَلَا يَـُٔوْدُهٗ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيْمُ', lt:"A'uudzu billaahi minasy-syaythaanir-rajiim. Allaahu laa ilaaha illaa huwal-hayyul-qayyuum, laa ta'khudzuhuu sinatuw-wa laa nawm, lahuu maa fis-samaawaati wa maa fil-ardh, man dzalladzii yasyfa'u 'indahuu illaa bi-idznih, ya'lamu maa bayna aydiihim wa maa khalfahum, wa laa yuhiithuuna bisyay-im-min 'ilmihii illaa bimaa syaa-a, wasi'a kursiyyuhus-samaawaati wal-ardh, wa laa ya-uuduhuu hifzhuhumaa, wa huwal-'aliyyul-'azhiim.", mn:"(QS. Al-Baqarah: 255) — Dibaca untuk memohon perlindungan dari gangguan jin/setan hingga pagi hari. \"Allah, tidak ada ilah yang berhak diibadahi dengan benar selain Dia. Yang Mahahidup, Yang terus-menerus mengurus (makhluk-Nya), tidak mengantuk dan tidak tidur... Kursi-Nya meliputi langit dan bumi.\" — Barangsiapa membacanya di sore hari, dilindungi dari gangguan jin hingga pagi hari. (HR. Al-Hakim)"},
+    {t:'2. Surat Al-Ikhlas, Al-Falaq, An-Nas (Masing-Masing 3x)', ar:'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ ۝ قُلْ هُوَ اللّٰهُ أَحَدٌ ۝ اَللّٰهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُوْلَدْ ۝ وَلَمْ يَكُنْ لَّهٗ كُفُوًا أَحَدٌ<br><br>قُلْ أَعُوْذُ بِرَبِّ الْفَلَقِ ۝ مِنْ شَرِّ مَا خَلَقَ ۝ وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِنْ شَرِّ النَّفّٰثٰتِ فِي الْعُقَدِ ۝ وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ<br><br>قُلْ أَعُوْذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلٰهِ النَّاسِ ۝ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِيْ يُوَسْوِسُ فِيْ صُدُوْرِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ', lt:"Qul huwallaahu ahad. Allaahush-shamad. Lam yalid wa lam yuulad. Wa lam yakul-lahuu kufuwan ahad. — Qul a'uudzu birabbil-falaq... — Qul a'uudzu birabbin-naas...", mn:"(QS. Al-Ikhlas, Al-Falaq, An-Nas) — Dibaca untuk mencukupkan dan melindungi diri dari segala keburukan. \"Katakanlah: Dialah Allah, Yang Maha Esa...\" · \"Aku berlindung kepada Rabb yang menguasai shubuh, dari segala kejahatan...\" · \"Aku berlindung kepada Rabbnya manusia, dari kejahatan bisikan setan...\" — Barangsiapa membaca ketiga surah ini pagi dan sore 3 kali, sudah cukup baginya dari segala sesuatu. (Hasan shahih: HR. Abu Dawud, at-Tirmidzi, an-Nasa'i, Ahmad)"},
+    {t:'3. Doa Pengakuan Kekuasaan Allah di Sore Hari (1x)', ar:'أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلّٰهِ، وَالْحَمْدُ لِلّٰهِ، لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلٰى كُلِّ شَيْءٍ قَدِيْرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِيْ هٰذِهِ اللَّيْلَةِ وَخَيْرَ مَا بَعْدَهَا، وَأَعُوْذُ بِكَ مِنْ شَرِّ مَا فِيْ هٰذِهِ اللَّيْلَةِ وَشَرِّ مَا بَعْدَهَا، رَبِّ أَعُوْذُ بِكَ مِنَ الْكَسَلِ وَسُوْءِ الْكِبَرِ، رَبِّ أَعُوْذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ', lt:"Amsaynaa wa amsal-mulku lillaah, wal-hamdu lillaah, laa ilaaha illallaahu wahdahu laa syariika lah, lahul-mulku wa lahul-hamdu wa huwa 'alaa kulli syay-in qadiir, rabbi as-aluka khayra maa fii haadzihil-laylati wa khayra maa ba'dahaa, wa a'uudzu bika min syarri maa fii haadzihil-laylati wa syarri maa ba'dahaa, rabbi a'uudzu bika minal-kasali wa suu-il-kibar, rabbi a'uudzu bika min 'adzaabin fin-naari wa 'adzaabin fil-qabr.", mn:"\"Kami telah memasuki waktu petang dan kerajaan hanyalah milik Allah, segala puji hanya milik Allah. Tidak ada ilah selain Allah Yang Maha Esa, tiada sekutu bagi-Nya. Wahai Rabbku, aku mohon kepada-Mu kebaikan malam ini dan kebaikan sesudahnya...\" [Dibaca 1x] — HR. Muslim, Abu Dawud, at-Tirmidzi."},
+    {t:'4. Doa Memasuki Sore (1x)', ar:'اَللّٰهُمَّ بِكَ أَمْسَيْنَا، وَبِكَ أَصْبَحْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوْتُ، وَإِلَيْكَ الْمَصِيْرُ', lt:"Allahumma bika amsaynaa, wa bika ashbahnaa, wa bika nahyaa, wa bika namuutu, wa ilaykal-mashiir.", mn:"\"Ya Allah, hanya dengan rahmat dan pertolongan-Mu kami memasuki sore, dan dengan rahmat dan pertolongan-Mu kami memasuki pagi, hanya dengan rahmat dan kehendak-Mu kami hidup, dan dengan rahmat dan kehendak-Mu kami mati, dan hanya kepada-Mulah tempat kembali.\" [Dibaca 1x] — HR. At-Tirmidzi, versi petang dari dzikir pembuka pagi."},
+    {t:'5. Sayyidul Istighfar / Induk Istighfar (1x)', ar:'اَللّٰهُمَّ أَنْتَ رَبِّيْ لَا إِلٰهَ إِلَّا أَنْتَ، خَلَقْتَنِيْ وَأَنَا عَبْدُكَ، وَأَنَا عَلٰى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوْذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوْءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوْءُ بِذَنْۢبِيْ فَاغْفِرْ لِيْ فَإِنَّهُ لَا يَغْفِرُ الذُّنُوْبَ إِلَّا أَنْتَ', lt:"Allahumma anta Rabbii laa ilaaha illaa anta, khalaqtanii wa ana 'abduk, wa ana 'alaa 'ahdika wa wa'dika mas-tatha'tu, a'uudzu bika min syarri maa shana'tu, abuu-u laka bini'matika 'alayya, wa abuu-u bidzambii faghfir lii fa-innahuu laa yaghfirudz-dzunuuba illaa anta.", mn:"\"Ya Allah, Engkau adalah Rabbku, tidak ada ilah yang berhak diibadahi dengan benar kecuali Engkau, Engkaulah yang menciptakanku. Aku adalah hamba-Mu...\" [Dibaca 1x] — Barangsiapa membacanya di waktu sore dengan yakin lalu meninggal sebelum masuk waktu pagi, ia termasuk penghuni Surga. (HR. Al-Bukhari, an-Nasa'i, Ahmad)"},
+    {t:"6. Doa Memohon Keselamatan / Al-'Afiyah (1x)", ar:'اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ، اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِيْ دِيْنِيْ وَدُنْيَايَ وَأَهْلِيْ وَمَالِيْ، اَللّٰهُمَّ اسْتُرْ عَوْرَاتِيْ وَآمِنْ رَوْعَاتِيْ، اَللّٰهُمَّ احْفَظْنِيْ مِنْ بَيْنِ يَدَيَّ وَمِنْ خَلْفِيْ وَعَنْ يَمِيْنِيْ وَعَنْ شِمَالِيْ وَمِنْ فَوْقِيْ وَأَعُوْذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِيْ', lt:"Allahumma innii as-alukal-'afwa wal-'aafiyata fid-dunyaa wal-aakhirah, Allahumma innii as-alukal-'afwa wal-'aafiyata fii diinii wa dunyaaya wa ahlii wa maalii, Allahumma-stur 'awraatii wa aamin raw'aatii, Allahummahfazhnii mim bayni yadayya wa min khalfii wa 'an yamiinii wa 'an syimaalii wa min fawqii wa a'uudzu bi'azhamatika an ughtaala min tahtii.", mn:"\"Ya Allah, sesungguhnya aku mohon maaf (ampunan) dan keselamatan di dunia dan di akhirat. Ya Allah, sesungguhnya aku mohon maaf (ampunan) dan keselamatan dalam agama, dunia, keluarga, dan dalam harta-bendaku...\" [Dibaca 1x] — HR. Al-Bukhari dalam Adabul Mufrad, Abu Dawud, an-Nasa'i, Ibnu Majah, Al-Hakim."},
+    {t:'7. Doa Berlindung dari Keburukan Diri & Setan (1x)', ar:'اَللّٰهُمَّ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ، فَاطِرَ السَّمٰوَاتِ وَالْأَرْضِ، رَبَّ كُلِّ شَيْءٍ وَمَلِيْكَهُ، أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا أَنْتَ، أَعُوْذُ بِكَ مِنْ شَرِّ نَفْسِيْ وَمِنْ شَرِّ الشَّيْطَانِ وَشِرْكِهِ، وَأَنْ أَقْتَرِفَ عَلٰى نَفْسِيْ سُوْءًا أَوْ أَجُرَّهُ إِلٰى مُسْلِمٍ', lt:"Allahumma 'aalimal-ghaybi wasy-syahaadah, faathiras-samaawaati wal-ardh, rabba kulli syay-iw-wa maliikah, asyhadu allaa ilaaha illaa anta, a'uudzu bika min syarri nafsii wa min syarrisy-syaythaani wa syirkih, wa an aqtarifa 'alaa nafsii suu-an aw ajurrahuu ilaa muslim.", mn:"\"Ya Allah Yang Maha Mengetahui sesuatu yang ghaib dan yang nyata, wahai Rabb Pencipta langit dan bumi, Rabb segala sesuatu dan Yang merajainya, aku bersaksi bahwa tidak ada ilah kecuali Engkau, aku berlindung kepada-Mu dari kejahatan diriku, kejahatan syaitan dan ajakannya menyekutukan Allah...\" [Dibaca 1x] — Diucapkan Rasulullah ﷺ kepada Abu Bakar ash-Shiddiq radhiyallahu 'anhu pagi, sore, dan menjelang tidur. (HR. Al-Bukhari, at-Tirmidzi, Abu Dawud, Ahmad)"},
+    {t:'8. Doa Perlindungan dari Segala Bahaya (3x)', ar:'بِسْمِ اللّٰهِ الَّذِيْ لَا يَضُرُّ مَعَ اسْمِهٖ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ، وَهُوَ السَّمِيْعُ الْعَلِيْمُ', lt:"Bismillaahil-ladzii laa yadhurru ma'as-mihii syay-un fil-ardhi wa laa fis-samaa-i, wa huwas-samii'ul-'aliim.", mn:"\"Dengan menyebut nama Allah yang dengan nama-Nya tidak ada sesuatu pun yang dapat membahayakan baik yang di bumi maupun di langit, Dialah Yang Maha Mendengar dan Yang Maha Mengetahui.\" [Dibaca 3x] — Barangsiapa membacanya tiga kali pada pagi dan sore hari, maka tidak ada sesuatu pun yang bisa membahayakan dirinya. (Hasan shahih: HR. Abu Dawud, at-Tirmidzi, Ibnu Majah, Ahmad)"},
+    {t:'9. Doa Ridha terhadap Allah, Islam, dan Nabi Muhammad (3x)', ar:'رَضِيْتُ بِاللّٰهِ رَبًّا، وَبِالْإِسْلَامِ دِيْنًا، وَبِمُحَمَّدٍ ﷺ نَبِيًّا', lt:"Radhiitu billaahi rabbaw-wa bil-islaami diinaw-wa bimuhammadin nabiyyaa.", mn:"\"Aku ridha (rela) Allah sebagai Rabbku, Islam sebagai agamaku, dan Muhammad sebagai Nabiku.\" [Dibaca 3x] — Barangsiapa membacanya tiga kali pada pagi dan sore hari, maka Allah memberikan keridhaan-Nya kepadanya pada hari Kiamat. (Hasan: HR. Ahmad, Abu Dawud, Ibnu Majah, an-Nasa'i)"},
+    {t:'10. Doa Memohon Pertolongan dengan Rahmat Allah (1x)', ar:'يَا حَيُّ يَا قَيُّوْمُ بِرَحْمَتِكَ أَسْتَغِيْثُ، أَصْلِحْ لِيْ شَأْنِيْ كُلَّهُ، وَلَا تَكِلْنِيْ إِلٰى نَفْسِيْ طَرْفَةَ عَيْنٍ', lt:"Yaa Hayyu yaa Qayyuumu birahmatika astaghiits, ashlih lii sya'nii kullah, wa laa takilnii ilaa nafsii tharfata 'ayn.", mn:"\"Wahai (Rabb) Yang Mahahidup, Yang Mahaberdiri sendiri (tidak butuh segala sesuatu), dengan rahmat-Mu aku meminta pertolongan, perbaikilah segala keadaan dan urusanku, jangan Engkau serahkan aku kepada diriku meski sekejap mata pun.\" [Dibaca 1x] — Hasan: HR. An-Nasa'i, Ibnu Sunni, Al-Hakim."},
+    {t:'11. Doa Istiqomah di atas Fitrah Islam (1x)', ar:'أَمْسَيْنَا عَلٰى فِطْرَةِ الْإِسْلَامِ، وَعَلٰى كَلِمَةِ الْإِخْلَاصِ، وَعَلٰى دِيْنِ نَبِيِّنَا مُحَمَّدٍ ﷺ، وَعَلٰى مِلَّةِ أَبِيْنَا إِبْرَاهِيْمَ حَنِيْفًا مُسْلِمًا وَمَا كَانَ مِنَ الْمُشْرِكِيْنَ', lt:"Amsaynaa 'alaa fithratil-islaam, wa 'alaa kalimatil-ikhlaash, wa 'alaa diini nabiyyinaa Muhammadin shallallaahu 'alayhi wa sallam, wa 'alaa millati abiinaa Ibraahiima haniifam-muslimaw-wa maa kaana minal-musyrikiin.", mn:"\"Pada waktu petang kami berada di atas fitrah Islam, kalimat ikhlas (dua kalimat syahadat), agama Nabi kami Muhammad ﷺ dan agama ayah kami Ibrahim yang hanif (lurus), Muslim (tunduk patuh), dan dia tidak tergolong orang-orang musyrik.\" [Dibaca 1x] — HR. Ahmad (III/406-407), ad-Darimi, Ibnu Sunni."},
+    {t:'12. Dzikir Tasbih (100x)', ar:'سُبْحَانَ اللّٰهِ وَبِحَمْدِهٖ', lt:"Subhaanallaahi wa bihamdih.", mn:"\"Mahasuci Allah, dan aku memuji-Nya.\" [Dibaca 100x] — Barangsiapa membacanya 100x dalam sehari, dihapus darinya seratus keburukan, dilindungi dari gangguan syaitan hingga pagi harinya jika dibaca petang. (HR. Al-Bukhari no. 6405, Muslim no. 2691-2692)"},
+    {t:'13. Dzikir Tahlil (10x atau 100x)', ar:'لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلٰى كُلِّ شَيْءٍ قَدِيْرٌ', lt:"Laa ilaaha illallaahu wahdahu laa syariika lah, lahul-mulku wa lahul-hamdu wa huwa 'alaa kulli syay-in qadiir.", mn:"\"Tidak ada ilah yang berhak diibadahi dengan benar selain Allah Yang Maha Esa, tidak ada sekutu bagi-Nya, Bagi-Nya kerajaan, dan bagi-Nya segala pujian, Dan Dia Mahakuasa atas segala sesuatu.\" [Dibaca 1x atau 10x, dan boleh juga dibaca 100x pada pagi atau sore] — HR. Abu Dawud, Ibnu Majah, an-Nasa'i."},
+    {t:'14. Dzikir Tasbih Mengagungkan Ciptaan Allah (3x)', ar:'سُبْحَانَ اللّٰهِ وَبِحَمْدِهٖ عَدَدَ خَلْقِهٖ وَرِضَا نَفْسِهٖ وَزِنَةَ عَرْشِهٖ وَمِدَادَ كَلِمَاتِهٖ', lt:"Subhaanallaahi wa bihamdihii 'adada khalqihii wa ridhaa nafsihii wa zinata 'arsyihii wa midaada kalimaatih.", mn:"\"Mahasuci Allah, dan aku memuji-Nya sebanyak bilangan makhluk-Nya, dan Mahasuci Allah sesuai keridhaan-Nya, dan Mahasuci Allah seberat timbangan Arsy-Nya, dan Mahasuci Allah sebanyak tinta (yang menulis) kalimat-Nya.\" [Dibaca 3x] — HR. Muslim."},
+    {t:'15. Doa Memohon Ilmu, Rezeki Halal, dan Amal Diterima (1x)', ar:'اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا مُتَقَبَّلًا', lt:"Allahumma innii as-aluka 'ilman naafi'aa, wa rizqan thayyibaa, wa 'amalam mutaqabbalaa.", mn:"\"Ya Allah, sesungguhnya aku meminta kepada-Mu ilmu yang bermanfaat, rezeki yang halal, dan amalan yang diterima.\" [Dibaca 1x] — Shahih: HR. Ibnu Majah, Ibnu Sunni, Ahmad."},
   ],
   setelahsholat:[
     {t:'1. Istighfar 3x', ar:'أَسْتَغْفِرُ اللّٰهَ (٣×)', lt:"Astaghfirullaah — dibaca 3x.", mn:"\"Aku memohon ampun kepada Allah.\" Dibaca segera setelah salam, sebelum bergeser dari tempat duduk. (HR. Muslim no. 591, dari Tsauban radhiyallahu 'anhu)"},
@@ -1444,6 +1516,150 @@ function pctForDay(k){
   const units=AMALAN.reduce((s,a)=>s+unitsFor(a, data[a.id]),0);
   const tw=totalWeightForDay(k);
   return Math.round((units/tw)*100);
+}
+
+/* ====== BAGIKAN PROGRESS (kartu gambar untuk story) ====== */
+async function shareProgressCard(){
+  const btn = event && event.target ? event.target : null;
+  const oldText = btn ? btn.textContent : null;
+  if(btn){ btn.textContent = '⏳ Membuat kartu...'; btn.disabled = true; }
+  try{
+    const canvas = document.createElement('canvas');
+    const W = 1080, H = 1920;
+    canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext('2d');
+
+    const grad = ctx.createLinearGradient(0,0,0,H);
+    grad.addColorStop(0, '#053B2E');
+    grad.addColorStop(1, '#0D7A5A');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0,0,W,H);
+
+    ctx.fillStyle = 'rgba(255,255,255,0.05)';
+    for(let i=0;i<40;i++){
+      ctx.beginPath();
+      ctx.arc(Math.random()*W, Math.random()*H, Math.random()*3+1, 0, Math.PI*2);
+      ctx.fill();
+    }
+
+    const todayKeyStr = todayKey();
+    const pct = pctForDay(todayKeyStr);
+    const streak = computeStreak();
+    const doneCount = AMALAN.filter(a=>{
+      const entry = state.days[todayKeyStr] && state.days[todayKeyStr][a.id];
+      return entry && unitsFor(a, entry) >= a.weight;
+    }).length;
+
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#E8C46B';
+    ctx.font = '600 34px sans-serif';
+    ctx.fillText('🌙 HIJRAH BARENG', W/2, 180);
+
+    ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    ctx.font = '500 32px sans-serif';
+    const dateStr = new Date().toLocaleDateString('id-ID',{weekday:'long', day:'numeric', month:'long', year:'numeric'});
+    ctx.fillText(dateStr, W/2, 240);
+
+    ctx.beginPath();
+    ctx.arc(W/2, 620, 260, -Math.PI/2, -Math.PI/2 + (Math.PI*2*(pct/100)));
+    ctx.lineWidth = 34;
+    ctx.strokeStyle = '#D4A93A';
+    ctx.lineCap = 'round';
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(W/2, 620, 260, 0, Math.PI*2);
+    ctx.lineWidth = 34;
+    ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(W/2, 620, 260, -Math.PI/2, -Math.PI/2 + (Math.PI*2*(pct/100)));
+    ctx.lineWidth = 34;
+    ctx.strokeStyle = '#D4A93A';
+    ctx.lineCap = 'round';
+    ctx.stroke();
+
+    ctx.fillStyle = '#fff';
+    ctx.font = '800 130px sans-serif';
+    ctx.fillText(pct+'%', W/2, 660);
+    ctx.font = '500 30px sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.8)';
+    ctx.fillText('amalan tercapai hari ini', W/2, 720);
+
+    const chipY = 980;
+    ctx.fillStyle = 'rgba(255,255,255,0.1)';
+    roundRectPath(ctx, W/2-460, chipY-70, 440, 130, 24);
+    ctx.fill();
+    roundRectPath(ctx, W/2+20, chipY-70, 440, 130, 24);
+    ctx.fill();
+
+    ctx.fillStyle = '#E8C46B';
+    ctx.font = '800 60px sans-serif';
+    ctx.fillText('🔥 '+streak, W/2-240, chipY+5);
+    ctx.fillText('✅ '+doneCount+'/'+AMALAN.length, W/2+240, chipY+5);
+    ctx.fillStyle = 'rgba(255,255,255,0.75)';
+    ctx.font = '500 26px sans-serif';
+    ctx.fillText('hari istiqamah', W/2-240, chipY+55);
+    ctx.fillText('amalan selesai', W/2+240, chipY+55);
+
+    ctx.fillStyle = 'rgba(255,255,255,0.9)';
+    ctx.font = 'italic 500 34px sans-serif';
+    const idxQuote = (state.quoteIdx===undefined || state.quoteIdx===null) ? 0 : state.quoteIdx;
+    const qText = QUOTES[idxQuote] ? QUOTES[idxQuote].tr : '';
+    wrapCanvasText(ctx, qText, W/2, 1180, 880, 46);
+
+    ctx.fillStyle = 'rgba(255,255,255,0.55)';
+    ctx.font = '500 28px sans-serif';
+    ctx.fillText('Yuk mulai jaga amalan harianmu juga 🌙', W/2, H-140);
+    ctx.fillStyle = '#D4A93A';
+    ctx.font = '800 32px sans-serif';
+    ctx.fillText('Hijrah Bareng — by @dokrifqi', W/2, H-80);
+
+    canvas.toBlob(async (blob)=>{
+      if(!blob){ if(btn){btn.textContent=oldText; btn.disabled=false;} return; }
+      const file = new File([blob], 'hijrah-bareng-progress.png', {type:'image/png'});
+      if(navigator.canShare && navigator.canShare({files:[file]})){
+        try{
+          await navigator.share({files:[file], title:'Progress Hijrah Bareng', text:'Progress amalan harianku hari ini 🌙'});
+        }catch(e){ /* dibatalkan user, tidak apa */ }
+      } else {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'hijrah-bareng-progress.png';
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        alert('Gambar tersimpan ke galeri/download. Silakan bagikan manual ke WhatsApp/IG Story ya!');
+      }
+      if(btn){ btn.textContent = oldText; btn.disabled = false; }
+    }, 'image/png');
+  }catch(err){
+    if(btn){ btn.textContent = oldText; btn.disabled = false; }
+    alert('Gagal membuat kartu progress. Coba lagi ya.');
+  }
+}
+function roundRectPath(ctx, x, y, w, h, r){
+  ctx.beginPath();
+  ctx.moveTo(x+r, y);
+  ctx.arcTo(x+w, y, x+w, y+h, r);
+  ctx.arcTo(x+w, y+h, x, y+h, r);
+  ctx.arcTo(x, y+h, x, y, r);
+  ctx.arcTo(x, y, x+w, y, r);
+  ctx.closePath();
+}
+function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight){
+  const words = (text||'').split(' ');
+  let line = '';
+  let lines = [];
+  for(let n=0; n<words.length; n++){
+    const testLine = line + words[n] + ' ';
+    if(ctx.measureText(testLine).width > maxWidth && n > 0){
+      lines.push(line);
+      line = words[n] + ' ';
+    } else {
+      line = testLine;
+    }
+  }
+  lines.push(line);
+  const startY = y - ((lines.length-1)*lineHeight/2);
+  lines.forEach((l,i)=> ctx.fillText(l.trim(), x, startY + i*lineHeight));
 }
 
 function computeStreak(){
@@ -2160,6 +2376,7 @@ function requestNotifPermissionAndSchedule(schedule){
     Notification.requestPermission().then(perm=>{ if(perm==='granted') schedulePrayerNotifs(schedule); });
   }
 }
+const PRAYER_TO_WAJIB_ID = {'Subuh':'subuh','Dzuhur':'dzuhur','Ashar':'ashar','Maghrib':'maghrib','Isya':'isya'};
 function schedulePrayerNotifs(schedule){
   scheduledPrayerTimers.forEach(id=>clearTimeout(id));
   scheduledPrayerTimers = [];
@@ -2170,14 +2387,38 @@ function schedulePrayerNotifs(schedule){
     const delay = target - now;
     if(delay > 0 && delay < 24*60*60*1000){
       const id = setTimeout(()=>{
-        try{
-          new Notification('🕌 Waktu Sholat ' + s.name, {
-            body: 'Sudah masuk waktu sholat ' + s.name + ' (' + s.time + '). Yuk segera tunaikan.',
-            icon: 'icon-192.png'
-          });
-        }catch(e){}
+        showPrayerNotification(s.name, s.time);
       }, delay);
       scheduledPrayerTimers.push(id);
+    }
+  });
+}
+function showPrayerNotification(name, time){
+  const wajibId = PRAYER_TO_WAJIB_ID[name];
+  const opts = {
+    body: 'Sudah masuk waktu sholat ' + name + ' (' + time + '). Yuk segera tunaikan.',
+    icon: 'icon-192.png',
+    badge: 'icon-192.png',
+    tag: 'prayer-'+name,
+    data: {wajibId, prayerName:name},
+    actions: wajibId ? [{action:'mark_prayer', title:'✓ Tandai Sudah Sholat'}] : []
+  };
+  if('serviceWorker' in navigator && navigator.serviceWorker.ready){
+    navigator.serviceWorker.ready.then(reg=>{
+      reg.showNotification('🕌 Waktu Sholat ' + name, opts).catch(()=>{
+        try{ new Notification('🕌 Waktu Sholat ' + name, opts); }catch(e){}
+      });
+    });
+  } else {
+    try{ new Notification('🕌 Waktu Sholat ' + name, opts); }catch(e){}
+  }
+}
+/* Terima pesan dari service worker saat tombol aksi notifikasi ditekan */
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.addEventListener('message', (event)=>{
+    if(event.data && event.data.type==='MARK_PRAYER' && event.data.wajibId){
+      setStatus('wajib', event.data.wajibId, 'sendiri');
+      renderGrid();
     }
   });
 }
@@ -2196,14 +2437,64 @@ function onJournalInput(val){
   clearTimeout(journalSaveTimeout);
   journalSaveTimeout = setTimeout(()=>{
     saveState(state);
-    const el = document.getElementById('journalSaved');
-    if(el){ el.textContent = '✓ Tersimpan'; setTimeout(()=>{ if(el) el.textContent=''; }, 1800); }
+    flashJournalSaved();
   }, 500);
+}
+function saveJournalNow(manual){
+  clearTimeout(journalSaveTimeout);
+  const el = document.getElementById('journalInput');
+  if(el){
+    const data = todayData();
+    data.journal = el.value;
+  }
+  saveState(state);
+  if(manual) flashJournalSaved();
+}
+function flashJournalSaved(){
+  const el = document.getElementById('journalSaved');
+  if(el){ el.textContent = '✓ Tersimpan'; setTimeout(()=>{ if(el) el.textContent=''; }, 1800); }
 }
 function initJournal(){
   const data = todayData();
   const el = document.getElementById('journalInput');
   if(el) el.value = data.journal || '';
+}
+
+/* ====== RIWAYAT JURNAL (Diary) ====== */
+function getAllJournalEntries(){
+  const entries = [];
+  Object.keys(state.days||{}).forEach(k=>{
+    const txt = state.days[k] && state.days[k].journal;
+    if(txt && txt.trim()){
+      entries.push({date:k, text:txt.trim()});
+    }
+  });
+  entries.sort((a,b)=> b.date.localeCompare(a.date));
+  return entries;
+}
+function fmtJournalDate(k){
+  const d = new Date(k+'T00:00:00');
+  return d.toLocaleDateString('id-ID',{weekday:'long', day:'numeric', month:'long', year:'numeric'});
+}
+function openJournalHistory(){
+  const entries = getAllJournalEntries();
+  const sheet = document.getElementById('sheetContent');
+  sheet.innerHTML = `
+    <div class="sheet-handle"></div>
+    <div class="sheet-head">
+      <div class="ico" style="background:var(--emerald-100)">📔</div>
+      <div><h3>Jurnal Muhasabah</h3><p>${entries.length} catatan tersimpan</p></div>
+    </div>
+    ${entries.length===0
+      ? `<div class="empty"><div class="ico">📝</div>Belum ada jurnal tersimpan.<br/>Yuk mulai tulis refleksi harianmu di beranda!</div>`
+      : `<div class="journal-history-list">${entries.map(e=>`
+          <div class="jh-entry">
+            <div class="jh-date">${fmtJournalDate(e.date)}</div>
+            <p class="jh-text">${e.text.replace(/</g,'&lt;').replace(/\n/g,'<br/>')}</p>
+          </div>`).join('')}</div>`
+    }
+  `;
+  document.getElementById('overlay').classList.add('show');
 }
 
 /* ====== EMBED VIDEO YOUTUBE DI DALAM KARTU ====== */
@@ -2260,6 +2551,7 @@ function toggleDone(amalanId){
   const data=todayData();
   if(!data[amalanId]) data[amalanId]={};
   data[amalanId].done = !data[amalanId].done;
+  if(data[amalanId].done) bumpCommunityCounter('total-amalan');
   saveState(state);
   renderGrid();
   openSheet(amalanId);
@@ -2443,42 +2735,78 @@ function totalActiveDays(){
   return Object.keys(state.days).filter(k=>pctForDay(k)>0).length;
 }
 const ACHIEVEMENTS = [
-  {id:'first', ico:'🌱', lbl:'Langkah Pertama', check:()=>totalActiveDays()>=1},
-  {id:'streak3', ico:'🔥', lbl:'3 Hari', check:()=>computeBestStreak()>=3},
-  {id:'streak7', ico:'🥉', lbl:'7 Hari', check:()=>computeBestStreak()>=7},
-  {id:'streak14', ico:'🥈', lbl:'14 Hari', check:()=>computeBestStreak()>=14},
-  {id:'streak21', ico:'💪', lbl:'21 Hari', check:()=>computeBestStreak()>=21},
-  {id:'streak30', ico:'🥇', lbl:'30 Hari', check:()=>computeBestStreak()>=30},
-  {id:'streak40', ico:'🌙', lbl:'40 Hari', check:()=>computeBestStreak()>=40},
-  {id:'streak60', ico:'⭐', lbl:'60 Hari', check:()=>computeBestStreak()>=60},
-  {id:'streak100', ico:'💯', lbl:'100 Hari', check:()=>computeBestStreak()>=100},
-  {id:'streak180', ico:'🏵️', lbl:'180 Hari', check:()=>computeBestStreak()>=180},
-  {id:'streak365', ico:'👑', lbl:'1 Tahun', check:()=>computeBestStreak()>=365},
-  {id:'perfectday', ico:'✅', lbl:'Hari Sempurna', check:hasPerfectDay},
-  {id:'perfectweek', ico:'🌟', lbl:'Minggu Cemerlang', check:hasPerfectWeek},
-  {id:'dhuha30', ico:'🌞', lbl:'Dhuha 30x', check:()=>countAmalanLifetime('dhuha')>=30},
-  {id:'tahajud20', ico:'✨', lbl:'Qiyamul Lail 20x', check:()=>countAmalanLifetime('malam')>=20},
-  {id:'sedekah30', ico:'🌅', lbl:'Sedekah 30x', check:()=>countAmalanLifetime('sedekahsubuh')>=30},
-  {id:'quran30', ico:'📖', lbl:'Tilawah 30x', check:()=>countAmalanLifetime('quran')>=30},
-  {id:'puasa10', ico:'🌒', lbl:'Puasa Sunnah 10x', check:()=>countAmalanLifetime('puasa')>=10},
-  {id:'dzikirpagi30', ico:'🌄', lbl:'Dzikir Pagi 30x', check:()=>countAmalanLifetime('dzikirpagi')>=30},
-  {id:'dzikirsore30', ico:'🌆', lbl:'Dzikir Sore 30x', check:()=>countAmalanLifetime('dzikirsore')>=30},
-  {id:'kajian15', ico:'🎧', lbl:'Kajian 15x', check:()=>countAmalanLifetime('kajian')>=15},
-  {id:'wajib50', ico:'🕋', lbl:'Sholat Wajib 50x', check:()=>countAmalanLifetime('wajib')>=50},
-  {id:'rezeki30', ico:'⚖️', lbl:'Muhasabah 30x', check:()=>countAmalanLifetime('rezeki')>=30},
-  {id:'active50', ico:'📅', lbl:'50 Hari Aktif', check:()=>totalActiveDays()>=50},
-  {id:'active100', ico:'🗓️', lbl:'100 Hari Aktif', check:()=>totalActiveDays()>=100},
+  // 🔥 STREAK ISTIQAMAH
+  {id:'first', ico:'🌱', lbl:'Langkah Pertama', cat:'streak', tier:'bronze', check:()=>totalActiveDays()>=1, prog:()=>[Math.min(totalActiveDays(),1),1]},
+  {id:'streak3', ico:'🔥', lbl:'3 Hari', cat:'streak', tier:'bronze', check:()=>computeBestStreak()>=3, prog:()=>[Math.min(computeBestStreak(),3),3]},
+  {id:'streak7', ico:'🥉', lbl:'7 Hari', cat:'streak', tier:'bronze', check:()=>computeBestStreak()>=7, prog:()=>[Math.min(computeBestStreak(),7),7]},
+  {id:'streak14', ico:'🥈', lbl:'14 Hari', cat:'streak', tier:'silver', check:()=>computeBestStreak()>=14, prog:()=>[Math.min(computeBestStreak(),14),14]},
+  {id:'streak21', ico:'💪', lbl:'21 Hari', cat:'streak', tier:'silver', check:()=>computeBestStreak()>=21, prog:()=>[Math.min(computeBestStreak(),21),21]},
+  {id:'streak30', ico:'🥇', lbl:'30 Hari', cat:'streak', tier:'gold', check:()=>computeBestStreak()>=30, prog:()=>[Math.min(computeBestStreak(),30),30]},
+  {id:'streak40', ico:'🌙', lbl:'40 Hari', cat:'streak', tier:'gold', check:()=>computeBestStreak()>=40, prog:()=>[Math.min(computeBestStreak(),40),40]},
+  {id:'streak60', ico:'⭐', lbl:'60 Hari', cat:'streak', tier:'gold', check:()=>computeBestStreak()>=60, prog:()=>[Math.min(computeBestStreak(),60),60]},
+  {id:'streak100', ico:'💯', lbl:'100 Hari', cat:'streak', tier:'diamond', check:()=>computeBestStreak()>=100, prog:()=>[Math.min(computeBestStreak(),100),100]},
+  {id:'streak180', ico:'🏵️', lbl:'180 Hari', cat:'streak', tier:'diamond', check:()=>computeBestStreak()>=180, prog:()=>[Math.min(computeBestStreak(),180),180]},
+  {id:'streak365', ico:'👑', lbl:'1 Tahun', cat:'streak', tier:'legend', check:()=>computeBestStreak()>=365, prog:()=>[Math.min(computeBestStreak(),365),365]},
+  // 🏅 KONSISTENSI HARIAN
+  {id:'perfectday', ico:'✅', lbl:'Hari Sempurna', cat:'konsistensi', tier:'silver', check:hasPerfectDay, prog:()=>[hasPerfectDay()?1:0,1]},
+  {id:'perfectweek', ico:'🌟', lbl:'Minggu Cemerlang', cat:'konsistensi', tier:'gold', check:hasPerfectWeek, prog:()=>[hasPerfectWeek()?7:0,7]},
+  {id:'active50', ico:'📅', lbl:'50 Hari Aktif', cat:'konsistensi', tier:'silver', check:()=>totalActiveDays()>=50, prog:()=>[Math.min(totalActiveDays(),50),50]},
+  {id:'active100', ico:'🗓️', lbl:'100 Hari Aktif', cat:'konsistensi', tier:'gold', check:()=>totalActiveDays()>=100, prog:()=>[Math.min(totalActiveDays(),100),100]},
+  {id:'active200', ico:'🧭', lbl:'200 Hari Aktif', cat:'konsistensi', tier:'diamond', check:()=>totalActiveDays()>=200, prog:()=>[Math.min(totalActiveDays(),200),200]},
+  {id:'journal10', ico:'📔', lbl:'Jurnal 10x', cat:'konsistensi', tier:'bronze', check:()=>getAllJournalEntries().length>=10, prog:()=>[Math.min(getAllJournalEntries().length,10),10]},
+  {id:'journal30', ico:'📖', lbl:'Jurnal 30x', cat:'konsistensi', tier:'silver', check:()=>getAllJournalEntries().length>=30, prog:()=>[Math.min(getAllJournalEntries().length,30),30]},
+  // 🎯 CHALLENGE
+  {id:'c40done', ico:'🎯', lbl:'Lulus 40 Hari', cat:'challenge', tier:'gold', check:()=>{const c=getC40(); return !!(c && c.completed);}, prog:()=>{const c=getC40(); return [c?Math.min(Math.round((new Date(todayKey()+'T00:00:00')-new Date(c.startDateKey+'T00:00:00'))/86400000)+1,40):0,40];}},
+  {id:'khatamdone', ico:'📗', lbl:'Khatam Qur\'an', cat:'challenge', tier:'legend', check:()=>{const k=getKhatam(); return !!(k && k.completed);}, prog:()=>{const k=getKhatam(); return [k?k.pagesDone:0, k?(604-k.startPage+1):604];}},
+  // ⭐ AMALAN SPESIFIK
+  {id:'dhuha30', ico:'🌞', lbl:'Dhuha 30x', cat:'amalan', tier:'silver', check:()=>countAmalanLifetime('dhuha')>=30, prog:()=>[Math.min(countAmalanLifetime('dhuha'),30),30]},
+  {id:'tahajud20', ico:'✨', lbl:'Qiyamul Lail 20x', cat:'amalan', tier:'silver', check:()=>countAmalanLifetime('malam')>=20, prog:()=>[Math.min(countAmalanLifetime('malam'),20),20]},
+  {id:'sedekah30', ico:'🌅', lbl:'Sedekah 30x', cat:'amalan', tier:'silver', check:()=>countAmalanLifetime('sedekahsubuh')>=30, prog:()=>[Math.min(countAmalanLifetime('sedekahsubuh'),30),30]},
+  {id:'quran30', ico:'📖', lbl:'Tilawah 30x', cat:'amalan', tier:'silver', check:()=>countAmalanLifetime('quran')>=30, prog:()=>[Math.min(countAmalanLifetime('quran'),30),30]},
+  {id:'puasa10', ico:'🌒', lbl:'Puasa Sunnah 10x', cat:'amalan', tier:'bronze', check:()=>countAmalanLifetime('puasa')>=10, prog:()=>[Math.min(countAmalanLifetime('puasa'),10),10]},
+  {id:'dzikirpagi30', ico:'🌄', lbl:'Dzikir Pagi 30x', cat:'amalan', tier:'silver', check:()=>countAmalanLifetime('dzikirpagi')>=30, prog:()=>[Math.min(countAmalanLifetime('dzikirpagi'),30),30]},
+  {id:'dzikirsore30', ico:'🌆', lbl:'Dzikir Sore 30x', cat:'amalan', tier:'silver', check:()=>countAmalanLifetime('dzikirsore')>=30, prog:()=>[Math.min(countAmalanLifetime('dzikirsore'),30),30]},
+  {id:'kajian15', ico:'🎧', lbl:'Kajian 15x', cat:'amalan', tier:'bronze', check:()=>countAmalanLifetime('kajian')>=15, prog:()=>[Math.min(countAmalanLifetime('kajian'),15),15]},
+  {id:'wajib50', ico:'🕋', lbl:'Sholat Wajib 50x', cat:'amalan', tier:'gold', check:()=>countAmalanLifetime('wajib')>=50, prog:()=>[Math.min(countAmalanLifetime('wajib'),50),50]},
+  {id:'rawatib30', ico:'🕌', lbl:'Rawatib 30x', cat:'amalan', tier:'silver', check:()=>countAmalanLifetime('rawatib')>=30, prog:()=>[Math.min(countAmalanLifetime('rawatib'),30),30]},
+  {id:'rezeki30', ico:'⚖️', lbl:'Muhasabah 30x', cat:'amalan', tier:'silver', check:()=>countAmalanLifetime('rezeki')>=30, prog:()=>[Math.min(countAmalanLifetime('rezeki'),30),30]},
+  {id:'istighfar30', ico:'🕊️', lbl:'Istighfar 30x', cat:'amalan', tier:'bronze', check:()=>countAmalanLifetime('istighfar')>=30, prog:()=>[Math.min(countAmalanLifetime('istighfar'),30),30]},
+  {id:'doaortu20', ico:'🧓', lbl:'Doa Ortu 20x', cat:'amalan', tier:'bronze', check:()=>countAmalanLifetime('doaortu')>=20, prog:()=>[Math.min(countAmalanLifetime('doaortu'),20),20]},
+  {id:'doaanak20', ico:'🧒', lbl:'Doa Anak 20x', cat:'amalan', tier:'bronze', check:()=>countAmalanLifetime('doaanak')>=20, prog:()=>[Math.min(countAmalanLifetime('doaanak'),20),20]},
+  {id:'doapasangan20', ico:'💞', lbl:'Doa Pasangan 20x', cat:'amalan', tier:'bronze', check:()=>countAmalanLifetime('doapasangan')>=20, prog:()=>[Math.min(countAmalanLifetime('doapasangan'),20),20]},
 ];
+const ACH_CATEGORIES = [
+  {key:'streak', lbl:'🔥 Streak Istiqamah'},
+  {key:'konsistensi', lbl:'🏅 Konsistensi'},
+  {key:'challenge', lbl:'🎯 Challenge'},
+  {key:'amalan', lbl:'⭐ Amalan Spesifik'},
+];
+const TIER_LABEL = {bronze:'Bronze', silver:'Silver', gold:'Gold', diamond:'Diamond', legend:'Legend'};
 function renderAchievements(){
   const wrap=document.getElementById('achieveGrid');
   if(!wrap) return;
-  wrap.innerHTML = ACHIEVEMENTS.map(ac=>{
-    const unlocked = ac.check();
-    return `<div class="ach-badge ${unlocked?'unlocked':''}">
-      <div class="ab-ico">${ac.ico}</div>
-      <div class="ab-lbl">${ac.lbl}</div>
-    </div>`;
-  }).join('');
+  const unlockedCount = ACHIEVEMENTS.filter(ac=>ac.check()).length;
+  let html = `<div class="ach-summary">🏆 <b>${unlockedCount}</b> / ${ACHIEVEMENTS.length} lencana terbuka</div>`;
+  ACH_CATEGORIES.forEach(cat=>{
+    const items = ACHIEVEMENTS.filter(a=>a.cat===cat.key);
+    if(!items.length) return;
+    html += `<div class="ach-cat-head">${cat.lbl}</div><div class="ach-grid-inner">`;
+    items.forEach(ac=>{
+      const unlocked = ac.check();
+      const [cur,tgt] = ac.prog ? ac.prog() : [unlocked?1:0,1];
+      const pct = tgt>0 ? Math.min(100, Math.round(cur/tgt*100)) : 0;
+      html += `<div class="ach-badge tier-${ac.tier} ${unlocked?'unlocked':''}">
+        ${unlocked?'<div class=\"ab-shine\"></div>':''}
+        <div class="ab-ico">${ac.ico}</div>
+        <div class="ab-lbl">${ac.lbl}</div>
+        ${unlocked
+          ? `<div class="ab-tier">${TIER_LABEL[ac.tier]}</div>`
+          : `<div class="ab-prog-track"><div class="ab-prog-fill" style="width:${pct}%"></div></div><div class="ab-prog-num">${cur}/${tgt}</div>`}
+      </div>`;
+    });
+    html += `</div>`;
+  });
+  wrap.innerHTML = html;
 }
 
 /* ====== STATISTIK PER AMALAN ====== */
@@ -3008,6 +3336,174 @@ function resetKhatamChallenge(){
   saveState(state);
   renderKhatamCard();
 }
+/* ====== CHALLENGE 40 HARI — BELAJAR LEBIH BAIK ====== */
+const C40_MODES = {
+  easy:{pct:65, label:'Easy', desc:'Target 65%/hari'},
+  medium:{pct:80, label:'Medium', desc:'Target 80%/hari'},
+  hard:{pct:95, label:'Hard', desc:'Target 95%/hari'},
+};
+const C40_DURATION = 40;
+let c40SelectedMode = null;
+function getC40(){ return state.challenge40 || null; }
+function selectC40Mode(mode){
+  c40SelectedMode = mode;
+  document.querySelectorAll('.c40-mode-btn').forEach(b=>b.classList.toggle('selected', b.dataset.mode===mode));
+}
+function start40DayChallenge(){
+  const mode = c40SelectedMode || 'medium';
+  state.challenge40 = { startDateKey: todayKey(), mode, targetPct: C40_MODES[mode].pct, completed:false, completedOn:null };
+  saveState(state);
+  c40SelectedMode = null;
+  renderC40Card();
+}
+function reset40DayChallenge(){
+  if(!confirm('Reset Challenge 40 Hari? Progres saat ini akan dihapus (riwayat amalan harian tetap tersimpan).')) return;
+  delete state.challenge40;
+  c40SelectedMode = null;
+  saveState(state);
+  renderC40Card();
+}
+function c40DateKeyForDay(startKey, dayIdx){
+  const d = new Date(startKey+'T00:00:00');
+  d.setDate(d.getDate()+dayIdx);
+  return fmtKey(d);
+}
+/* ====== WALL OF FAME (testimoni) ====== */
+const WALL_OF_FAME = [
+  {q:"Alhamdulillah udah 60 hari nggak pernah bolong dzikir pagi-petang. Fitur remindernya beneran ngebantu!", name:"Pengguna Hijrah Bareng", badge:"60 hari istiqamah"},
+  {q:"Awalnya coba-coba ikut Challenge 40 Hari, eh malah jadi kebiasaan sampai sekarang. Progress barnya bikin nagih!", name:"Pengguna Hijrah Bareng", badge:"Lulus Challenge 40 Hari"},
+  {q:"Suka banget sama fitur Halal Rezeki-nya, jadi lebih ngeh soal riba yang selama ini nggak sadar.", name:"Pengguna Hijrah Bareng", badge:"30 hari istiqamah"},
+  {q:"Jurnal muhasabahnya bikin aku jadi rutin refleksi tiap malam. Simple tapi berasa banget manfaatnya.", name:"Pengguna Hijrah Bareng", badge:"100 hari aktif"},
+];
+function renderWallOfFame(){
+  const wrap = document.getElementById('wofScroll');
+  if(!wrap) return;
+  wrap.innerHTML = WALL_OF_FAME.map(w=>`
+    <div class="wof-card">
+      <p class="wof-quote">"${w.q}"</p>
+      <div class="wof-who">
+        <div class="wof-avatar">🌙</div>
+        <div><span class="wof-name">${w.name}</span><span class="wof-badge">${w.badge}</span></div>
+      </div>
+    </div>`).join('');
+}
+
+/* ====== COUNTER KOMUNITAS (agregat anonim via CounterAPI) ====== */
+const COUNTER_NS = 'hijrah-bareng-app';
+async function bumpCommunityCounter(name){
+  try{
+    await fetch(`https://api.counterapi.dev/v1/${COUNTER_NS}/${name}/up`);
+  }catch(e){ /* diam-diam gagal, tidak mengganggu pengalaman utama */ }
+}
+async function fetchCommunityCounter(name){
+  try{
+    const res = await fetch(`https://api.counterapi.dev/v1/${COUNTER_NS}/${name}`);
+    const json = await res.json();
+    return json.count || 0;
+  }catch(e){ return null; }
+}
+async function renderCommunityStats(){
+  const elA = document.getElementById('csAmalan');
+  const elU = document.getElementById('csUsers');
+  if(!elA || !elU) return;
+  const [amalanCount, userCount] = await Promise.all([
+    fetchCommunityCounter('total-amalan'),
+    fetchCommunityCounter('total-pengguna'),
+  ]);
+  elA.textContent = amalanCount!==null ? amalanCount.toLocaleString('id-ID') : '—';
+  elU.textContent = userCount!==null ? userCount.toLocaleString('id-ID') : '—';
+}
+function trackNewUserOnce(){
+  try{
+    if(!localStorage.getItem('hijrahBareng_userCounted')){
+      localStorage.setItem('hijrahBareng_userCounted', '1');
+      bumpCommunityCounter('total-pengguna');
+    }
+  }catch(e){}
+}
+
+/* ====== AJAK TEMAN (Referral) ====== */
+function shareReferral(){
+  const msg = `Assalamu'alaikum! 🌙\n\nYuk ikutan Challenge 40 Hari bareng aku pakai app *Hijrah Bareng* — buat bantu jaga sholat, dzikir, tilawah, & amalan harian lainnya tetap istiqamah.\n\nGratis & tanpa iklan. Yuk mulai bareng-bareng! 🤲\n\n${window.location.href}`;
+  const url = 'https://wa.me/?text=' + encodeURIComponent(msg);
+  window.open(url, '_blank', 'noopener');
+}
+
+function renderC40Card(){
+  const wrap = document.getElementById('c40Card');
+  if(!wrap) return;
+  const c40 = getC40();
+
+  if(!c40){
+    wrap.innerHTML = `
+      <p class="c40-intro">🔥 <b>40 Hari Belajar Lebih Baik</b> — tantang dirimu istiqamah menjaga amalan harian selama 40 hari berturut-turut. Pilih mode tantanganmu, lalu mulai bareng komunitas Hijrah Bareng!</p>
+      <div class="c40-modes">
+        ${Object.entries(C40_MODES).map(([key,m])=>`
+          <div class="c40-mode-btn ${key}" data-mode="${key}" onclick="selectC40Mode('${key}')">
+            <b>${m.label}</b>
+            <span>${m.desc}</span>
+          </div>`).join('')}
+      </div>
+      <button class="c40-go-btn" onclick="start40DayChallenge()">🚀 Mulai Challenge 40 Hari</button>
+    `;
+    return;
+  }
+
+  const targetPct = c40.targetPct || 80;
+  const modeInfo = C40_MODES[c40.mode] || C40_MODES.medium;
+  const todayIdx = Math.round((new Date(todayKey()+'T00:00:00') - new Date(c40.startDateKey+'T00:00:00'))/86400000);
+  let passCount = 0, bestStreak = 0, curStreak = 0;
+  const dots = [];
+  for(let i=0;i<C40_DURATION;i++){
+    const k = c40DateKeyForDay(c40.startDateKey, i);
+    const isFuture = i > todayIdx;
+    const isToday = i === todayIdx;
+    let cls = '';
+    if(!isFuture){
+      const pct = pctForDay(k);
+      if(pct >= targetPct){ cls='pass'; passCount++; curStreak++; bestStreak=Math.max(bestStreak,curStreak); }
+      else { cls='fail'; curStreak=0; }
+    }
+    if(isToday) cls += ' today';
+    dots.push(`<div class="c40-dot ${cls}">${i+1}</div>`);
+  }
+
+  const daysElapsed = Math.min(C40_DURATION, todayIdx+1);
+  const isFinished = todayIdx >= C40_DURATION-1;
+
+  if(isFinished && !c40.completed){
+    c40.completed = true;
+    c40.completedOn = todayKey();
+    saveState(state);
+  }
+
+  if(c40.completed){
+    const lulus = passCount >= Math.round(C40_DURATION*0.8);
+    wrap.innerHTML = `
+      <div class="c40-done">
+        <div class="c40-done-emoji">${lulus?'🏆':'💪'}</div>
+        <b>${lulus?'Alhamdulillah, Challenge Selesai!':'Challenge 40 Hari Berakhir'}</b>
+        <p>Mode <b>${modeInfo.label}</b> (target ${targetPct}%) — kamu berhasil mencapai target di <b>${passCount} dari 40 hari</b> (${Math.round(passCount/40*100)}%). ${lulus?'Masya Allah, istiqamah luar biasa! 🎉':'Tetap semangat, coba lagi yuk!'}</p>
+        <button class="c40-go-btn" onclick="start40DayChallenge()">🚀 Mulai Challenge Baru</button>
+      </div>`;
+    return;
+  }
+
+  wrap.innerHTML = `
+    <div class="c40-head">
+      <div><b>Hari ke-${daysElapsed} dari 40</b><span>Target ≥${targetPct}% amalan/hari</span></div>
+      <span class="c40-badge">${modeInfo.label} · ${passCount} hari lolos</span>
+    </div>
+    <div class="c40-grid">${dots.join('')}</div>
+    <div class="c40-stats">
+      <div><b>${passCount}</b>hari tercapai</div>
+      <div><b>${bestStreak}</b>streak terbaik</div>
+      <div><b>${40-daysElapsed}</b>hari tersisa</div>
+    </div>
+    <p class="c40-reset-link" onclick="reset40DayChallenge()">Reset / mulai ulang challenge</p>
+  `;
+}
+
 function renderKhatamCard(){
   const wrap = document.getElementById('khatamCard');
   if(!wrap) return;
@@ -3094,6 +3590,7 @@ function navTo(tab, el){
   if(tab==='riwayat')renderRiwayat();
   if(tab==='ebook'){renderEbookList(); renderBuiltinEbookList();}
   if(tab==='quran'){setQuranMode(quranMode); updateLastReadUI(); renderKhatamCard();}
+  if(tab==='info'){renderWallOfFame(); renderCommunityStats();}
   window.scrollTo(0,0);
 }
 
@@ -3102,68 +3599,6 @@ function resetAll(){
   localStorage.removeItem(LS_KEY);
   state={days:{}};
   renderGrid();
-}
-
-/* ====== BACKUP & RESTORE DATA ====== */
-const BACKUP_KEYS = ['hijrahBareng_v2','hijrahBareng_darkMode','hijrahBareng_ebookRead','hijrahBareng_lang','hijrahBareng_loc','hijrahBareng_prayerSchedule'];
-function showBackupStatus(msg, isError){
-  const el = document.getElementById('backupStatusMsg');
-  if(!el) return;
-  el.textContent = msg;
-  el.style.color = isError ? '#DC2626' : '#166534';
-  el.style.display = 'block';
-}
-function exportHijrahData(){
-  try{
-    const payload = { app:'hijrah-bareng', exportedAt: new Date().toISOString(), version: 1, data:{} };
-    BACKUP_KEYS.forEach(k=>{
-      const v = localStorage.getItem(k);
-      if(v !== null) payload.data[k] = v;
-    });
-    const blob = new Blob([JSON.stringify(payload, null, 2)], {type:'application/json'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    const d = new Date();
-    const stamp = d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
-    a.href = url;
-    a.download = `hijrah-bareng-backup-${stamp}.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    showBackupStatus('✅ Data berhasil didownload. Simpan file ini di tempat aman.', false);
-  }catch(e){
-    showBackupStatus('❌ Gagal download data: ' + e.message, true);
-  }
-}
-function importHijrahData(event){
-  const file = event.target.files && event.target.files[0];
-  if(!file) return;
-  const reader = new FileReader();
-  reader.onload = function(e){
-    try{
-      const payload = JSON.parse(e.target.result);
-      if(!payload || !payload.data || payload.app !== 'hijrah-bareng'){
-        showBackupStatus('❌ File backup tidak valid.', true);
-        return;
-      }
-      if(!confirm('Pulihkan data dari file backup ini? Data yang ada sekarang di perangkat ini akan ditimpa.')) {
-        event.target.value = '';
-        return;
-      }
-      BACKUP_KEYS.forEach(k=>{
-        if(payload.data[k] !== undefined){
-          localStorage.setItem(k, payload.data[k]);
-        }
-      });
-      showBackupStatus('✅ Data berhasil dipulihkan. Memuat ulang aplikasi...', false);
-      setTimeout(()=>{ window.location.reload(); }, 1200);
-    }catch(err){
-      showBackupStatus('❌ Gagal membaca file: file rusak atau bukan format backup yang benar.', true);
-    }
-    event.target.value = '';
-  };
-  reader.readAsText(file);
 }
 function setDateBox(){
   const d=new Date();
@@ -3233,7 +3668,11 @@ initTheme();
 initLang();
 initPrayerTimes();
 initJournal();
+window.addEventListener('beforeunload', ()=>{ saveJournalNow(false); });
+document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='hidden'){ saveJournalNow(false); } });
 renderKhatamCard();
+renderC40Card();
+trackNewUserOnce();
 
 /* ====== PWA: Registrasi Service Worker ====== */
 if('serviceWorker' in navigator){
